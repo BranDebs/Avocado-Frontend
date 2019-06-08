@@ -1,18 +1,29 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
-
-import Home from "./components/Home";
+import Navbar from './components/layout/Navbar';
+//import Home from "./components/Home";
 import SignUp from './components/SignUp';
-function App() {
-  return (  
-    <div className="App">
-      <BrowserRouter>
-        <Route exact path="/" component={Home}/>
-        <Route path="/signup" component={SignUp}/>
-      </BrowserRouter>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    hello: 1,
+    bye: 2,
+  }
+
+  render() {
+    return (  
+
+        <BrowserRouter>
+          <Route path="/signup" component={SignUp}/>
+          <div className="App">
+            <Navbar></Navbar>
+          </div>
+        </BrowserRouter>
+
+    );
+  }
+
 }
 
 export default App;
