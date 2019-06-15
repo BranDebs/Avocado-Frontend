@@ -1,10 +1,21 @@
 import React from "react";
 
-function Home(props) {
-    console.log(props.hello)
-    return (
-        <div> I am home! </div>
-    );
+import Timer from './avocadoro/timer/Timer'
+import TaskList from './avocadoro/task/TaskList'
+
+class Home extends React.Component {
+    render() {
+      return(
+        <div className="row">
+          <div className="col s6">
+            <Timer/>
+          </div>
+          <div className="col s6">
+            <TaskList/>
+          </div>
+        </div>
+      );
+    }
 };
 
 export default Home;
