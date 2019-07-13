@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-//import Home from "./components/Home";
+import Home from "./components/Home";
 import SignUp from './components/SignUp';
 class App extends React.Component {
 
@@ -15,9 +15,12 @@ class App extends React.Component {
     return (  
 
         <BrowserRouter>
-          <Route path="/signup" component={SignUp}/>
           <div className="App">
-            <Navbar></Navbar>
+            <Navbar/>
+            <div className="container">
+              <Route exact path="/" component={Home}/>
+              <Route path="/signup" component={SignUp}/>
+            </div>
           </div>
         </BrowserRouter>
 
