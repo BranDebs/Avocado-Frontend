@@ -8,9 +8,11 @@ const TaskCard = () => {
     console.log("Got to change back to default colour")
   }
   return(
-    <div className={cardColour} onMouseOver={onHover} onMouseOut={onOut}>
-      <span className="card-title">Card Title</span>
-      <p>lorem ipsum</p>
+    <div className="card blue-grey darken-1" onMouseOver={() => onHover()} onMouseOut={() => onOut()}>
+      <div className="card-content white-text">
+        <span className="card-title">Card Title</span>
+        <p>lorem ipsum</p>
+      </div>
     </div>
   )
 };
