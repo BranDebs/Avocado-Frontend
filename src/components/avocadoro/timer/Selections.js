@@ -1,4 +1,5 @@
 import React from 'react';
+import './Timer.css'
 
 const Selections = (props) => {
   const onClickFunc = (e) => {
@@ -8,7 +9,7 @@ const Selections = (props) => {
     let nodes = e.currentTarget.parentNode.childNodes;
 
     nodes.forEach(node => {
-      node.className="collection-item";
+      node.className="tab col s3";
     });
 
     switch (e.currentTarget.name) {
@@ -25,18 +26,27 @@ const Selections = (props) => {
         props.setTimerFunc(0);
         return;
     }
-    e.currentTarget.className = "collection-item active";
+    e.currentTarget.className = "tab col s3 active-tab";
     props.setTimerToggleFunc(true);
   }
 
+
   return (
     // Find ways to make this inline
-    <div className="collection">
-      <a className="collection-item active" name="avocadoro" onClick={onClickFunc}>Avocadoro</a>
-      <a className="collection-item" name="short_break" onClick={onClickFunc}>Short Break</a>
-      <a className="collection-item" name="long_break" onClick={onClickFunc}>Long Break</a>
-      <a href="#!" className="collection-item">Settings</a>
-    </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="card-tabs">
+            <div className="tabs cursor-pointer z-depth-2">
+              <div className="timer-tab">
+                <a className="tab col s3 active-tab" name="avocadoro" onClick={onClickFunc}>Avocadoro</a>
+                <a className="tab col s3" name="short_break" onClick={onClickFunc}>Short Break</a>
+                <a className="tab col s3" name="long_break" onClick={onClickFunc}>Long Break</a>
+                <a href="#!" className="tab col s3">Settings</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   );
 }
 

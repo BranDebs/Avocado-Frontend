@@ -1,0 +1,32 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+div div div div a:hover {
+    background-color: #b2ebf2;
+    color: black;
+ }
+
+ .timer-tab {
+     background-color: #4db6ac;
+     color: white;
+ }
+
+ .timer-style {
+     font-size: 25px;
+     padding-top: 75px;
+     padding-bottom: 75px;
+ }
+
+ .active-tab {
+    background-color: #b2ebf2;
+    color: black;
+ }
+
+ .tabs .indicator{
+    background-color:red;/*your color*/
+    }
+ /* .tabs .tab a.active {
+    background-color:#888;
+    color:#000;
+} Background and text color when a tab is active */

@@ -21,7 +21,11 @@ const Timer = () => {
   return(
     <div>
       <Selections setTimerFunc={setTimer} setTimerToggleFunc={setTimerToggle}/>
-      {formatTimer(timer)}
+      <div class='card'>
+        <div className='timer-style'>
+          {formatTimer(timer)}
+        </div>
+      </div>
     </div>
   );
 };

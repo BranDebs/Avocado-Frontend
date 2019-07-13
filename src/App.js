@@ -9,6 +9,7 @@ class App extends React.Component {
   state = {
     hello: 1,
     bye: 2,
+    isLoggedIn: false
   }
 
   render() {
