@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Selections from './Selections';
+import Controls from './Controls';
 
 const Timer = () => {
 
-  const [timer, setTimer] = useState(1500);
+  const [initTimer, setInitTimer] = useState(1500);
+  const [timer, setTimer] = useState(initTimer);
   const [hasStarted, setTimerToggle] = useState(false);
 
   useEffect(() => {
@@ -20,8 +22,9 @@ const Timer = () => {
 
   return(
     <div>
-      <Selections setTimerFunc={setTimer} setTimerToggleFunc={setTimerToggle}/>
+      <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle}/>
       {formatTimer(timer)}
+      <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>
     </div>
   );
 };
