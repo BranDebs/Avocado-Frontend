@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 // Functional component
 const SignedOutLink = () => {
     return (
-        <ul className="right">
+        <div>
             <li>
                 <NavLink to='/'>About</NavLink>
             </li>
@@ -14,7 +14,7 @@ const SignedOutLink = () => {
             <li>
                 <NavLink to='/'>Sign Up</NavLink>
             </li>
-        </ul>
+        </div>
     )
 }
 

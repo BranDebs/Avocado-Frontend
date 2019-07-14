@@ -6,7 +6,7 @@ import TaskList from './avocadoro/task/TaskList'
 class Home extends React.Component {
     render() {
       return(
-        <div className="row">
+        <div className="row section">
           <div className="col s6">
             <Timer/>
           </div>
