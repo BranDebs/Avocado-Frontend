@@ -19,9 +19,12 @@ class Navbar extends React.Component {
     render() {
         return (
             <div>
-                <nav className="nav-wrapper teal lighten-2">   
+                <nav className="nav-wrapper">
                     <div className="container">
-                        <Link to='/' className="left Navbar-brand-logo">Avocadoro</Link>
+                        <Link to='/' className="left Navbar-brand-logo">
+                            <img src="/src/images/Avocadoro-icon.png"></img>
+                            <span>Avocadoro</span>
+                        </Link>
                         <a href="#" data-target="mobile-links" class="sidenav-trigger">
                             <i class="material-icons">menu</i>
                         </a>

@@ -2,31 +2,34 @@
     cursor: pointer;
 }
 
-div div div div a:hover {
-    background-color: #b2ebf2;
-    color: black;
- }
-
- .timer-tab {
-     background-color: #4db6ac;
-     color: white;
- }
-
  .timer-style {
-     font-size: 25px;
+     font-size: 36px;
+     font-weight: 600;
      padding-top: 75px;
-     padding-bottom: 75px;
+     padding-bottom: 200px;
  }
 
  .active-tab {
-    background-color: #b2ebf2;
+    background-color: rgba(0, 0, 0, .05);
     color: black;
  }
 
- .tabs .indicator{
-    background-color:red;/*your color*/
-    }
- /* .tabs .tab a.active {
-    background-color:#888;
-    color:#000;
-} Background and text color when a tab is active */
+ .gradient-red-pink {
+     background: linear-gradient(45deg, #ff5252, #f48fb1) !important;
+ }
+
+ .white-text {
+    color: antiquewhite;
+ }
+
+ .upper-padding {
+     padding-top: 50px;
+     padding-bottom: 0px; 
+ }
+
+.container {
+    width: 95%;
+    max-width: 95% !important;
+    margin: 0 auto;
+    padding: 0 .5rem;
+}
