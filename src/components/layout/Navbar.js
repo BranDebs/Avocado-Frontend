@@ -29,15 +29,13 @@ class Navbar extends React.Component {
                             <i class="material-icons">menu</i>
                         </a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            {/* <SignedInLink></SignedInLink> */}
-                            <SignedOutLink></SignedOutLink>
+                            <SignedOutLink/>
                         </ul>
                     </div>
                 </nav>
             
             <ul class="sidenav" id="mobile-links">
-                <SignedInLink></SignedInLink>
-                <SignedOutLink></SignedOutLink>
+                <SignedOutLink/>
             </ul>
             </div>
         )
