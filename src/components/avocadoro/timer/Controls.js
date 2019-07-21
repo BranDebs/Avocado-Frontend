@@ -1,4 +1,5 @@
 import React from "react";
+import './Timer.css'
 
 const Controls = (props) => {
 
@@ -21,10 +22,16 @@ const Controls = (props) => {
   }
 
   return(
-    <div>
-      <a className="waves-effect waves-light btn" name="start" onClick={onClickFunc}>Start</a>
-      <a className="waves-effect waves-light btn" name="pause" onClick={onClickFunc}>Pause</a>
-      <a className="waves-effect waves-light btn" name="reset" onClick={onClickFunc}>Reset</a>
+    <div className="row controls-container">
+      <div className="col s2 offset-s3">
+        <a className="waves-effect waves-light btn" name="start" onClick={onClickFunc}>Start</a>
+      </div>
+      <div className="col s2">
+        <a className="waves-effect waves-light btn" name="pause" onClick={onClickFunc}>Pause</a>
+      </div>
+      <div className="col s2">
+        <a className="waves-effect waves-light btn" name="reset" onClick={onClickFunc}>Reset</a>
+      </div>
     </div>
   );
 }

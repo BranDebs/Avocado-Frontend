@@ -4,13 +4,13 @@
 }
 
  .active-tab {
-    background-color: rgba(0, 0, 0, .05);
-    color: black;
+    background-color: rgba(0, 0, 0, .2);
+    color: white;
  }
 
- .gradient-red-pink {
+ /* .gradient-red-pink {
      background: linear-gradient(45deg, #ff5252, #f48fb1) !important;
- }
+ } */
 
  .white-text {
     color: antiquewhite;
@@ -32,3 +32,19 @@
     margin: 0 auto;
     padding: 0 .5rem;
 }
+
+/* Controls */
+.controls-container {
+    padding-bottom: 25px;
+}
+
+/* .row-controls{
+    text-align:center;
+    margin:0 auto;
+}
+
+.row-controls .col s2{
+   display:inline-block;
+   vertical-align: middle;
+   float: none;
+} */
