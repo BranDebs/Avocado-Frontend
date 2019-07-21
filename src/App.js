@@ -4,6 +4,8 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from "./components/Home";
 import SignUp from './components/SignUp';
+import M from "materialize-css/dist/js/materialize.min.js";
+
 class App extends React.Component {
 
   state = {
@@ -15,9 +17,9 @@ class App extends React.Component {
 
         <BrowserRouter>
           <div className="App">
-            <Navbar/>
+            <Navbar Materialize = {M}/>
             <div className="container">
-              <Route exact path="/" component={Home}/>
+              <Route exact path="/" render={(props) => <Home {...props} Materialize={M}/>}/>
               <Route path="/signup" component={SignUp}/>
             </div>
           </div>
