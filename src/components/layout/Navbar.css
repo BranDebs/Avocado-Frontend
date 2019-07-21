@@ -1,0 +1,10 @@
+/* Navbar */
+.Navbar-brand-logo {
+    font-size: 28px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.nav-wrapper {
+  background: linear-gradient(45deg, #4db6ac, #00bcd4, #2196f3);
+}
