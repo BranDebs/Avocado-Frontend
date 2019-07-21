@@ -11,11 +11,22 @@ const Timer = () => {
   useEffect(() => {
     let interval = null
     if (hasStarted && timer !== 0) {
-      interval = setInterval(() => {
-        setTimer(timer => timer - 1);
-      }, 1000);
+      if (interval == null) {
+        let prevTime = Date.now()
+        interval = setInterval(() => {
+          setTimer(timer => {
+            let curTime = Date.now() ;
+            let timeDelta = curTime - prevTime;
+            prevTime = curTime
+            let calcTime = Math.round(timer - (timeDelta / 1000));
+            calcTime = calcTime < 0 ? 0 : calcTime; 
+            return calcTime;
+          });
+        }, 1000);
+      }
     } else {
       clearInterval(interval);
+      interval = null;
     }
     return () => clearInterval(interval);
   }, [hasStarted, timer])
