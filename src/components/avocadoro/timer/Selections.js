@@ -1,10 +1,12 @@
 import React from 'react';
 import './Timer.css'
 
+const AVOCADORO_TIMER = 1500;
+const SHORT_BREAK_TIMER = 300;
+const LONG_BREAK_TIMER = 900;
+
 const Selections = (props) => {
   const onClickFunc = (e) => {
-    console.log(e.currentTarget.parentNode);
-
     // Sets all collections to not be active
     let nodes = e.currentTarget.parentNode.childNodes;
 
@@ -14,16 +16,20 @@ const Selections = (props) => {
 
     switch (e.currentTarget.name) {
       case "avocadoro":
-        props.setTimerFunc(1500);
+        props.setTimerFunc(AVOCADORO_TIMER);
+        props.setInitTimerFunc(AVOCADORO_TIMER);
         break;
       case "short_break":
-        props.setTimerFunc(300);
+        props.setTimerFunc(SHORT_BREAK_TIMER);
+        props.setInitTimerFunc(SHORT_BREAK_TIMER);
         break;
       case "long_break":
-        props.setTimerFunc(900);
+        props.setTimerFunc(LONG_BREAK_TIMER);
+        props.setInitTimerFunc(LONG_BREAK_TIMER);
         break;
       default:
         props.setTimerFunc(0);
+        props.setInitTimerFunc(0);
         return;
     }
     e.currentTarget.className = "tab active-tab white-text";
