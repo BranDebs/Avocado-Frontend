@@ -1,16 +1,16 @@
 import React from 'react';
-import Task from './Task';
+import TodoList from './TodoList';
 import InProgress from './InProgress';
 import Completed from './Completed';
 
-const TaskList = () => {
+const Todo = () => {
   return(
     <div>
       <InProgress/>
-      <Task/>
+      <TodoList/>
       <Completed/>
     </div>
   );
 };
 
-export default TaskList;
+export default Todo;

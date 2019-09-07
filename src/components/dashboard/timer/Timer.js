@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Selections from './Selections';
 import Controls from './Controls';
+import TimerInfo from './TimerInfo';
 
 const Timer = () => {
 
@@ -34,7 +35,8 @@ const Timer = () => {
   return(
     <div className='card'>
       <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle}/>
-      <div className='timer-style'>{formatTimer(timer)}</div>
+      {/* <div className='timer-style'>{formatTimer(timer)}</div> */}
+      <TimerInfo />
       <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>
     </div>
   );
