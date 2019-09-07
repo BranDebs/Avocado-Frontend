@@ -36,7 +36,7 @@ const Timer = () => {
     <div className='card'>
       <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle}/>
       {/* <div className='timer-style'>{formatTimer(timer)}</div> */}
-      <TimerInfo />
+      <TimerInfo getTime={formatTimer(timer)} />
       <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>
     </div>
   );
