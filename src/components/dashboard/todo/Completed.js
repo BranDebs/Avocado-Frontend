@@ -1,13 +1,13 @@
 import React from 'react';
-import TaskCard from './TaskCard';
+import TodoCard from './TodoCard';
 
 const Completed = () => {
   return(
     <div>
       <span>Completed</span>
-      <TaskCard/>
-      <TaskCard/>
-      <TaskCard/>
+      <TodoCard/>
+      <TodoCard/>
+      <TodoCard/>
     </div>
   );
 };

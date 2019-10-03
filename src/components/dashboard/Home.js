@@ -1,8 +1,8 @@
 import React from "react";
 
-import Timer from './avocadoro/timer/Timer'
-import TaskList from './avocadoro/task/TaskList'
-import Settings from './avocadoro/timer/Settings'
+import Timer from './timer/Timer'
+import Todo from './todo/Todo'
+import Settings from './timer/Settings'
 
 class Home extends React.Component {
 
@@ -16,7 +16,7 @@ class Home extends React.Component {
             </div>
           </div>
           <div className="col s6">
-            <TaskList/>
+            <Todo/>
           </div>
         </div>
       );

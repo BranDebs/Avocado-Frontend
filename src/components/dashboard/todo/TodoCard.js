@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaskCard = () => {
+const TodoCard = () => {
   function onHover(e) {
     console.log("Got to change colour here")
   }
@@ -17,4 +17,4 @@ const TaskCard = () => {
   )
 };
 
-export default TaskCard;
+export default TodoCard;

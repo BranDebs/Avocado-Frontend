@@ -6,9 +6,6 @@ const SignedOutLink = () => {
     return (
         <div>
             <li>
-                <NavLink to='/'>About</NavLink>
-            </li>
-            <li>
                 <NavLink to='/'>Login</NavLink>
             </li>
             <li>

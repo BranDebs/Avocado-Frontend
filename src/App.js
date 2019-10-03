@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
-import Home from "./components/Home";
-import SignUp from './components/SignUp';
+import Navbar from './components/navigation/Navbar';
+import Home from "./components/dashboard/Home";
+import SignUp from './components/auth/SignUp';
 import M from "materialize-css/dist/js/materialize.min.js";
 
 class App extends React.Component {
