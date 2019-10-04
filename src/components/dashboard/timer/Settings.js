@@ -85,7 +85,7 @@ const Settings = (props) => {
           </div>
           <div className="row">
             <div className="col s3 right">
-              <a id="save-settings" onClick={()=>this.settingsSaved()} className="btn">Save</a>
+              <a id="save-settings" onClick={()=>settingsSaved()} className="btn">Save</a>
             </div>
           </div>
         </form>
