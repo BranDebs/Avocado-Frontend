@@ -3,13 +3,13 @@ import Selections from './Selections';
 import Controls from './Controls';
 import TimerInfo from './TimerInfo';
 import Avocombo from './Avocombo';
+import {TimerState, TimeConst} from './TimerConst';
 
 const Timer = () => {
-  const TimerState = Object.freeze({AVOCADORO: 1, SHORT_BREAK: 2, LONG_BREAK: 3})
-  const [initTimer, setInitTimer] = useState(1500);
-  const [timer, setTimer] = useState(initTimer);
+  const [initTimer, setInitTimer] = useState(TimeConst.AVOCADORO_TIMER);
+  const [timer, setTimer] = useState(TimeConst.AVOCADORO_TIMER);
   const [hasStarted, setTimerToggle] = useState(false);
-  const [timerState, setTimerState] = useState(TimerState.Avocadoro);
+  const [timerState, setTimerState] = useState(TimerState.AVOCADORO);
   const [avocomboCount, setAvocombo] = useState(0);
   useEffect(() => {
     let interval = null
@@ -39,7 +39,7 @@ const Timer = () => {
 
   return(
     <div className='card'>
-      <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle} setTimerStateFunc={setTimerState} TimerState={TimerState}/>
+      <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle} setTimerStateFunc={setTimerState}/>
       <Avocombo avocomboCount={avocomboCount}/>
       <TimerInfo getTime={formatTimer(timer)} />
       <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>

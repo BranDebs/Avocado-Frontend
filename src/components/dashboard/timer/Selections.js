@@ -1,9 +1,6 @@
 import React from 'react';
 import './Timer.css'
-
-const AVOCADORO_TIMER = 1500;
-const SHORT_BREAK_TIMER = 300;
-const LONG_BREAK_TIMER = 900;
+import {TimeConst, TimerState} from './TimerConst'
 
 const Selections = (props) => {
   const onClickFunc = (e) => {
@@ -17,19 +14,19 @@ const Selections = (props) => {
 
     switch (e.currentTarget.name) {
       case "avocadoro":
-        props.setTimerFunc(AVOCADORO_TIMER);
-        props.setInitTimerFunc(AVOCADORO_TIMER);
-        props.setTimerStateFunc(props.TimerState.AVOCADORO);
+        props.setTimerFunc(TimeConst.AVOCADORO_TIME);
+        props.setInitTimerFunc(TimeConst.AVOCADORO_TIME);
+        props.setTimerStateFunc(TimerState.AVOCADORO);
         break;
       case "short_break":
-        props.setTimerFunc(SHORT_BREAK_TIMER);
-        props.setInitTimerFunc(SHORT_BREAK_TIMER);
-        props.setTimerStateFunc(props.TimerState.SHORT_BREAK);
+        props.setTimerFunc(TimeConst.SHORT_BREAK_TIME);
+        props.setInitTimerFunc(TimeConst.SHORT_BREAK_TIME);
+        props.setTimerStateFunc(TimerState.SHORT_BREAK);
         break;
       case "long_break":
-        props.setTimerFunc(LONG_BREAK_TIMER);
-        props.setInitTimerFunc(LONG_BREAK_TIMER);
-        props.setTimerStateFunc(props.TimerState.LONG_BREAK);
+        props.setTimerFunc(TimeConst.LONG_BREAK_TIME);
+        props.setInitTimerFunc(TimeConst.LONG_BREAK_TIME);
+        props.setTimerStateFunc(TimerState.LONG_BREAK);
         break;
       case "settings":
         props.setTimerToggleFunc(false);
