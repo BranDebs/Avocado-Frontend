@@ -1,5 +1,5 @@
-const AVOCADORO_TIME = 10;
-const SHORT_BREAK_TIME = 3;
+const AVOCADORO_TIME = 1500;
+const SHORT_BREAK_TIME = 300;
 const LONG_BREAK_TIME = 900;
 
 export class TimeConst {
