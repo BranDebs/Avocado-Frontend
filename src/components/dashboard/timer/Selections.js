@@ -19,14 +19,17 @@ const Selections = (props) => {
       case "avocadoro":
         props.setTimerFunc(AVOCADORO_TIMER);
         props.setInitTimerFunc(AVOCADORO_TIMER);
+        props.setTimerStateFunc(props.TimerState.AVOCADORO);
         break;
       case "short_break":
         props.setTimerFunc(SHORT_BREAK_TIMER);
         props.setInitTimerFunc(SHORT_BREAK_TIMER);
+        props.setTimerStateFunc(props.TimerState.SHORT_BREAK);
         break;
       case "long_break":
         props.setTimerFunc(LONG_BREAK_TIMER);
         props.setInitTimerFunc(LONG_BREAK_TIMER);
+        props.setTimerStateFunc(props.TimerState.LONG_BREAK);
         break;
       case "settings":
         props.setTimerToggleFunc(false);
