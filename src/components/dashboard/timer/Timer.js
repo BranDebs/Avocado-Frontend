@@ -6,8 +6,9 @@ import Avocombo from './Avocombo';
 import {TimerState, TimeConst} from './TimerConst';
 
 const Timer = () => {
-  const [initTimer, setInitTimer] = useState(TimeConst.AVOCADORO_TIMER);
-  const [timer, setTimer] = useState(TimeConst.AVOCADORO_TIMER);
+  let startTimer = parseInt(TimeConst.AVOCADORO_TIME)
+  const [initTimer, setInitTimer] = useState(startTimer);
+  const [timer, setTimer] = useState(startTimer);
   const [hasStarted, setTimerToggle] = useState(false);
   const [timerState, setTimerState] = useState(TimerState.AVOCADORO);
   const [avocomboCount, setAvocombo] = useState(0);
