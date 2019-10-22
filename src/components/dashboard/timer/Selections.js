@@ -41,14 +41,14 @@ const Selections = (props) => {
   }
 
   return (
-    <div class="row">
-      <div class="col s12">
+    <div className="row">
+      <div className="col s12">
         <div className="card-tabs cursor-pointer">
           <ul className="tabs pink accent-1">
-            <li class="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
-            <li class="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
-            <li class="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
-            <li class="tab col s3"><a href="#!" className="white-text">Settings</a></li>
+            <li className="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
+            <li className="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
+            <li className="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
+            <li className="tab col s3"><a href="#!" className="white-text">Settings</a></li>
           </ul>
         </div>
       </div>
