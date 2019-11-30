@@ -1,9 +1,6 @@
 import React from 'react';
 import './Timer.css'
-
-const AVOCADORO_TIMER = 1500;
-const SHORT_BREAK_TIMER = 300;
-const LONG_BREAK_TIMER = 900;
+import {TimeConst, TimerState} from './TimerConst'
 
 const Selections = (props) => {
   const onClickFunc = (e) => {
@@ -17,16 +14,19 @@ const Selections = (props) => {
 
     switch (e.currentTarget.name) {
       case "avocadoro":
-        props.setTimerFunc(AVOCADORO_TIMER);
-        props.setInitTimerFunc(AVOCADORO_TIMER);
+        props.setTimerFunc(TimeConst.AVOCADORO_TIME);
+        props.setInitTimerFunc(TimeConst.AVOCADORO_TIME);
+        props.setTimerStateFunc(TimerState.AVOCADORO);
         break;
       case "short_break":
-        props.setTimerFunc(SHORT_BREAK_TIMER);
-        props.setInitTimerFunc(SHORT_BREAK_TIMER);
+        props.setTimerFunc(TimeConst.SHORT_BREAK_TIME);
+        props.setInitTimerFunc(TimeConst.SHORT_BREAK_TIME);
+        props.setTimerStateFunc(TimerState.SHORT_BREAK);
         break;
       case "long_break":
-        props.setTimerFunc(LONG_BREAK_TIMER);
-        props.setInitTimerFunc(LONG_BREAK_TIMER);
+        props.setTimerFunc(TimeConst.LONG_BREAK_TIME);
+        props.setInitTimerFunc(TimeConst.LONG_BREAK_TIME);
+        props.setTimerStateFunc(TimerState.LONG_BREAK);
         break;
       case "settings":
         props.setTimerToggleFunc(false);
@@ -41,14 +41,14 @@ const Selections = (props) => {
   }
 
   return (
-    <div class="row">
-      <div class="col s12">
+    <div className="row">
+      <div className="col s12">
         <div className="card-tabs cursor-pointer">
           <ul className="tabs pink accent-1">
-            <li class="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
-            <li class="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
-            <li class="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
-            <li class="tab col s3"><a href="#!" className="white-text">Settings</a></li>
+            <li className="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
+            <li className="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
+            <li className="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
+            <li className="tab col s3"><a href="#!" className="white-text">Settings</a></li>
           </ul>
         </div>
       </div>
