@@ -1,21 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import SignedInLink from './SignedInLink';
 import SignedOutLink from './SignedOutLink';
 import './Navbar.css';
-import App from '../../App';
 import AvocadoroLogo from './../../images/Avocadoro-icon.png';
 
 const Navbar = (props) => {
-    const M = props.Materialize
-
-    useEffect(() => {
-        var elem = document.querySelector(".sidenav");
-        var instances = M.Sidenav.init(elem, {
-            edge: "left",
-            inDuration: 250
-        });
-    });
 
     return (
         <div>

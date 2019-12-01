@@ -1,16 +1,10 @@
 import React, {useEffect} from 'react';
 
 const Settings = (props) => {
-  const M = props.Materialize
-
   useEffect(() => {
-    var elems = document.querySelectorAll('select');
-    var options = {}
-    var instances = M.FormSelect.init(elems, options);
   });
 
   const settingsSaved = ()  => {
-    M.toast({html: 'Settings saved.'})
   }
 
   return(
