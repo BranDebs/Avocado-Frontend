@@ -13,8 +13,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (  
-
+    return (
         <BrowserRouter>
           <div className="App">
             <Navbar/>
@@ -25,10 +24,8 @@ class App extends React.Component {
             </div>
           </div>
         </BrowserRouter>
-
     );
   }
-
 }
 
 export default App;
