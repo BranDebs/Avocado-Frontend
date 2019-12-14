@@ -1,11 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const TimerInfo = (props) => {
-  return (
-    <div>
-      {props.getTime}
-    </div>
-  );
+const TimerInfo = props => {
+  return <div>{props.getTime}</div>;
 };
 
 export default TimerInfo;

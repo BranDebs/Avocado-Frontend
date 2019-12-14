@@ -1,27 +1,26 @@
-import React from "react";
-import './Timer.css'
+import React from 'react';
+import './Timer.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
+  root: {
+    '& > *': {
+      margin: theme.spacing(1)
+    }
+  }
 }));
 
-const Controls = (props) => {
-
-  const onClickFunc =(e) => {
-    switch(e.currentTarget.name) {
-      case "start":
+const Controls = props => {
+  const onClickFunc = e => {
+    switch (e.currentTarget.name) {
+      case 'start':
         props.setTimerToggleFunc(true);
         break;
-      case "pause":
+      case 'pause':
         props.setTimerToggleFunc(false);
         break;
-      case "reset":
+      case 'reset':
         props.setTimerToggleFunc(false);
         props.setTimerFunc(props.getInitTimer);
         break;
@@ -29,15 +28,15 @@ const Controls = (props) => {
         break;
     }
     return;
-  }
+  };
 
   const classes = useStyles();
 
-  return(
+  return (
     <div className={classes.root}>
-        <Button variant={"contained"}>Start</Button>
-        <Button variant={"contained"}>Pause</Button>
-        <Button variant={"contained"}>Reset</Button>
+      <Button variant={'contained'}>Start</Button>
+      <Button variant={'contained'}>Pause</Button>
+      <Button variant={'contained'}>Reset</Button>
     </div>
     // <div className="row controls-container">
     //   <div className="col s2 offset-s3">
@@ -51,6 +50,6 @@ const Controls = (props) => {
     //   </div>
     // </div>
   );
-}
+};
 
 export default Controls;
