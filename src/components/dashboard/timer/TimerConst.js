@@ -16,18 +16,22 @@ export class TimeConst {
   }
 }
 
-const timerState = Object.freeze({AVOCADORO: 1, SHORT_BREAK: 2, LONG_BREAK: 3})
+const timerState = Object.freeze({
+  AVOCADORO: 1,
+  SHORT_BREAK: 2,
+  LONG_BREAK: 3
+});
 
 export class TimerState {
   static get AVOCADORO() {
-    return timerState.AVOCADORO
+    return timerState.AVOCADORO;
   }
 
   static get SHORT_BREAK() {
-    return timerState.SHORT_BREAK
+    return timerState.SHORT_BREAK;
   }
 
   static get LONG_BREAK() {
-    return timerState.LONG_BREAK
+    return timerState.LONG_BREAK;
   }
 }

@@ -1,26 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import Timer from './timer/Timer'
-import Todo from './todo/Todo'
-import Settings from './timer/Settings'
+import Timer from './timer/Timer';
+import Todo from './todo/Todo';
+import Settings from './timer/Settings';
+import Grid from '@material-ui/core/Grid';
+import './Home.css';
 
 class Home extends React.Component {
-
-    render() {
-      return(
-        <div className="row section">
-          <div className="col s6">
-            <div className="row">
-              <Timer/>
-              <Settings Materialize={this.props.Materialize}/>
-            </div>
+  render() {
+    return (
+      <Grid container spacing={3}>
+        <Grid item xs={4}>
+          <div className={'home-style'}>
+            <Timer />
           </div>
-          <div className="col s6">
-            <Todo/>
+        </Grid>
+        <Grid item xs={8}>
+          <div className={'home-style'}>
+            <Todo />
           </div>
-        </div>
-      );
-    }
-};
+        </Grid>
+      </Grid>
+    );
+  }
+}
 
 export default Home;
