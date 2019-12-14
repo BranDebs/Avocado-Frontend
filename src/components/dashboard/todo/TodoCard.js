@@ -26,12 +26,6 @@ const TodoCard = () => {
   }
 
   return(
-    // <div className={hoverStyle.card} onMouseOver={() => onHover()} onMouseOut={() => onOut()}>
-    //   <div className={hoverStyle.content}>
-    //     <span className="card-title">Card Title</span>
-    //     <p>lorem ipsum</p>
-    //   </div>
-    // </div>
       <Card>
         <CardContent>
           <Typography>
