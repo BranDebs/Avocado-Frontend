@@ -4,6 +4,9 @@ import Controls from './Controls';
 import TimerInfo from './TimerInfo';
 import Avocombo from './Avocombo';
 import {TimerState, TimeConst} from './TimerConst';
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import './Timer.css';
 
 const Timer = () => {
   let startTimer = parseInt(TimeConst.AVOCADORO_TIME)
@@ -39,12 +42,22 @@ const Timer = () => {
   }, [hasStarted, timer])
 
   return(
-    <div className='card'>
-      <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle} setTimerStateFunc={setTimerState}/>
-      <Avocombo avocomboCount={avocomboCount}/>
-      <TimerInfo getTime={formatTimer(timer)} />
-      <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>
-    </div>
+      <Paper>
+        <Grid container>
+          <Grid item xs={12}>
+            <Selections setTimerFunc={setTimer} setInitTimerFunc={setInitTimer} setTimerToggleFunc={setTimerToggle} setTimerStateFunc={setTimerState}/>
+          </Grid>
+          <Grid item xs={12} className={"timer-style"}>
+            <Avocombo avocomboCount={avocomboCount}/>
+          </Grid>
+          <Grid item xs={12} className={"timer-style"}>
+            <TimerInfo getTime={formatTimer(timer)} />
+          </Grid>
+          <Grid item xs={12} className={"timer-style"}>
+            <Controls setTimerFunc={setTimer} getInitTimer={initTimer} setTimerToggleFunc={setTimerToggle}/>
+          </Grid>
+        </Grid>
+      </Paper>
   );
 };
 

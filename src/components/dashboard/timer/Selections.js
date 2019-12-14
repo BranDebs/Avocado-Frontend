@@ -1,6 +1,16 @@
 import React from 'react';
 import './Timer.css'
 import {TimeConst, TimerState} from './TimerConst'
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 const Selections = (props) => {
   const onClickFunc = (e) => {
@@ -41,18 +51,26 @@ const Selections = (props) => {
   }
 
   return (
-    <div className="row">
-      <div className="col s12">
-        <div className="card-tabs cursor-pointer">
-          <ul className="tabs pink accent-1">
-            <li className="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
-            <li className="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
-            <li className="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
-            <li className="tab col s3"><a href="#!" className="white-text">Settings</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
+      <AppBar position="static">
+        <Tabs value={0} aria-label="simple tabs example" variant="fullWidth">
+          <Tab label="Avocadoro" {...a11yProps(0)} />
+          <Tab label="Short Break" {...a11yProps(1)} />
+          <Tab label="Long Break" {...a11yProps(2)} />
+        </Tabs>
+      </AppBar>
+    // <div className="row">
+    //   <div className="col s12">
+    //     <div className="card-tabs cursor-pointer">
+    //       <ul className="tabs pink accent-1">
+    //         <li className="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
+    //         <li className="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
+    //         <li className="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
+    //         <li className="tab col s3"><a href="#!" className="white-text">Settings</a></li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>
 
   );
 }

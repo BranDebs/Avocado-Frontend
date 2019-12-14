@@ -20,14 +20,14 @@ const SignedInLink = () => {
     };
     return (
         <div>
-            <Typography>
+            <Typography display={"inline"}>
                 69
             </Typography>
             <IconButton
                 onClick={handleMenu}
                 color="inherit"
             >
-            <AccountCircle />
+                <AccountCircle />
             </IconButton>
             <Menu
                 id="menu-appbar"

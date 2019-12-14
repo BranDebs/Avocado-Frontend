@@ -1,10 +1,13 @@
 import React from 'react';
 import TodoCard from './TodoCard';
+import Box from "@material-ui/core/Box";
 
 const InProgress = () => {
   return(
     <div>
-      <span>In Progress</span>
+        <Box component={"span"} bgcolor="background.paper">
+            In Progress
+        </Box>
       <TodoCard/>
       <TodoCard/>
       <TodoCard/>

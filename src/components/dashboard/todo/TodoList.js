@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import TodoCard from './TodoCard';
+import Box from '@material-ui/core/Box';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from "@material-ui/core/Fab";
 
 const TodoList = (props) => {
   const [todoTasks, setTodoTasks] = useState(props.todoTasks)
@@ -14,9 +17,12 @@ const TodoList = (props) => {
   const showTodoList = todoTasks.map(todo => <TodoCard key={todo.id}/>)
   return(
     <div>
-      <span>Todo  
-        <a className="btn-floating btn-small waves-effect waves-light red" onClick={onClickFunc}><i className="material-icons">add</i></a>
-      </span>
+      <Box component={"span"} bgcolor="background.paper">Todo
+        {/*<a className="btn-floating btn-small waves-effect waves-light red" onClick={onClickFunc}><i className="material-icons">add</i></a>*/}
+        <Fab color="primary" aria-label="add">
+          <AddIcon onClick={onClickFunc}/>
+        </Fab>
+      </Box>
       {showTodoList}
     </div>
   );
