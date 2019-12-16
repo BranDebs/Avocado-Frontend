@@ -1,32 +1,16 @@
 /* Selections */
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.active-tab {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
-}
-
-/* .gradient-red-pink {
-     background: linear-gradient(45deg, #ff5252, #f48fb1) !important;
- } */
-
 .white-text {
   color: antiquewhite;
 }
 
 /* Timer */
 .timer-style {
-  /*padding-top: 75px;*/
-  /*padding-bottom: 75px;*/
   padding: 10px;
   font-size: 32px;
   font-weight: 600;
 }
 
 /* General */
-
 .container {
   width: 95%;
   max-width: 95% !important;
@@ -38,14 +22,3 @@
 .controls-container {
   padding-bottom: 25px;
 }
-
-/* .row-controls{
-    text-align:center;
-    margin:0 auto;
-}
-
-.row-controls .col s2{
-   display:inline-block;
-   vertical-align: middle;
-   float: none;
-} */
