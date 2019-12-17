@@ -45,10 +45,30 @@ const Selections = props => {
   };
   return (
     <AppBar position="static">
-      <Tabs value={value} aria-label="simple tabs example" variant="fullWidth" onChange={handleChange}>
-        <Tab label="Avocadoro" name="avocadoro" onClick={onClickFunc}{...a11yProps(0)} />
-        <Tab label="Short Break" name="short_break" onClick={onClickFunc}{...a11yProps(1)} />
-        <Tab label="Long Break" name="long_break" onClick={onClickFunc}{...a11yProps(2)} />
+      <Tabs
+        value={value}
+        aria-label="simple tabs example"
+        variant="fullWidth"
+        onChange={handleChange}
+      >
+        <Tab
+          label="Avocadoro"
+          name="avocadoro"
+          onClick={onClickFunc}
+          {...a11yProps(0)}
+        />
+        <Tab
+          label="Short Break"
+          name="short_break"
+          onClick={onClickFunc}
+          {...a11yProps(1)}
+        />
+        <Tab
+          label="Long Break"
+          name="long_break"
+          onClick={onClickFunc}
+          {...a11yProps(2)}
+        />
       </Tabs>
     </AppBar>
   );
