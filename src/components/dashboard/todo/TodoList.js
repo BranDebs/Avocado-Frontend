@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import TodoCard from './TodoCard';
-import Box from '@material-ui/core/Box';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Card from '@material-ui/core/Card';
@@ -27,7 +26,7 @@ const TodoList = props => {
   return (
     <Card>
       <CardContent>
-        <Grid item justify="flex">
+        <Grid item>
           <div className={'task-title'}>
             <Typography variant="h6" display={'inline'} style={{ flex: 1 }}>
               Todo

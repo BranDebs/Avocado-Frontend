@@ -32,6 +32,7 @@ const Selections = props => {
         break;
       case 'settings':
         props.setTimerToggleFunc(false);
+        break;
       default:
         props.setTimerFunc(0);
         props.setInitTimerFunc(0);

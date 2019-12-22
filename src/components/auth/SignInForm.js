@@ -12,13 +12,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
+import validateInput from "../../server/validations/ValidateLogin";
 
-function SignIn() {
+function SignInForm() {
   const [values, setValues] = React.useState({
-    amount: '',
+    username: '',
     password: '',
-    weight: '',
-    weightRange: '',
     showPassword: false,
     identifier: '',
     errors: {},
@@ -46,12 +46,24 @@ function SignIn() {
     event.preventDefault();
   };
 
+  const isValid = () => {
+    const {errors, isValid} = validateInput(values);
+    if (!isValid) {
+      setValues({ ...values, errors: errors });
+    }
+    return isValid;
+  }
+
+  // onsubmit(e) {
+  //   e.preventDefault();
+  //
+  // }
   const classes = useStyles();
 
   return (
-    <Grid container spacing={3}>
+    <Grid container>
       <Grid item xs={4}></Grid>
-      <Grid item xs={4} spacing={2}>
+      <Grid item xs={4}>
         <div className={classes.paper}>
           <Paper className="auth-paper">
             <Typography variant="h5" component="h3">
@@ -61,22 +73,20 @@ function SignIn() {
               <InputLabel
                 id="username"
                 label="Username/Email Address"
-                value={values.identifier}
-                error={values.errors.identifier}
               >
                 Username/Email Address
               </InputLabel>
               <Input
                 id="standard-adornment-username"
                 aria-describedby="standard-weight-helper-text"
+                value={values.username}
+                error={values.errors.username}
               />
             </FormControl>
             <FormControl fullWidth className="divider">
               <InputLabel
                 id="password"
                 label="Password"
-                value={values.identifier}
-                error={values.errors.identifier}
               >
                 Password
               </InputLabel>
@@ -96,10 +106,11 @@ function SignIn() {
                     </IconButton>
                   </InputAdornment>
                 }
+                error={values.errors.password}
               />
             </FormControl>
             <div className={classes.paper}>
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" disabled={values.isLoading}>
                 Login
               </Button>
             </div>
@@ -115,7 +126,13 @@ function SignIn() {
               </Button>
             </div>
             <Typography display={'inline'}>Don't have an account?</Typography>
-            <Button color="primary">Sign Up</Button>
+            <Button color="primary">
+              <Link
+                  to={'/signup'}
+              >
+                Sign Up
+              </Link>
+            </Button>
           </Paper>
         </div>
       </Grid>
@@ -123,4 +140,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignInForm;

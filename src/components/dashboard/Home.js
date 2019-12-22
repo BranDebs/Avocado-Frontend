@@ -2,7 +2,6 @@ import React from 'react';
 
 import Timer from './timer/Timer';
 import Todo from './todo/Todo';
-import Settings from './timer/Settings';
 import Grid from '@material-ui/core/Grid';
 import './Home.css';
 

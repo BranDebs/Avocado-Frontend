@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedOutLink from './SignedOutLink';
 import SignedInLink from './SignedInLink';
@@ -29,13 +29,13 @@ const Navbar = () => {
           <Typography variant="h6" className={classes.title} align={'left'}>
             <Link
               to={'/'}
-              class={'nav-text'}
+              className={'nav-text'}
               style={{ textDecoration: 'none' }}
             >
               Avocadoro
             </Link>
           </Typography>
-          {/*<SignedInLink />*/}
+          <SignedInLink />
           <SignedOutLink />
         </Toolbar>
       </AppBar>
