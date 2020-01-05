@@ -36,11 +36,7 @@ const Navbar = () => {
             >
               Avocadoro
               <Icon>
-                <img
-                  src={AvocadoroIcon}
-                  alt="AvocadoroToast"
-                  height={20}
-                />
+                <img src={AvocadoroIcon} alt="AvocadoroToast" height={20} />
               </Icon>
             </Link>
           </Typography>

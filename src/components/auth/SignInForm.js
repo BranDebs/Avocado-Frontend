@@ -12,8 +12,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {Link} from "react-router-dom";
-import validateInput from "../../server/validations/ValidateLogin";
+import { Link } from 'react-router-dom';
+import validateInput from '../../server/validations/ValidateLogin';
 
 function SignInForm() {
   const [values, setValues] = React.useState({
@@ -47,12 +47,12 @@ function SignInForm() {
   };
 
   const isValid = () => {
-    const {errors, isValid} = validateInput(values);
+    const { errors, isValid } = validateInput(values);
     if (!isValid) {
       setValues({ ...values, errors: errors });
     }
     return isValid;
-  }
+  };
 
   // onsubmit(e) {
   //   e.preventDefault();
@@ -70,10 +70,7 @@ function SignInForm() {
               Login
             </Typography>
             <FormControl fullWidth>
-              <InputLabel
-                id="username"
-                label="Username/Email Address"
-              >
+              <InputLabel id="username" label="Username/Email Address">
                 Username/Email Address
               </InputLabel>
               <Input
@@ -84,10 +81,7 @@ function SignInForm() {
               />
             </FormControl>
             <FormControl fullWidth className="divider">
-              <InputLabel
-                id="password"
-                label="Password"
-              >
+              <InputLabel id="password" label="Password">
                 Password
               </InputLabel>
               <Input
@@ -110,7 +104,11 @@ function SignInForm() {
               />
             </FormControl>
             <div className={classes.paper}>
-              <Button variant="contained" color="primary" disabled={values.isLoading}>
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={values.isLoading}
+              >
                 Login
               </Button>
             </div>
@@ -127,11 +125,7 @@ function SignInForm() {
             </div>
             <Typography display={'inline'}>Don't have an account?</Typography>
             <Button color="primary">
-              <Link
-                  to={'/signup'}
-              >
-                Sign Up
-              </Link>
+              <Link to={'/signup'}>Sign Up</Link>
             </Button>
           </Paper>
         </div>
