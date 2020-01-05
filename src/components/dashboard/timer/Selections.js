@@ -14,14 +14,6 @@ function a11yProps(index) {
 
 const Selections = props => {
   const onClickFunc = e => {
-    // Sets all collections to not be active
-    let parentNodes = e.currentTarget.parentNode.parentNode.childNodes;
-    parentNodes.forEach(element => {
-      element.childNodes.forEach(node => {
-        node.className = 'white-text';
-      });
-    });
-
     switch (e.currentTarget.name) {
       case 'avocadoro':
         props.setTimerFunc(TimeConst.AVOCADORO_TIME);
@@ -40,36 +32,46 @@ const Selections = props => {
         break;
       case 'settings':
         props.setTimerToggleFunc(false);
-
+        break;
       default:
         props.setTimerFunc(0);
         props.setInitTimerFunc(0);
         return;
     }
-    e.currentTarget.className = 'active-tab white-text';
     props.setTimerToggleFunc(true);
   };
-
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <AppBar position="static">
-      <Tabs value={0} aria-label="simple tabs example" variant="fullWidth">
-        <Tab label="Avocadoro" {...a11yProps(0)} />
-        <Tab label="Short Break" {...a11yProps(1)} />
-        <Tab label="Long Break" {...a11yProps(2)} />
+      <Tabs
+        value={value}
+        aria-label="simple tabs example"
+        variant="fullWidth"
+        onChange={handleChange}
+      >
+        <Tab
+          label="Avocadoro"
+          name="avocadoro"
+          onClick={onClickFunc}
+          {...a11yProps(0)}
+        />
+        <Tab
+          label="Short Break"
+          name="short_break"
+          onClick={onClickFunc}
+          {...a11yProps(1)}
+        />
+        <Tab
+          label="Long Break"
+          name="long_break"
+          onClick={onClickFunc}
+          {...a11yProps(2)}
+        />
       </Tabs>
     </AppBar>
-    // <div className="row">
-    //   <div className="col s12">
-    //     <div className="card-tabs cursor-pointer">
-    //       <ul className="tabs pink accent-1">
-    //         <li className="tab col s3"><a className="active-tab white-text" name="avocadoro" onClick={onClickFunc}>Avocadoro</a></li>
-    //         <li className="tab col s3"><a className="white-text" name="short_break" onClick={onClickFunc}>Short Break</a></li>
-    //         <li className="tab col s3"><a className="white-text" name="long_break" onClick={onClickFunc}>Long Break</a></li>
-    //         <li className="tab col s3"><a href="#!" className="white-text">Settings</a></li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

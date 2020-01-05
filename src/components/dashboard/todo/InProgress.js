@@ -1,7 +1,5 @@
 import React from 'react';
 import TodoCard from './TodoCard';
-import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
 import './Todo.css';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -13,7 +11,7 @@ const InProgress = () => {
   return (
     <Card>
       <CardContent>
-        <Grid item justify="flex">
+        <Grid item>
           <div className={'task-title'}>
             <Typography variant="h6">In Progress</Typography>
           </div>

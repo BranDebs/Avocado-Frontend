@@ -18,7 +18,7 @@ const Timer = () => {
   useEffect(() => {
     let interval = null;
     if (hasStarted && timer !== 0) {
-      if (interval == null) {
+      if (interval === null) {
         let prevTime = Date.now();
         interval = setInterval(() => {
           setTimer(timer => {
@@ -27,7 +27,7 @@ const Timer = () => {
             prevTime = curTime;
             let calcTime = Math.round(timer - timeDelta / 1000);
             calcTime = calcTime < 0 ? 0 : calcTime;
-            if (calcTime == 0 && timerState == TimerState.AVOCADORO) {
+            if (calcTime === 0 && timerState === TimerState.AVOCADORO) {
               setAvocombo(avocomboCount + 1);
             }
             return calcTime;

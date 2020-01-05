@@ -1,7 +1,7 @@
-# Branch structure
+## Branch structure
 <type>--<branch name>
 
-# Git comments
+## Git comments
 <type>(scope): header
 ---Blank space---
 <Body>
@@ -12,3 +12,7 @@
 * feat - feature
 * refactor - refactor
 * doc - documentation
+
+## Formatting Code
+
+- `npm run format`
