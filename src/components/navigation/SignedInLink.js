@@ -5,7 +5,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import SettingsModal from "../dashboard/timer/SettingsModal";
+import SettingsModal from '../dashboard/timer/SettingsModal';
 
 // Functional component
 const SignedInLink = () => {
@@ -23,17 +23,17 @@ const SignedInLink = () => {
 
   const handleSettingOpen = () => {
     setSettingOpen(true);
-  }
+  };
 
   const handleSettingClose = () => {
-        setSettingOpen(false);
-  }
+    setSettingOpen(false);
+  };
   return (
     <div>
       <Typography display={'inline'}>69</Typography>
-        <IconButton onClick={()=>handleSettingOpen()} color="inherit">
-            <SettingsIcon />
-        </IconButton>
+      <IconButton onClick={() => handleSettingOpen()} color="inherit">
+        <SettingsIcon />
+      </IconButton>
       <IconButton onClick={handleMenu} color="inherit">
         <AccountCircle />
       </IconButton>
