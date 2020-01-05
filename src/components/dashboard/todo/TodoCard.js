@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
+import TextField from '@material-ui/core/TextField';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',
@@ -17,6 +19,9 @@ const hoveredStyle = {
 
 const TodoCard = () => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
+  const [text, setText] = useState('');
+  const [isEdit, setIsEdit] = useState(false);
+
   function onHover(e) {
     console.log('Got to change colour here');
     setHoverStyle(hoveredStyle);
@@ -26,13 +31,33 @@ const TodoCard = () => {
     setHoverStyle(defaultStyle);
   }
 
+  const handleIsEdit = () => {
+    setIsEdit(!isEdit);
+    console.log('hi')
+  };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+    console.log(e.target.value)
+  }
+
+  const showTodoCard = () => {
+    if (isEdit) {
+      return (<Typography><TextField onChange={handleTextChange} defaultValue={text}>{text}</TextField></Typography>)
+    } else {
+      return (<Typography>{text}</Typography>)
+    }
+  };
   return (
     <Card>
       <CardContent>
-        <IconButton component="span" style={{ flex: 1 }}>
-          <EditIcon fontSize={'small'} />
+        <IconButton component="span" style={{ flex: 1 }} onClick={handleIsEdit}>
+          <EditIcon fontSize={'small'}/>
         </IconButton>
-        <Typography>Lorem ipsummmmmie</Typography>
+        <IconButton component="span" style={{ flex: 1 }}>
+          <DeleteIcon fontSize={'small'}/>
+        </IconButton>
+            {showTodoCard()}
       </CardContent>
     </Card>
   );
