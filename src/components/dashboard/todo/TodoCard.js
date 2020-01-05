@@ -33,31 +33,37 @@ const TodoCard = () => {
 
   const handleIsEdit = () => {
     setIsEdit(!isEdit);
-    console.log('hi')
+    console.log('hi');
   };
 
-  const handleTextChange = (e) => {
+  const handleTextChange = e => {
     setText(e.target.value);
-    console.log(e.target.value)
-  }
+    console.log(e.target.value);
+  };
 
   const showTodoCard = () => {
     if (isEdit) {
-      return (<Typography><TextField onChange={handleTextChange} defaultValue={text}>{text}</TextField></Typography>)
+      return (
+        <Typography>
+          <TextField onChange={handleTextChange} defaultValue={text}>
+            {text}
+          </TextField>
+        </Typography>
+      );
     } else {
-      return (<Typography>{text}</Typography>)
+      return <Typography>{text}</Typography>;
     }
   };
   return (
     <Card>
       <CardContent>
         <IconButton component="span" style={{ flex: 1 }} onClick={handleIsEdit}>
-          <EditIcon fontSize={'small'}/>
+          <EditIcon fontSize={'small'} />
         </IconButton>
         <IconButton component="span" style={{ flex: 1 }}>
-          <DeleteIcon fontSize={'small'}/>
+          <DeleteIcon fontSize={'small'} />
         </IconButton>
-            {showTodoCard()}
+        {showTodoCard()}
       </CardContent>
     </Card>
   );
