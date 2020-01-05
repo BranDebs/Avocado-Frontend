@@ -7,6 +7,8 @@ import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
+import AvocadoroIcon from '../../images/Avocadoro-icon.svg';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +35,13 @@ const Navbar = () => {
               style={{ textDecoration: 'none' }}
             >
               Avocadoro
+              <Icon>
+                <img
+                  src={AvocadoroIcon}
+                  alt="AvocadoroToast"
+                  height={20}
+                />
+              </Icon>
             </Link>
           </Typography>
           <SignedInLink />
