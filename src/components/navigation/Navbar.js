@@ -9,6 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
 import AvocadoroIcon from '../../images/Avocadoro-icon.svg';
+import { UiConst } from '../const/UiConst';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +37,7 @@ const Navbar = () => {
             >
               Avocadoro
               <Icon>
-                <img src={AvocadoroIcon} alt="AvocadoroToast" height={20} />
+                <img src={AvocadoroIcon} alt="AvocadoroToast" height={UiConst.ICON_HEIGHT} />
               </Icon>
             </Link>
           </Typography>
