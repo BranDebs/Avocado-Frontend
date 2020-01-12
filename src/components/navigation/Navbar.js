@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedOutLink from './SignedOutLink';
-import SignedInLink from './SignedInLink';
+import SignedInLink from 'containers/SignedInLink';
 import './Navbar.css';
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';

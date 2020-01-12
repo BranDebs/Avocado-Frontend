@@ -5,12 +5,10 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import SettingsModal from '../dashboard/timer/SettingsModal';
 
 // Functional component
-const SignedInLink = () => {
+const SignedInLink = ({ onSettings }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [settingOpen, setSettingOpen] = React.useState(false);
   const open = Boolean(anchorEl);
 
   const handleMenu = event => {
@@ -22,12 +20,9 @@ const SignedInLink = () => {
   };
 
   const handleSettingOpen = () => {
-    setSettingOpen(true);
+    onSettings(true);
   };
 
-  const handleSettingClose = () => {
-    setSettingOpen(false);
-  };
   return (
     <div>
       <Typography display={'inline'}>69</Typography>
