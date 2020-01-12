@@ -13,7 +13,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import validateInput from '../../server/validations/ValidateLogin';
+import validateInput from 'server/validations/ValidateLogin';
 
 function SignInForm() {
   const [values, setValues] = React.useState({

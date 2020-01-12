@@ -8,8 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
-import AvocadoroIcon from '../../images/Avocadoro-icon.svg';
-import { UiConst } from '../const/UiConst';
+import AvocadoroIcon from 'images/Avocadoro-icon.svg';
+import { UiConst } from 'components/const/UiConst';
 
 const useStyles = makeStyles(theme => ({
   root: {
