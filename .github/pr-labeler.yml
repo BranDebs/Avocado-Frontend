@@ -1,0 +1,5 @@
+feature: feat--*
+fix: fix--*
+refactor: refactor--*
+docs: docs--*
+ci: ci--*
