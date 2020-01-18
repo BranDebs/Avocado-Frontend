@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { TODO } from 'const/Task';
 
-const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
+const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
   const todoList = todos.map(todo => (
     <TaskCard
       key={todo.id}
@@ -17,6 +17,7 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
       title={todo.title}
       onEditTitle={editTodo}
       onTaskClick={startTodo}
+      onDelete={deleteTodo}
       btnType={TODO}
     />
   ));

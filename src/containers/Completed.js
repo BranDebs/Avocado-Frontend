@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { editCompletedTitle } from 'redux/actions/taskCard';
+import { archiveCompleted, deleteCompleted } from 'redux/actions/completed';
 import Completed from 'components/dashboard/todo/Completed';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,7 +11,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editCompleted: (id, title) => dispatch(editCompletedTitle(id, title))
+    editCompleted: (id, title) => dispatch(editCompletedTitle(id, title)),
+    archiveCompleted: (id, title) => {
+      dispatch(archiveCompleted(id, title));
+      dispatch(deleteCompleted(id));
+    },
+    deleteCompleted: id => dispatch(deleteCompleted(id))
   };
 };
 

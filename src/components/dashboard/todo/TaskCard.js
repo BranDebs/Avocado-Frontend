@@ -20,7 +20,14 @@ const hoveredStyle = {
   content: 'card-content white-text'
 };
 
-const TaskCard = ({ id, title, btnType, onEditTitle, onTaskClick }) => {
+const TaskCard = ({
+  id,
+  title,
+  btnType,
+  onEditTitle,
+  onTaskClick,
+  onDelete
+}) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -89,7 +96,7 @@ const TaskCard = ({ id, title, btnType, onEditTitle, onTaskClick }) => {
         <IconButton component="span" onClick={handleIsEdit}>
           <EditIcon className={classes.iconSize} />
         </IconButton>
-        <IconButton component="span">
+        <IconButton component="span" onClick={() => onDelete(id)}>
           <DeleteIcon className={classes.iconSize} />
         </IconButton>
         {showTaskCard()}
