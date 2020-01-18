@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TodoList from 'containers/TodoList';
-import InProgress from './InProgress';
-import Completed from './Completed';
+import InProgress from 'containers/InProgress';
+import Completed from 'containers/Completed';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
