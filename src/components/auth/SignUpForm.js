@@ -89,7 +89,6 @@ function SignUpForm() {
                 value={values.emailAddress}
                 error={values.errors.emailAddress}
                 onChange={handleChange('emailAddress')}
-                type={'email'}
               />
             </FormControl>
             <FormControl fullWidth className={classes.textfield}>
