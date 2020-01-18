@@ -8,13 +8,14 @@ import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
 import { IN_PROGRESS } from 'const/Task';
 
-const InProgress = ({ inprogress, editInProgress }) => {
+const InProgress = ({ inprogress, editInProgress, finishInProgress }) => {
   const inprogressList = inprogress.map(todo => (
     <TaskCard
       key={todo.id}
       id={todo.id}
       title={todo.title}
       onEditTitle={editInProgress}
+      onTaskClick={finishInProgress}
       btnType={IN_PROGRESS}
     />
   ));
