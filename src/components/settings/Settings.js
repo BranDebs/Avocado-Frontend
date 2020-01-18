@@ -40,30 +40,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Settings = props => {
-  const settingsSaved = () => {};
   const classes = useStyles();
   const [values, setValues] = React.useState({
     avocadoDur: secondsToMinutes(TimeConst.AVOCADORO_TIME),
     shortBreakDur: secondsToMinutes(TimeConst.SHORT_BREAK_TIME),
-    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME)
-  });
-  const [boolValues, setBoolValues] = React.useState({
+    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME),
     autoStartBreak: true,
     autoStartAvocadoro: true,
     audio: true,
-    notification: true
-  })
-  const [currGoal, setCurrGoal] = React.useState(3);
+    notification: true,
+    goal: 3
+  });
 
   const handleChangeCheck = name => event => {
-    setBoolValues({ ...boolValues, [name]: event.target.checked });
+    setValues({ ...values, [name]: event.target.checked });
   };
 
-  const handleGoal = event => {
-    setCurrGoal(event.target.value);
-  };
-  const handleChange = event => {
-    setValues(event.target.value);
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
   };
 
   function GenerateGoals() {
@@ -89,56 +83,55 @@ const Settings = props => {
       </IconButton>
       <Divider />
       <FormGroup row className={classes.textfield}>
-
-      <form className={classes.textfield} noValidate>
-        <TextField
-          value={values.avocadoDur}
-          onChange={handleChange}
-          label="Avocado Duration"
-          id="custom-avocadoro-duration"
-          type="number"
-          className={classes.formControl}
-          InputLabelProps={{
-            shrink: true
-          }}
-          inputProps={{ min: '5', max: '59' }}
-        ></TextField>
-      </form>
-      <form className={classes.textfield} noValidate>
-        <TextField
-          value={values.shortBreakDur}
-          onChange={handleChange}
-          label="Short Break Duration"
-          id="custom-short-break-duration"
-          type="number"
-          className={classes.formControl}
-          InputLabelProps={{
-            shrink: true
-          }}
-          inputProps={{ min: '1', max: '59' }}
-        ></TextField>
-      </form>
-      <form className={classes.textfield} noValidate>
-        <TextField
-          value={values.longBreakDur}
-          onChange={handleChange}
-          label="Long Break Duration"
-          id="custom-long-break-duration"
-          type="number"
-          className={classes.formControl}
-          InputLabelProps={{
-            shrink: true
-          }}
-          inputProps={{ min: '1', max: '59' }}
-        ></TextField>
-      </form>
+        <form className={classes.textfield} noValidate>
+          <TextField
+            value={values.avocadoDur}
+            onChange={handleChange('avocadoDur')}
+            label="Avocado Duration"
+            id="custom-avocadoro-duration"
+            type="number"
+            className={classes.formControl}
+            InputLabelProps={{
+              shrink: true
+            }}
+            inputProps={{ min: '5', max: '59' }}
+          ></TextField>
+        </form>
+        <form className={classes.textfield} noValidate>
+          <TextField
+            value={values.shortBreakDur}
+            onChange={handleChange('shortBreakDur')}
+            label="Short Break Duration"
+            id="custom-short-break-duration"
+            type="number"
+            className={classes.formControl}
+            InputLabelProps={{
+              shrink: true
+            }}
+            inputProps={{ min: '1', max: '59' }}
+          ></TextField>
+        </form>
+        <form className={classes.textfield} noValidate>
+          <TextField
+            value={values.longBreakDur}
+            onChange={handleChange('longBreakDur')}
+            label="Long Break Duration"
+            id="custom-long-break-duration"
+            type="number"
+            className={classes.formControl}
+            InputLabelProps={{
+              shrink: true
+            }}
+            inputProps={{ min: '1', max: '59' }}
+          ></TextField>
+        </form>
       </FormGroup>
       <FormControl className={classes.formControl}>
         <InputLabel id="daily-avocadoro-goal">Daily Avocadoro Goal</InputLabel>
         <Select
           labelId="daily-avocadoro-goal"
-          value={currGoal}
-          onChange={handleGoal}
+          value={values.goal}
+          onChange={handleChange('goal')}
         >
           {GenerateGoals()}
         </Select>
@@ -147,7 +140,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={boolValues.autoStartAvocadoro}
+              checked={values.autoStartAvocadoro}
               onChange={handleChangeCheck('autoStartAvocadoro')}
               value={values.autoStartAvocadoro}
             />
@@ -157,7 +150,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={boolValues.audio}
+              checked={values.audio}
               onChange={handleChangeCheck('audio')}
               value={values.audio}
             />
@@ -169,7 +162,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={boolValues.autoStartBreak}
+              checked={values.autoStartBreak}
               onChange={handleChangeCheck('autoStartBreak')}
               value={values.autoStartBreak}
             />
@@ -179,7 +172,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={boolValues.notification}
+              checked={values.notification}
               onChange={handleChangeCheck('notification')}
               value={values.notification}
             />
