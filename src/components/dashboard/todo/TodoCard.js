@@ -6,6 +6,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',
@@ -33,7 +35,6 @@ const TodoCard = () => {
 
   const handleIsEdit = () => {
     setIsEdit(!isEdit);
-    console.log('hi');
   };
 
   const handleTextChange = e => {
@@ -45,25 +46,65 @@ const TodoCard = () => {
     if (isEdit) {
       return (
         <Typography>
-          <TextField onChange={handleTextChange} defaultValue={text}>
+          <TextField
+            onChange={handleTextChange}
+            defaultValue={text}
+            multiline={true}
+          >
             {text}
           </TextField>
         </Typography>
       );
     } else {
-      return <Typography>{text}</Typography>;
+      return <Typography className={classes.overflow}>{text}</Typography>;
     }
   };
+
+  const useStyles = makeStyles(theme => ({
+    cardContentStyle: {
+      paddingTop: 0,
+      paddingRight: 5
+    },
+    buttonStyle: {
+      maxHeight: 20,
+      maxWidth: 60,
+      minWidth: 60,
+      minHeight: 20,
+      fontSize: 10,
+      float: 'right'
+    },
+    iconSize: {
+      fontSize: 16,
+      float: 'right'
+    },
+    overflow: {
+      overflowWrap: 'break-word'
+    },
+    cardStyle: {
+      width: 'inherit'
+    }
+  }));
+  const classes = useStyles();
+
   return (
-    <Card>
-      <CardContent>
-        <IconButton component="span" style={{ flex: 1 }} onClick={handleIsEdit}>
-          <EditIcon fontSize={'small'} />
+    <Card className={classes.cardStyle}>
+      <CardContent className={classes.cardContentStyle}>
+        <IconButton component="span" onClick={handleIsEdit}>
+          <EditIcon className={classes.iconSize} />
         </IconButton>
-        <IconButton component="span" style={{ flex: 1 }}>
-          <DeleteIcon fontSize={'small'} />
+        <IconButton component="span">
+          <DeleteIcon className={classes.iconSize} />
         </IconButton>
         {showTodoCard()}
+        <label htmlFor="contained-button-file">
+          <Button
+            variant="contained"
+            component="span"
+            className={classes.buttonStyle}
+          >
+            Archive
+          </Button>
+        </label>
       </CardContent>
     </Card>
   );

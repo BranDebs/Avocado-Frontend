@@ -37,7 +37,11 @@ const Navbar = () => {
             >
               Avocadoro
               <Icon>
-                <img src={AvocadoroIcon} alt="AvocadoroToast" height={UiConst.ICON_HEIGHT} />
+                <img
+                  src={AvocadoroIcon}
+                  alt="AvocadoroToast"
+                  height={UiConst.ICON_HEIGHT}
+                />
               </Icon>
             </Link>
           </Typography>
