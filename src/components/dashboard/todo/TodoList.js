@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TodoCard from './TodoCard';
+import TaskCard from './TaskCard';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Card from '@material-ui/core/Card';
@@ -10,7 +10,9 @@ import List from '@material-ui/core/List';
 
 const TodoList = ({ todos, addTodo }) => {
   console.log('Todos', todos);
-  const todoList = todos.map(todo => <TodoCard key={todo.id} />);
+  const todoList = todos.map(todo => (
+    <TaskCard key={todo.id} title={todo.title} />
+  ));
 
   return (
     <Card>

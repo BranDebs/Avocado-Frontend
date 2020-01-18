@@ -4,7 +4,8 @@ export function addTodo() {
   return {
     type: ADD_TODO,
     todo: {
-      id: Date.now()
+      id: Date.now(),
+      title: ''
     }
   };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoCard from './TodoCard';
+import TaskCard from './TaskCard';
 import './Todo.css';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -17,13 +17,13 @@ const InProgress = () => {
           </div>
           <div>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
           </div>
         </Grid>

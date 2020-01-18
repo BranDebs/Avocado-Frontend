@@ -19,7 +19,7 @@ const hoveredStyle = {
   content: 'card-content white-text'
 };
 
-const TodoCard = () => {
+const TaskCard = () => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
   const [text, setText] = useState('');
   const [isEdit, setIsEdit] = useState(false);
@@ -42,7 +42,7 @@ const TodoCard = () => {
     console.log(e.target.value);
   };
 
-  const showTodoCard = () => {
+  const showTaskCard = () => {
     if (isEdit) {
       return (
         <Typography>
@@ -95,7 +95,7 @@ const TodoCard = () => {
         <IconButton component="span">
           <DeleteIcon className={classes.iconSize} />
         </IconButton>
-        {showTodoCard()}
+        {showTaskCard()}
         <label htmlFor="contained-button-file">
           <Button
             variant="contained"
@@ -110,4 +110,4 @@ const TodoCard = () => {
   );
 };
 
-export default TodoCard;
+export default TaskCard;

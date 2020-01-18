@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoCard from './TodoCard';
+import TaskCard from './TaskCard';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
@@ -16,13 +16,13 @@ const Completed = () => {
           </div>
           <div>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
             <List>
-              <TodoCard />
+              <TaskCard />
             </List>
           </div>
         </Grid>
