@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => {
     editCompleted: (id, title) => dispatch(editCompletedTitle(id, title)),
     archiveCompleted: (id, title) => {
       dispatch(archiveCompleted(id, title));
+      dispatch(deleteCompleted(id))
     },
     deleteCompleted: id => dispatch(deleteCompleted(id))
   };
