@@ -96,8 +96,7 @@ function SignUpForm() {
                 Password
               </InputLabel>
               <Input
-                type={'password'}
-                value={values.password}
+                type='password'
                 onChange={handleChange('password')}
                 error={values.errors.password}
               />
@@ -107,8 +106,7 @@ function SignUpForm() {
                 Retype Password
               </InputLabel>
               <Input
-                type={'password'}
-                value={values.retypePassword}
+                type='password'
                 onChange={handleChange('retypePassword')}
                 error={values.errors.retypePassword}
               />
