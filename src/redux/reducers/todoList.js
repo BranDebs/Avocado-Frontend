@@ -1,4 +1,8 @@
-import { ADD_TODO, EDIT_TODO_TITLE } from 'redux/actions/actionTypes';
+import {
+  ADD_TODO,
+  EDIT_TODO_TITLE,
+  START_TODO
+} from 'redux/actions/actionTypes';
 
 const initialState = {
   todos: []
@@ -13,12 +17,19 @@ export default function(state = initialState, action) {
       };
     case EDIT_TODO_TITLE:
       // Look for the todo that we want to change
-      const newTodos = state.todos.map(todo =>
+      const editTodos = state.todos.map(todo =>
         todo.id === action.id ? { id: todo.id, title: action.title } : todo
       );
       return {
         ...state,
-        todos: [...newTodos]
+        todos: [...editTodos]
+      };
+    case START_TODO:
+      // Remove from the todo list
+      const startTodos = state.todos.filter(todo => todo.id !== action.id);
+      return {
+        ...state,
+        todos: [...startTodos]
       };
     default:
       return state;

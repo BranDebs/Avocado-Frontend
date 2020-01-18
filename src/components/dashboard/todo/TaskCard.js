@@ -20,7 +20,7 @@ const hoveredStyle = {
   content: 'card-content white-text'
 };
 
-const TaskCard = ({ id, title, btnType, onEditTitle }) => {
+const TaskCard = ({ id, title, btnType, onEditTitle, onTaskClick }) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -98,6 +98,7 @@ const TaskCard = ({ id, title, btnType, onEditTitle }) => {
             variant="contained"
             component="span"
             className={classes.buttonStyle}
+            onClick={() => onTaskClick(id, title)}
           >
             {getTaskButton(btnType)}
           </Button>
