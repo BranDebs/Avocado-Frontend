@@ -38,7 +38,7 @@ function SignInForm() {
       paddingBottom: 10
     },
     title: {
-        fontSize: 32,
+      fontSize: 32,
       paddingTop: 10,
       paddingBottom: 10
     }
@@ -77,10 +77,7 @@ function SignInForm() {
         <div className={classes.paper}>
           <Paper className="auth-paper">
             <Typography component="h3" className={classes.title}>
-              <Box fontWeight="fontWeightBold">
-                Login
-              </Box>
-
+              <Box fontWeight="fontWeightBold">Login</Box>
             </Typography>
             <FormControl fullWidth className={classes.textfield}>
               <InputLabel id="username" label="Username/Email Address">
