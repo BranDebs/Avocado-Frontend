@@ -56,7 +56,7 @@ const Settings = props => {
     setValues({ ...values, [name]: event.target.checked });
   };
 
-  const handleChange = name => event => {
+  const handleChangeForm = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
 
@@ -86,7 +86,7 @@ const Settings = props => {
         <form className={classes.textfield} noValidate>
           <TextField
             value={values.avocadoDur}
-            onChange={handleChange('avocadoDur')}
+            onChange={handleChangeForm('avocadoDur')}
             label="Avocado Duration"
             id="custom-avocadoro-duration"
             type="number"
@@ -100,7 +100,7 @@ const Settings = props => {
         <form className={classes.textfield} noValidate>
           <TextField
             value={values.shortBreakDur}
-            onChange={handleChange('shortBreakDur')}
+            onChange={handleChangeForm('shortBreakDur')}
             label="Short Break Duration"
             id="custom-short-break-duration"
             type="number"
@@ -114,7 +114,7 @@ const Settings = props => {
         <form className={classes.textfield} noValidate>
           <TextField
             value={values.longBreakDur}
-            onChange={handleChange('longBreakDur')}
+            onChange={handleChangeForm('longBreakDur')}
             label="Long Break Duration"
             id="custom-long-break-duration"
             type="number"
@@ -131,7 +131,7 @@ const Settings = props => {
         <Select
           labelId="daily-avocadoro-goal"
           value={values.goal}
-          onChange={handleChange('goal')}
+          onChange={handleChangeForm('goal')}
         >
           {GenerateGoals()}
         </Select>
