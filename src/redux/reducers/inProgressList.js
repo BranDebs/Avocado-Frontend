@@ -12,7 +12,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case EDIT_IN_PROGRESS_TITLE:
-      console.log('InProgress Edited');
       const updatedInProgress = state.inprogress.map(todo =>
         todo.id === action.id ? { id: todo.id, title: action.title } : todo
       );
