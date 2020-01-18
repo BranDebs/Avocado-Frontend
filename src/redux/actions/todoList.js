@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actionTypes';
+import { ADD_TODO, EDIT_TODO_TITLE } from './actionTypes';
 
 export function addTodo() {
   return {
@@ -8,4 +8,4 @@ export function addTodo() {
       title: ''
     }
   };
-}
+};

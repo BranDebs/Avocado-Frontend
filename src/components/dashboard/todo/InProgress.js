@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
+import {IN_PROGRESS} from 'const/Task'
 
 const InProgress = () => {
   return (
@@ -17,13 +18,13 @@ const InProgress = () => {
           </div>
           <div>
             <List>
-              <TaskCard />
+              <TaskCard btnType={IN_PROGRESS}/>
             </List>
             <List>
-              <TaskCard />
+              <TaskCard btnType={IN_PROGRESS}/>
             </List>
             <List>
-              <TaskCard />
+              <TaskCard btnType={IN_PROGRESS}/>
             </List>
           </div>
         </Grid>

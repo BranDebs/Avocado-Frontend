@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import {getTaskButton} from 'utils/taskUtil'
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',
@@ -19,9 +20,8 @@ const hoveredStyle = {
   content: 'card-content white-text'
 };
 
-const TaskCard = () => {
+const TaskCard = ({id, title, btnType, onEditTitle}) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
-  const [text, setText] = useState('');
   const [isEdit, setIsEdit] = useState(false);
 
   function onHover(e) {
@@ -38,25 +38,22 @@ const TaskCard = () => {
   };
 
   const handleTextChange = e => {
-    setText(e.target.value);
-    console.log(e.target.value);
+    onEditTitle(id, e.target.value);
   };
 
   const showTaskCard = () => {
     if (isEdit) {
       return (
-        <Typography>
           <TextField
             onChange={handleTextChange}
-            defaultValue={text}
+            defaultValue={title}
             multiline={true}
           >
-            {text}
+            {title}
           </TextField>
-        </Typography>
       );
     } else {
-      return <Typography className={classes.overflow}>{text}</Typography>;
+      return <Typography className={classes.overflow}>{title}</Typography>;
     }
   };
 
@@ -86,6 +83,8 @@ const TaskCard = () => {
   }));
   const classes = useStyles();
 
+
+
   return (
     <Card className={classes.cardStyle}>
       <CardContent className={classes.cardContentStyle}>
@@ -102,7 +101,7 @@ const TaskCard = () => {
             component="span"
             className={classes.buttonStyle}
           >
-            Archive
+            {getTaskButton(btnType)}
           </Button>
         </label>
       </CardContent>

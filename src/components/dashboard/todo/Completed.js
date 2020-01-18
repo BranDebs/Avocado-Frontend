@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
+import {COMPLETED} from 'const/Task'
 
 const Completed = () => {
   return (
@@ -16,13 +17,13 @@ const Completed = () => {
           </div>
           <div>
             <List>
-              <TaskCard />
+              <TaskCard btnType={COMPLETED}/>
             </List>
             <List>
-              <TaskCard />
+              <TaskCard btnType={COMPLETED}/>
             </List>
             <List>
-              <TaskCard />
+              <TaskCard btnType={COMPLETED}/>
             </List>
           </div>
         </Grid>
