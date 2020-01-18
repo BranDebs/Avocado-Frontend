@@ -8,21 +8,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 
-const TodoList = props => {
-  const [todoTasks, setTodoTasks] = useState(props.todoTasks);
-  const onClickFunc = e => {
-    const currentTodo = props.todoTasks;
-    const id = currentTodo.length;
-    const todo = { id: id, content: 'hello' };
-    props.addTodo([...currentTodo, todo]);
-    setTodoTasks([...todoTasks, todo]);
-  };
+const TodoList = ({ todos, addTodo }) => {
+  console.log('Todos', todos);
+  const todoList = todos.map(todo => <TodoCard key={todo.id} />);
 
-  const showTodoList = todoTasks.map(todo => (
-    <List>
-      <TodoCard key={todo.id} />
-    </List>
-  ));
   return (
     <Card>
       <CardContent>
@@ -32,10 +21,12 @@ const TodoList = props => {
               Todo
             </Typography>
             <Fab color="primary" aria-label="add" size={'small'}>
-              <AddIcon onClick={onClickFunc} />
+              <AddIcon onClick={addTodo} />
             </Fab>
           </div>
-          <div>{showTodoList}</div>
+          <div>
+            <List>{todoList}</List>
+          </div>
         </Grid>
       </CardContent>
     </Card>

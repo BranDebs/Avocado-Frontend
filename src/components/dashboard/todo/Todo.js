@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TodoList from './TodoList';
+import TodoList from 'containers/TodoList';
 import InProgress from './InProgress';
 import Completed from './Completed';
 import Grid from '@material-ui/core/Grid';
@@ -14,13 +14,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Todo = () => {
+const Todo = props => {
   const [todoTasks, addTodo] = useState([]);
   const classes = useStyles();
   return (
     <Grid container className={classes.root} spacing={4}>
       <Grid item xs={4}>
-        <TodoList todoTasks={todoTasks} addTodo={addTodo} />
+        <TodoList />
       </Grid>
       <Grid item xs={4}>
         <InProgress />
