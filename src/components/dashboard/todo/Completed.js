@@ -14,6 +14,7 @@ const Completed = ({ completed, editCompleted }) => {
       id={todo.id}
       title={todo.title}
       onEditTitle={editCompleted}
+      onTaskClick={() => {}}
       btnType={COMPLETED}
     />
   ));

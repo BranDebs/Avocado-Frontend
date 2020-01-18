@@ -1,4 +1,4 @@
-import { ADD_IN_PROGRESS } from './actionTypes';
+import { ADD_IN_PROGRESS, FINISH_IN_PROGRESS } from './actionTypes';
 
 export function addInProgress(id, title) {
   return {
@@ -7,5 +7,12 @@ export function addInProgress(id, title) {
       id: id,
       title: title
     }
+  };
+}
+
+export function finishInProgress(id) {
+  return {
+    type: FINISH_IN_PROGRESS,
+    id: id
   };
 }
