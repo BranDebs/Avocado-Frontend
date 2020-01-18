@@ -7,6 +7,7 @@ import { TimerState, TimeConst } from 'const/TimerConst';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './Timer.css';
+import {formatTimer} from 'utils/timerUtil';
 
 const Timer = () => {
   let startTimer = parseInt(TimeConst.AVOCADORO_TIME);
@@ -68,23 +69,6 @@ const Timer = () => {
       </Grid>
     </Paper>
   );
-};
-
-// Takes seconds and return in the format mm:ss
-const formatTimer = seconds => {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-
-  const minsStr = padZeroes(mins, 2);
-  const secsStr = padZeroes(secs, 2);
-
-  return minsStr + ':' + secsStr;
-};
-
-const padZeroes = (num, padding) => {
-  let str = num + '';
-  while (str.length < padding) str = '0' + str;
-  return str;
 };
 
 export default Timer;

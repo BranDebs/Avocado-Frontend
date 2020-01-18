@@ -16,6 +16,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import {secondsToMinutes} from 'utils/timerUtil';
 
 const useStyles = makeStyles(theme => ({
   selectEmpty: {
@@ -40,8 +41,8 @@ const useStyles = makeStyles(theme => ({
 
 function GenerateGoals() {
   const numList = [];
-  for (var i = 0; i < 10; i++) {
-    numList.push(<MenuItem value={i}>{i}</MenuItem>);
+  for (var num = 0; num < 10; num++) {
+    numList.push(<MenuItem value={num}>{num}</MenuItem>);
   }
   return numList;
 }
@@ -49,9 +50,9 @@ const Settings = props => {
   const settingsSaved = () => {};
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    avocadoDur: 25,
-    shortBreakDur: 5,
-    longBreakDur: 10,
+    avocadoDur: secondsToMinutes(TimeConst.AVOCADORO_TIME),
+    shortBreakDur: secondsToMinutes(TimeConst.SHORT_BREAK_TIME),
+    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME),
     goal: 3,
     autoStartBreak: true,
     autoStartAvocadoro: true,
