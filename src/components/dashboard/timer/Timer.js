@@ -7,7 +7,7 @@ import { TimerState, TimeConst } from 'const/TimerConst';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './Timer.css';
-import {formatTimer} from 'utils/timerUtil';
+import { formatTimer } from 'utils/timerUtil';
 
 const Timer = () => {
   let startTimer = parseInt(TimeConst.AVOCADORO_TIME);

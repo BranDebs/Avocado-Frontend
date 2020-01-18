@@ -16,7 +16,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import {secondsToMinutes} from 'utils/timerUtil';
+import { secondsToMinutes } from 'utils/timerUtil';
 
 const useStyles = makeStyles(theme => ({
   selectEmpty: {
@@ -70,7 +70,9 @@ const Settings = props => {
   return (
     <div>
       <Typography className={classes.settings}>
-        <Box fontWeight="fontWeightBold" className={classes.settings}>Settings</Box>
+        <Box fontWeight="fontWeightBold" className={classes.settings}>
+          Settings
+        </Box>
       </Typography>
       <IconButton component={'span'} className={classes.button}>
         <CloseIcon />
@@ -85,10 +87,9 @@ const Settings = props => {
           type="number"
           className={classes.formControl}
           InputLabelProps={{
-              shrink: true
+            shrink: true
           }}
-          inputProps={{ min: "5", max: "59"}}
-
+          inputProps={{ min: '5', max: '59' }}
         ></TextField>
       </form>
       <form className={classes.textfield} noValidate>
@@ -100,10 +101,9 @@ const Settings = props => {
           type="number"
           className={classes.formControl}
           InputLabelProps={{
-              shrink: true
+            shrink: true
           }}
-          inputProps={{ min: "1", max: "59"}}
-
+          inputProps={{ min: '1', max: '59' }}
         ></TextField>
       </form>
       <form className={classes.textfield} noValidate>
@@ -115,9 +115,9 @@ const Settings = props => {
           type="number"
           className={classes.formControl}
           InputLabelProps={{
-              shrink: true
+            shrink: true
           }}
-          inputProps={{ min: "1", max: "59"}}
+          inputProps={{ min: '1', max: '59' }}
         ></TextField>
       </form>
       <FormControl className={classes.formControl}>
