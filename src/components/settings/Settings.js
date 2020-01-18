@@ -39,34 +39,44 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function GenerateGoals() {
-  const numList = [];
-  for (var num = 0; num < 10; num++) {
-    numList.push(<MenuItem value={num}>{num}</MenuItem>);
-  }
-  return numList;
-}
 const Settings = props => {
   const settingsSaved = () => {};
   const classes = useStyles();
   const [values, setValues] = React.useState({
     avocadoDur: secondsToMinutes(TimeConst.AVOCADORO_TIME),
     shortBreakDur: secondsToMinutes(TimeConst.SHORT_BREAK_TIME),
-    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME),
-    goal: 3,
+    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME)
+  });
+  const [boolValues, setBoolValues] = React.useState({
     autoStartBreak: true,
     autoStartAvocadoro: true,
     audio: true,
     notification: true
-  });
+  })
+  const [currGoal, setCurrGoal] = React.useState(3);
 
   const handleChangeCheck = name => event => {
-    setValues({ ...values, [name]: event.target.checked });
+    setBoolValues({ ...boolValues, [name]: event.target.checked });
   };
 
+  const handleGoal = event => {
+    setCurrGoal(event.target.value);
+  };
   const handleChange = event => {
     setValues(event.target.value);
   };
+
+  function GenerateGoals() {
+    const numList = [];
+    for (let num = 1; num <= 10; num++) {
+      numList.push(
+        <MenuItem key={num} value={num}>
+          {num}
+        </MenuItem>
+      );
+    }
+    return numList;
+  }
   return (
     <div>
       <Typography className={classes.settings}>
@@ -78,6 +88,8 @@ const Settings = props => {
         <CloseIcon />
       </IconButton>
       <Divider />
+      <FormGroup row className={classes.textfield}>
+
       <form className={classes.textfield} noValidate>
         <TextField
           value={values.avocadoDur}
@@ -120,12 +132,13 @@ const Settings = props => {
           inputProps={{ min: '1', max: '59' }}
         ></TextField>
       </form>
+      </FormGroup>
       <FormControl className={classes.formControl}>
-        <InputLabel>Daily Avocadoro Goal</InputLabel>
+        <InputLabel id="daily-avocadoro-goal">Daily Avocadoro Goal</InputLabel>
         <Select
-          id="daily-avocadoro-goal"
-          value={values.goal}
-          onChange={handleChange}
+          labelId="daily-avocadoro-goal"
+          value={currGoal}
+          onChange={handleGoal}
         >
           {GenerateGoals()}
         </Select>
@@ -134,7 +147,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={values.autoStartAvocadoro}
+              checked={boolValues.autoStartAvocadoro}
               onChange={handleChangeCheck('autoStartAvocadoro')}
               value={values.autoStartAvocadoro}
             />
@@ -144,7 +157,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={values.audio}
+              checked={boolValues.audio}
               onChange={handleChangeCheck('audio')}
               value={values.audio}
             />
@@ -156,7 +169,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={values.autoStartBreak}
+              checked={boolValues.autoStartBreak}
               onChange={handleChangeCheck('autoStartBreak')}
               value={values.autoStartBreak}
             />
@@ -166,7 +179,7 @@ const Settings = props => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={values.notification}
+              checked={boolValues.notification}
               onChange={handleChangeCheck('notification')}
               value={values.notification}
             />
