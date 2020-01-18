@@ -1,7 +1,6 @@
 import {
   ADD_TODO,
   EDIT_TODO_TITLE,
-  START_TODO,
   DELETE_TODO
 } from 'redux/actions/actionTypes';
 
@@ -24,13 +23,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         todos: [...editTodos]
-      };
-    case START_TODO:
-      // Remove from the todo list
-      const startTodos = state.todos.filter(todo => todo.id !== action.id);
-      return {
-        ...state,
-        todos: [...startTodos]
       };
     case DELETE_TODO: {
       // Remove from the todo list
