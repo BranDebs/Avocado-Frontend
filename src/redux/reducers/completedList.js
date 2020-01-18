@@ -1,4 +1,9 @@
-import { EDIT_COMPLETED_TITLE, ADD_COMPLETED } from 'redux/actions/actionTypes';
+import {
+  EDIT_COMPLETED_TITLE,
+  ADD_COMPLETED,
+  ARCHIVE_COMPLETED,
+  DELETE_COMPLETED
+} from 'redux/actions/actionTypes';
 
 const initialState = {
   completed: []
@@ -19,6 +24,29 @@ export default function(state = initialState, action) {
       return {
         ...state,
         completed: [...state.completed, action.completed]
+      };
+    }
+    case ARCHIVE_COMPLETED: {
+      // Store into some archive storage
+      // ... pseudocode
+      console.log(
+        'Archived task id(',
+        action.id,
+        ') title(',
+        action.title,
+        ')'
+      );
+      return {
+        ...state
+      };
+    }
+    case DELETE_COMPLETED: {
+      const newCompleted = state.completed.filter(
+        todo => todo.id !== action.id
+      );
+      return {
+        ...state,
+        completed: [...newCompleted]
       };
     }
     default:

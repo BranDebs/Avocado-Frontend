@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addTodo, startTodo } from 'redux/actions/todoList';
+import { addTodo, startTodo, deleteTodo } from 'redux/actions/todoList';
 import { addInProgress } from 'redux/actions/inProgress';
 import { editTodoTitle } from 'redux/actions/taskCard';
 import TodoList from 'components/dashboard/todo/TodoList';
@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     startTodo: (id, title) => {
       dispatch(startTodo(id));
       dispatch(addInProgress(id, title));
-    }
+    },
+    deleteTodo: id => dispatch(deleteTodo(id))
   };
 };
 

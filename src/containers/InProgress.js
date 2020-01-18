@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { editInProgressTitle } from 'redux/actions/taskCard';
-import { finishInProgress } from 'redux/actions/inProgress';
+import { finishInProgress, deleteInProgress } from 'redux/actions/inProgress';
 import { addCompleted } from 'redux/actions/completed';
 
 import InProgress from 'components/dashboard/todo/InProgress';
@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     finishInProgress: (id, title) => {
       dispatch(finishInProgress(id));
       dispatch(addCompleted(id, title));
-    }
+    },
+    deleteInProgress: id => dispatch(deleteInProgress(id))
   };
 };
 

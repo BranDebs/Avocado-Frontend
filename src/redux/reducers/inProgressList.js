@@ -1,6 +1,7 @@
 import {
   EDIT_IN_PROGRESS_TITLE,
-  ADD_IN_PROGRESS
+  ADD_IN_PROGRESS,
+  DELETE_IN_PROGRESS
 } from 'redux/actions/actionTypes';
 import { FINISH_IN_PROGRESS } from '../actions/actionTypes';
 
@@ -25,6 +26,15 @@ export default function(state = initialState, action) {
         inprogress: [...state.inprogress, action.inprogress]
       };
     case FINISH_IN_PROGRESS: {
+      const newInProgress = state.inprogress.filter(
+        todo => todo.id !== action.id
+      );
+      return {
+        ...state,
+        inprogress: [...newInProgress]
+      };
+    }
+    case DELETE_IN_PROGRESS: {
       const newInProgress = state.inprogress.filter(
         todo => todo.id !== action.id
       );

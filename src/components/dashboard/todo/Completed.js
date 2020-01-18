@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { COMPLETED } from 'const/Task';
 
-const Completed = ({ completed, editCompleted }) => {
+const Completed = ({ completed, editCompleted, deleteCompleted }) => {
   const completedList = completed.map(todo => (
     <TaskCard
       key={todo.id}
@@ -15,6 +15,7 @@ const Completed = ({ completed, editCompleted }) => {
       title={todo.title}
       onEditTitle={editCompleted}
       onTaskClick={() => {}}
+      onDelete={deleteCompleted}
       btnType={COMPLETED}
     />
   ));
