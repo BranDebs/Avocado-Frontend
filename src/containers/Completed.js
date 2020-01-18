@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {editCompletedTitle} from 'redux/actions/taskCard';
+import { editCompletedTitle } from 'redux/actions/taskCard';
 import Completed from 'components/dashboard/todo/Completed';
 
 const mapStateToProps = (state, ownProps) => {

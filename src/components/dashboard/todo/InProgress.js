@@ -6,12 +6,18 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
-import {IN_PROGRESS} from 'const/Task'
+import { IN_PROGRESS } from 'const/Task';
 
-const InProgress = ({inprogress, editInProgress}) => {
-  const inprogressList = inprogress.map(
-    todo => <TaskCard key={todo.id} id={todo.id} title={todo.title} onEditTitle={editInProgress} btnType={IN_PROGRESS} />
-  )
+const InProgress = ({ inprogress, editInProgress }) => {
+  const inprogressList = inprogress.map(todo => (
+    <TaskCard
+      key={todo.id}
+      id={todo.id}
+      title={todo.title}
+      onEditTitle={editInProgress}
+      btnType={IN_PROGRESS}
+    />
+  ));
   return (
     <Card>
       <CardContent>
@@ -20,9 +26,7 @@ const InProgress = ({inprogress, editInProgress}) => {
             <Typography variant="h6">In Progress</Typography>
           </div>
           <div>
-            <List>
-              {inprogressList}
-            </List>
+            <List>{inprogressList}</List>
           </div>
         </Grid>
       </CardContent>

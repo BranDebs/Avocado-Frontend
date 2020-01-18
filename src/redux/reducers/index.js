@@ -4,4 +4,9 @@ import todolist from 'redux/reducers/todoList';
 import inprogresslist from 'redux/reducers/inProgressList';
 import completedlist from 'redux/reducers/completedList';
 
-export default combineReducers({ settings, todolist, inprogresslist, completedlist});
+export default combineReducers({
+  settings,
+  todolist,
+  inprogresslist,
+  completedlist
+});

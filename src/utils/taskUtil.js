@@ -1,4 +1,11 @@
-import {TODO, IN_PROGRESS, COMPLETED, BTN_START, BTN_FINISH, BTN_ARCHIVE} from 'const/Task';
+import {
+  TODO,
+  IN_PROGRESS,
+  COMPLETED,
+  BTN_START,
+  BTN_FINISH,
+  BTN_ARCHIVE
+} from 'const/Task';
 
 export function getTaskButton(taskType) {
   switch (taskType) {
@@ -9,6 +16,6 @@ export function getTaskButton(taskType) {
     case COMPLETED:
       return BTN_ARCHIVE;
     default:
-      return "Button";
+      return 'Button';
   }
 }

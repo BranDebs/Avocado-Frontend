@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { addTodo } from 'redux/actions/todoList';
-import {editTodoTitle} from 'redux/actions/taskCard';
+import { editTodoTitle } from 'redux/actions/taskCard';
 import TodoList from 'components/dashboard/todo/TodoList';
 
 const mapStateToProps = (state, ownProps) => {

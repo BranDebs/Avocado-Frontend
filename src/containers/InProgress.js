@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {editInProgressTitle} from 'redux/actions/taskCard';
+import { editInProgressTitle } from 'redux/actions/taskCard';
 import InProgress from 'components/dashboard/todo/InProgress';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editInProgress:  (id, title) => dispatch(editInProgressTitle(id, title))
+    editInProgress: (id, title) => dispatch(editInProgressTitle(id, title))
   };
 };
 

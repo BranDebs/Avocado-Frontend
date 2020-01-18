@@ -7,11 +7,17 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
-import {TODO} from 'const/Task'
+import { TODO } from 'const/Task';
 
 const TodoList = ({ todos, addTodo, editTodo }) => {
   const todoList = todos.map(todo => (
-    <TaskCard key={todo.id} id={todo.id} title={todo.title} onEditTitle={editTodo} btnType={TODO} />
+    <TaskCard
+      key={todo.id}
+      id={todo.id}
+      title={todo.title}
+      onEditTitle={editTodo}
+      btnType={TODO}
+    />
   ));
   return (
     <Card>
