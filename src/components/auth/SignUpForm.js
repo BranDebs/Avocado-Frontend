@@ -60,10 +60,6 @@ function SignUpForm() {
     return isValid;
   };
 
-  // onsubmit(e) {
-  //   e.preventDefault();
-  //
-  // }
   const classes = useStyles();
 
   return (
