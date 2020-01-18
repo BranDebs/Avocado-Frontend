@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO_TITLE } from './actionTypes';
+import { ADD_TODO, START_TODO } from './actionTypes';
 
 export function addTodo() {
   return {
@@ -7,5 +7,12 @@ export function addTodo() {
       id: Date.now(),
       title: ''
     }
+  };
+}
+
+export function startTodo(id) {
+  return {
+    type: START_TODO,
+    id: id
   };
 }

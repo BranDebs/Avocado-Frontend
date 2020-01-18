@@ -9,13 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { TODO } from 'const/Task';
 
-const TodoList = ({ todos, addTodo, editTodo }) => {
+const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
   const todoList = todos.map(todo => (
     <TaskCard
       key={todo.id}
       id={todo.id}
       title={todo.title}
       onEditTitle={editTodo}
+      onTaskClick={startTodo}
       btnType={TODO}
     />
   ));
