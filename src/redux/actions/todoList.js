@@ -1,4 +1,4 @@
-import { ADD_TODO, START_TODO } from './actionTypes';
+import { ADD_TODO, START_TODO, DELETE_TODO } from './actionTypes';
 
 export function addTodo() {
   return {
@@ -10,9 +10,9 @@ export function addTodo() {
   };
 }
 
-export function startTodo(id) {
+export function deleteTodo(id) {
   return {
-    type: START_TODO,
+    type: DELETE_TODO,
     id: id
   };
 }

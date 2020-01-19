@@ -14,6 +14,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import validateInput from 'server/validations/ValidateLogin';
+import Box from '@material-ui/core/Box';
 
 function SignInForm() {
   const [values, setValues] = React.useState({
@@ -31,6 +32,15 @@ function SignInForm() {
     paper: {
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3)
+    },
+    textfield: {
+      paddingTop: 10,
+      paddingBottom: 10
+    },
+    title: {
+      fontSize: 32,
+      paddingTop: 10,
+      paddingBottom: 10
     }
   }));
 
@@ -66,26 +76,24 @@ function SignInForm() {
       <Grid item xs={4}>
         <div className={classes.paper}>
           <Paper className="auth-paper">
-            <Typography variant="h5" component="h3">
-              Login
+            <Typography component="h3" className={classes.title}>
+              <Box fontWeight="fontWeightBold">Login</Box>
             </Typography>
-            <FormControl fullWidth>
+            <FormControl fullWidth className={classes.textfield}>
               <InputLabel id="username" label="Username/Email Address">
                 Username/Email Address
               </InputLabel>
               <Input
-                id="standard-adornment-username"
-                aria-describedby="standard-weight-helper-text"
                 value={values.username}
                 error={values.errors.username}
+                onChange={handleChange('username')}
               />
             </FormControl>
-            <FormControl fullWidth className="divider">
+            <FormControl fullWidth className={classes.textfield}>
               <InputLabel id="password" label="Password">
                 Password
               </InputLabel>
               <Input
-                id="standard-adornment-password"
                 type={values.showPassword ? 'text' : 'password'}
                 value={values.password}
                 onChange={handleChange('password')}
