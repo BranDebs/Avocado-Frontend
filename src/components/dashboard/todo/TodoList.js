@@ -8,8 +8,19 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { TODO } from 'const/Task';
+import {makeStyles} from "@material-ui/core/styles";
 
 const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
+  const useStyles = makeStyles(theme => ({
+    buttonAlign: {
+      float: 'right'
+    },
+    taskCard: {
+      marginBottom: 100
+    }
+  }));
+  const classes = useStyles();
+
   const todoList = todos.map(todo => (
     <TaskCard
       key={todo.id}
@@ -20,6 +31,7 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
       btnType={TODO}
     />
   ));
+
   return (
     <Card>
       <CardContent>
@@ -28,7 +40,7 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo }) => {
             <Typography variant="h6" display={'inline'} style={{ flex: 1 }}>
               Todo
             </Typography>
-            <Fab color="primary" aria-label="add" size={'small'}>
+            <Fab color="primary" aria-label="add" size={'small'} className={classes.buttonAlign}>
               <AddIcon onClick={addTodo} />
             </Fab>
           </div>
