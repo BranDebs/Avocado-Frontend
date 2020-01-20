@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './Timer.css';
 import { formatTimer } from 'utils/timerUtil';
+import { playAlarm } from 'utils/audio';
 
 const Timer = () => {
   let startTimer = parseInt(TimeConst.AVOCADORO_TIME);
@@ -28,8 +29,11 @@ const Timer = () => {
             prevTime = curTime;
             let calcTime = Math.round(timer - timeDelta / 1000);
             calcTime = calcTime < 0 ? 0 : calcTime;
-            if (calcTime === 0 && timerState === TimerState.AVOCADORO) {
-              setAvocombo(avocomboCount + 1);
+            if (calcTime === 0) {
+              if (timerState === TimerState.AVOCADORO) {
+                setAvocombo(avocomboCount + 1);
+              }
+              playAlarm();
             }
             return calcTime;
           });
