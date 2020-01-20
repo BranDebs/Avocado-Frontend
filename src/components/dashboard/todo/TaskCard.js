@@ -9,8 +9,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { getTaskButton } from 'utils/taskUtil';
-import Grid from "@material-ui/core/Grid";
-import {FONT_S} from 'const/Font';
+import Grid from '@material-ui/core/Grid';
+import { FONT_S } from 'const/Font';
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',
@@ -62,13 +62,17 @@ const TaskCard = ({
               input: classes.textBoxStyle
             }
           }}
-          variant={"outlined"}
+          variant={'outlined'}
         >
           {title}
         </TextField>
       );
     } else {
-      return <Typography align="left" className={classes.overflow}>{title}</Typography>;
+      return (
+        <Typography align="left" className={classes.overflow}>
+          {title}
+        </Typography>
+      );
     }
   };
 
@@ -86,7 +90,7 @@ const TaskCard = ({
     },
     overflow: {
       overflowWrap: 'break-word',
-      padding: "10px",
+      padding: '10px',
       fontSize: FONT_S
     },
     cardStyle: {
@@ -105,9 +109,9 @@ const TaskCard = ({
     <Card className={classes.cardStyle}>
       <Grid container spacing={0} padding={0}>
         <Grid item xs={8}>
-            {showTaskCard()}
+          {showTaskCard()}
         </Grid>
-      <Grid item xs={4}>
+        <Grid item xs={4}>
           <IconButton component="span" onClick={handleIsEdit}>
             <EditIcon className={classes.iconSize} />
           </IconButton>
@@ -116,16 +120,15 @@ const TaskCard = ({
           </IconButton>
           <label htmlFor="contained-button-file">
             <Button
-                variant="contained"
-                component="span"
-                className={classes.buttonStyle}
-                onClick={() => onTaskClick(id, title)}
+              variant="contained"
+              component="span"
+              className={classes.buttonStyle}
+              onClick={() => onTaskClick(id, title)}
             >
               {getTaskButton(btnType)}
             </Button>
           </label>
-      </Grid>
-
+        </Grid>
       </Grid>
     </Card>
   );

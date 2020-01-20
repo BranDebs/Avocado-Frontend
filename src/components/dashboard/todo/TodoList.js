@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { TODO } from 'const/Task';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
   const useStyles = makeStyles(theme => ({
@@ -41,7 +41,12 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
             <Typography variant="h6" display={'inline'} style={{ flex: 1 }}>
               Todo
             </Typography>
-            <Fab color="primary" aria-label="add" size={'small'} className={classes.buttonAlign}>
+            <Fab
+              color="primary"
+              aria-label="add"
+              size={'small'}
+              className={classes.buttonAlign}
+            >
               <AddIcon onClick={addTodo} />
             </Fab>
           </div>
