@@ -4,6 +4,7 @@ import { TimeConst, TimerState } from 'const/Timer';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import {makeStyles} from "@material-ui/core/styles";
 
 function a11yProps(index) {
   return {
@@ -44,31 +45,47 @@ const Selections = props => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const useStyles = makeStyles(theme => ({
+    tab: {
+      minWidth: 115
+    }
+  }));
+  const classes = useStyles();
+
   return (
     <AppBar position="static">
       <Tabs
         value={value}
-        aria-label="simple tabs example"
-        variant="fullWidth"
+        variant="scrollable"
         onChange={handleChange}
+        scrollButtons='auto'
       >
         <Tab
           label="Avocadoro"
           name="avocadoro"
+          className={classes.tab}
           onClick={onClickFunc}
           {...a11yProps(0)}
         />
         <Tab
           label="Short Break"
           name="short_break"
+          className={classes.tab}
           onClick={onClickFunc}
           {...a11yProps(1)}
         />
         <Tab
           label="Long Break"
           name="long_break"
+          className={classes.tab}
           onClick={onClickFunc}
           {...a11yProps(2)}
+        />
+        <Tab
+          label="Avocombo"
+          name="avocombo"
+          className={classes.tab}
         />
       </Tabs>
     </AppBar>
