@@ -4,7 +4,7 @@ import { TimeConst, TimerState } from 'const/Timer';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 function a11yProps(index) {
   return {
@@ -59,7 +59,7 @@ const Selections = props => {
         value={value}
         variant="scrollable"
         onChange={handleChange}
-        scrollButtons='auto'
+        scrollButtons="auto"
       >
         <Tab
           label="Avocadoro"
@@ -82,11 +82,7 @@ const Selections = props => {
           onClick={onClickFunc}
           {...a11yProps(2)}
         />
-        <Tab
-          label="Avocombo"
-          name="avocombo"
-          className={classes.tab}
-        />
+        <Tab label="Avocombo" name="avocombo" className={classes.tab} />
       </Tabs>
     </AppBar>
   );
