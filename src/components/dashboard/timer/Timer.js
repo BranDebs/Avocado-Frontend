@@ -3,7 +3,7 @@ import Selections from './Selections';
 import Controls from './Controls';
 import TimerInfo from './TimerInfo';
 import Avocombo from './Avocombo';
-import { TimerState, TimeConst } from 'const/TimerConst';
+import { TimerState, TimeConst } from 'const/Timer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './Timer.css';

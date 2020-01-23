@@ -9,15 +9,17 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { getTaskButton } from 'utils/taskUtil';
+import Grid from '@material-ui/core/Grid';
+import { FONT_S } from 'const/Font';
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',
-  content: 'card-content white-text'
+  shadow: 1
 };
 
 const hoveredStyle = {
   card: 'card green darken-3',
-  content: 'card-content white-text'
+  shadow: 3
 };
 
 const TaskCard = ({
@@ -55,62 +57,79 @@ const TaskCard = ({
           onChange={handleTextChange}
           defaultValue={title}
           multiline={true}
+          InputProps={{
+            classes: {
+              input: classes.textBoxStyle
+            }
+          }}
+          variant={'outlined'}
         >
           {title}
         </TextField>
       );
     } else {
-      return <Typography className={classes.overflow}>{title}</Typography>;
+      return (
+        <Typography align="left" className={classes.overflow}>
+          {title}
+        </Typography>
+      );
     }
   };
 
   const useStyles = makeStyles(theme => ({
-    cardContentStyle: {
-      paddingTop: 0,
-      paddingRight: 5
-    },
     buttonStyle: {
       maxHeight: 20,
       maxWidth: 60,
       minWidth: 60,
       minHeight: 20,
-      fontSize: 10,
-      float: 'right'
+      fontSize: 10
     },
     iconSize: {
       fontSize: 16,
       float: 'right'
     },
     overflow: {
-      overflowWrap: 'break-word'
+      overflowWrap: 'break-word',
+      padding: '10px',
+      fontSize: FONT_S
     },
     cardStyle: {
-      width: 'inherit'
+      width: 'inherit',
+      marginBottom: 10,
+      paddingTop: 5,
+      paddingBottom: 5
+    },
+    textBoxStyle: {
+      fontSize: FONT_S
     }
   }));
   const classes = useStyles();
 
   return (
     <Card className={classes.cardStyle}>
-      <CardContent className={classes.cardContentStyle}>
-        <IconButton component="span" onClick={handleIsEdit}>
-          <EditIcon className={classes.iconSize} />
-        </IconButton>
-        <IconButton component="span" onClick={() => onDelete(id)}>
-          <DeleteIcon className={classes.iconSize} />
-        </IconButton>
-        {showTaskCard()}
-        <label htmlFor="contained-button-file">
-          <Button
-            variant="contained"
-            component="span"
-            className={classes.buttonStyle}
-            onClick={() => onTaskClick(id, title)}
-          >
-            {getTaskButton(btnType)}
-          </Button>
-        </label>
-      </CardContent>
+      <Grid container spacing={0} padding={0}>
+        <Grid item xs={8}>
+          {showTaskCard()}
+        </Grid>
+        <Grid item xs={4}>
+          <IconButton component="span" onClick={handleIsEdit}>
+            <EditIcon className={classes.iconSize} />
+          </IconButton>
+          <IconButton component="span" onClick={() => onDelete(id)}>
+            <DeleteIcon className={classes.iconSize} />
+          </IconButton>
+          <label htmlFor="contained-button-file">
+            <Button
+              variant="contained"
+              component="span"
+              className={classes.buttonStyle}
+              onClick={() => onTaskClick(id, title)}
+            >
+              {getTaskButton(btnType)}
+            </Button>
+          </label>
+        </Grid>
+      </Grid>
     </Card>
   );
 };
