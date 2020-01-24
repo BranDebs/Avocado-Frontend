@@ -8,7 +8,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import { TimeConst } from 'const/Timer';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
@@ -16,7 +15,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { secondsToMinutes } from 'utils/timerUtil';
+import { secondsToMinutes, minutesToSeconds } from 'utils/timerUtil';
 
 const useStyles = makeStyles(theme => ({
   selectEmpty: {
@@ -48,7 +47,7 @@ const Settings = ({ onSettings, onSave, settings }) => {
   };
 
   const handleChangeForm = name => event => {
-    setValues({ ...values, [name]: event.target.value });
+    setValues({ ...values, [name]: minutesToSeconds(event.target.value)});
   };
 
   function GenerateGoals() {
@@ -79,7 +78,7 @@ const Settings = ({ onSettings, onSave, settings }) => {
       <FormGroup row className={classes.textfield}>
         <form className={classes.textfield} noValidate>
           <TextField
-            value={values.avocadoDur}
+            value={secondsToMinutes(values.avocadoDur)}
             onChange={handleChangeForm('avocadoDur')}
             label="Avocado Duration"
             id="custom-avocadoro-duration"
@@ -93,7 +92,7 @@ const Settings = ({ onSettings, onSave, settings }) => {
         </form>
         <form className={classes.textfield} noValidate>
           <TextField
-            value={values.shortBreakDur}
+            value={secondsToMinutes(values.shortBreakDur)}
             onChange={handleChangeForm('shortBreakDur')}
             label="Short Break Duration"
             id="custom-short-break-duration"
@@ -107,7 +106,7 @@ const Settings = ({ onSettings, onSave, settings }) => {
         </form>
         <form className={classes.textfield} noValidate>
           <TextField
-            value={values.longBreakDur}
+            value={secondsToMinutes(values.longBreakDur)}
             onChange={handleChangeForm('longBreakDur')}
             label="Long Break Duration"
             id="custom-long-break-duration"

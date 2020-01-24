@@ -18,3 +18,7 @@ export const padZeroes = (num, padding) => {
 export const secondsToMinutes = seconds => {
   return seconds / 60;
 };
+
+export const minutesToSeconds = mins => {
+  return mins * 60;
+}
