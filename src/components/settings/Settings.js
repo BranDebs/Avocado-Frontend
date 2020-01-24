@@ -47,7 +47,7 @@ const Settings = ({ onSettings, onSave, settings }) => {
   };
 
   const handleChangeForm = name => event => {
-    setValues({ ...values, [name]: minutesToSeconds(event.target.value)});
+    setValues({ ...values, [name]: minutesToSeconds(event.target.value) });
   };
 
   function GenerateGoals() {

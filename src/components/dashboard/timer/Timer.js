@@ -10,7 +10,7 @@ import './Timer.css';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
 
-const Timer = ({settings}) => {
+const Timer = ({ settings }) => {
   const [initTimer, setInitTimer] = useState(settings.settings.avocadoDur);
   const [timer, setTimer] = useState(initTimer);
   const [hasStarted, setTimerToggle] = useState(false);

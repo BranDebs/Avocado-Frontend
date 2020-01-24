@@ -21,4 +21,4 @@ export const secondsToMinutes = seconds => {
 
 export const minutesToSeconds = mins => {
   return mins * 60;
-}
+};
