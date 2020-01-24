@@ -1,5 +1,5 @@
 import { SETTINGS_TOGGLE, SETTINGS_SAVE } from 'redux/actions/actionTypes';
-import { TimeConst } from 'const/TimerConst';
+import { TimeConst } from 'const/Timer';
 import { secondsToMinutes } from 'utils/timerUtil';
 
 const initialState = {
