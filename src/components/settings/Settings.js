@@ -64,11 +64,10 @@ const Settings = ({ onSettings, onSave, settings }) => {
   }
   return (
     <div>
-      <Typography className={classes.settings}>
-        <Box fontWeight="fontWeightBold" className={classes.settings}>
-          Settings
-        </Box>
-      </Typography>
+      <Box fontWeight="fontWeightBold" className={classes.settings}>
+        <Typography className={classes.settings}>Settings</Typography>
+      </Box>
+
       <IconButton
         component={'span'}
         className={classes.button}
