@@ -3,17 +3,16 @@ import Selections from './Selections';
 import Controls from './Controls';
 import TimerInfo from './TimerInfo';
 import Avocombo from './Avocombo';
-import { TimerState, TimeConst } from 'const/Timer';
+import { TimerState } from 'const/Timer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './Timer.css';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
 
-const Timer = () => {
-  let startTimer = parseInt(TimeConst.AVOCADORO_TIME);
-  const [initTimer, setInitTimer] = useState(startTimer);
-  const [timer, setTimer] = useState(startTimer);
+const Timer = ({ settings }) => {
+  const [initTimer, setInitTimer] = useState(settings.settings.avocadoDur);
+  const [timer, setTimer] = useState(initTimer);
   const [hasStarted, setTimerToggle] = useState(false);
   const [timerState, setTimerState] = useState(TimerState.AVOCADORO);
   const [avocomboCount, setAvocombo] = useState(0);
@@ -55,6 +54,7 @@ const Timer = () => {
             setInitTimerFunc={setInitTimer}
             setTimerToggleFunc={setTimerToggle}
             setTimerStateFunc={setTimerState}
+            settings={settings.settings}
           />
         </Grid>
         <Grid item xs={12} className={'timer-style'}>

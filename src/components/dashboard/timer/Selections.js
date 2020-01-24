@@ -1,6 +1,6 @@
 import React from 'react';
 import './Timer.css';
-import { TimeConst, TimerState } from 'const/Timer';
+import { TimerState } from 'const/Timer';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -17,19 +17,19 @@ const Selections = props => {
   const onClickFunc = e => {
     switch (e.currentTarget.name) {
       case 'avocadoro':
-        props.setTimerFunc(TimeConst.AVOCADORO_TIME);
-        props.setInitTimerFunc(TimeConst.AVOCADORO_TIME);
+        props.setTimerFunc(props.settings.avocadoDur);
+        props.setInitTimerFunc(props.settings.avocadoDur);
         props.setTimerStateFunc(TimerState.AVOCADORO);
         break;
       case 'short_break':
-        props.setTimerFunc(TimeConst.SHORT_BREAK_TIME);
-        props.setInitTimerFunc(TimeConst.SHORT_BREAK_TIME);
-        props.setTimerStateFunc(TimerState.SHORT_BREAK);
+        props.setTimerFunc(props.settings.shortBreakDur);
+        props.setInitTimerFunc(props.settings.shortBreakDur);
+        props.setTimerStateFunc(props.settings.shortBreakDur);
         break;
       case 'long_break':
-        props.setTimerFunc(TimeConst.LONG_BREAK_TIME);
-        props.setInitTimerFunc(TimeConst.LONG_BREAK_TIME);
-        props.setTimerStateFunc(TimerState.LONG_BREAK);
+        props.setTimerFunc(props.settings.longBreakDur);
+        props.setInitTimerFunc(props.settings.longBreakDur);
+        props.setTimerStateFunc(props.settings.longBreakDur);
         break;
       case 'settings':
         props.setTimerToggleFunc(false);
