@@ -8,9 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
-  },
-  control: {
-    padding: theme.spacing(2)
   }
 }));
 
@@ -18,17 +15,19 @@ const Todo = props => {
   const [todoTasks, addTodo] = useState([]);
   const classes = useStyles();
   return (
-    <Grid container className={classes.root} spacing={4}>
-      <Grid item xs={4}>
-        <TodoList />
+    <div className={classes.root}>
+      <Grid container spacing={3} wrap={'nowrap'}>
+        <Grid item lg={4}>
+          <TodoList />
+        </Grid>
+        <Grid item lg={4}>
+          <InProgress />
+        </Grid>
+        <Grid item lg={4}>
+          <Completed />
+        </Grid>
       </Grid>
-      <Grid item xs={4}>
-        <InProgress />
-      </Grid>
-      <Grid item xs={4}>
-        <Completed />
-      </Grid>
-    </Grid>
+    </div>
   );
 };
 

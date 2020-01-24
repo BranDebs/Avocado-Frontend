@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { COMPLETED } from 'const/Task';
+import { makeStyles } from '@material-ui/core/styles';
+import { UiConst } from 'const/UiConst';
 
 const Completed = ({
   completed,
@@ -24,8 +26,15 @@ const Completed = ({
       btnType={COMPLETED}
     />
   ));
+  const useStyles = makeStyles(theme => ({
+    root: {
+      minWidth: UiConst.CARD_MIN_WIDTH
+    }
+  }));
+  const classes = useStyles();
+
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Grid item>
           <div className={'task-title'}>

@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { TODO } from 'const/Task';
 import { makeStyles } from '@material-ui/core/styles';
+import { UiConst } from 'const/UiConst';
 
 const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
   const useStyles = makeStyles(theme => ({
@@ -17,6 +18,9 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
     },
     taskCard: {
       marginBottom: 100
+    },
+    root: {
+      minWidth: UiConst.CARD_MIN_WIDTH
     }
   }));
   const classes = useStyles();
@@ -34,7 +38,7 @@ const TodoList = ({ todos, addTodo, editTodo, startTodo, deleteTodo }) => {
   ));
 
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Grid item>
           <div className={'task-title'}>

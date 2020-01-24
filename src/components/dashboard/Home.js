@@ -8,14 +8,14 @@ import './Home.css';
 class Home extends React.Component {
   render() {
     return (
-      <Grid container spacing={3}>
+      <Grid container spacing={3} wrap={'nowrap'}>
         <SettingsModal />
-        <Grid item xs={4}>
+        <Grid item md={4}>
           <div className={'home-style'}>
             <Timer />
           </div>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item md={8}>
           <div className={'home-style'}>
             <Todo />
           </div>

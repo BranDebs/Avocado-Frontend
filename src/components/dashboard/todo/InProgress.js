@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
 import { IN_PROGRESS } from 'const/Task';
+import { UiConst } from 'const/UiConst';
+import { makeStyles } from '@material-ui/core/styles';
 
 const InProgress = ({
   inprogress,
@@ -25,8 +27,15 @@ const InProgress = ({
       btnType={IN_PROGRESS}
     />
   ));
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      minWidth: UiConst.CARD_MIN_WIDTH
+    }
+  }));
+  const classes = useStyles();
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Grid item>
           <div className={'task-title'}>
