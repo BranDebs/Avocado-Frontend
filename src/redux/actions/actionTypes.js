@@ -1,4 +1,5 @@
 export const SETTINGS_TOGGLE = 'SETTINGS_TOGGLE';
+export const SETTINGS_SAVE = 'SETTINGS_SAVE';
 
 export const ADD_TODO = 'ADD_TODO';
 export const ADD_IN_PROGRESS = 'ADD_IN_PROGRESS';

@@ -5,7 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Settings from 'components/settings/Settings';
 
-const SettingsModal = ({ settings, onSettings }) => {
+const SettingsModal = ({ settings, onSettings, onSave }) => {
   const useStyles = makeStyles(theme => ({
     modal: {
       display: 'flex',
@@ -37,7 +37,11 @@ const SettingsModal = ({ settings, onSettings }) => {
       >
         <Fade in={settings.active}>
           <div className={classes.paper}>
-            <Settings />
+            <Settings
+              onSettings={onSettings}
+              onSave={onSave}
+              settings={settings.settings}
+            />
           </div>
         </Fade>
       </Modal>
