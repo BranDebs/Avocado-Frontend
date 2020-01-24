@@ -39,18 +39,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Settings = props => {
+const Settings = ({ onSettings, onSave, settings }) => {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    avocadoDur: secondsToMinutes(TimeConst.AVOCADORO_TIME),
-    shortBreakDur: secondsToMinutes(TimeConst.SHORT_BREAK_TIME),
-    longBreakDur: secondsToMinutes(TimeConst.LONG_BREAK_TIME),
-    autoStartBreak: true,
-    autoStartAvocadoro: true,
-    audio: true,
-    notification: true,
-    goal: 3
-  });
+  const [values, setValues] = React.useState(settings);
 
   const handleChangeCheck = name => event => {
     setValues({ ...values, [name]: event.target.checked });
@@ -78,7 +69,11 @@ const Settings = props => {
           Settings
         </Box>
       </Typography>
-      <IconButton component={'span'} className={classes.button}>
+      <IconButton
+        component={'span'}
+        className={classes.button}
+        onClick={() => onSettings(false)}
+      >
         <CloseIcon />
       </IconButton>
       <Divider />
@@ -187,6 +182,7 @@ const Settings = props => {
           size="small"
           className={classes.button}
           startIcon={<SaveIcon />}
+          onClick={() => onSave(values)}
         >
           Save Changes
         </Button>
