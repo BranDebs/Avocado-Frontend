@@ -1,5 +1,5 @@
 import React from 'react';
-import Timer from './timer/Timer';
+import Timer from 'containers/Timer';
 import Todo from './todo/Todo';
 import Grid from '@material-ui/core/Grid';
 import SettingsModal from 'containers/SettingsModal';
