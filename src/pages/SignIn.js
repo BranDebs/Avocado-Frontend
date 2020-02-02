@@ -5,18 +5,22 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import './auth.css';
 import FormControl from '@material-ui/core/FormControl';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
 import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import validateInput from 'server/validations/ValidateLogin';
 import Box from '@material-ui/core/Box';
 
-function SignUpForm() {
+function SignIn() {
   const [values, setValues] = React.useState({
     username: '',
-    emailAddress: '',
     password: '',
-    retypePassword: '',
+    showPassword: false,
     identifier: '',
     errors: {},
     isLoading: false
@@ -69,11 +73,11 @@ function SignUpForm() {
         <div className={classes.paper}>
           <Paper className="auth-paper">
             <Typography component="h3" className={classes.title}>
-              <Box fontWeight="fontWeightBold">Sign Up</Box>
+              <Box fontWeight="fontWeightBold">Login</Box>
             </Typography>
             <FormControl fullWidth className={classes.textfield}>
-              <InputLabel id="username" label="Username">
-                Username
+              <InputLabel id="username" label="Username/Email Address">
+                Username/Email Address
               </InputLabel>
               <Input
                 value={values.username}
@@ -82,33 +86,25 @@ function SignUpForm() {
               />
             </FormControl>
             <FormControl fullWidth className={classes.textfield}>
-              <InputLabel id="emailAddress" label="Email Address">
-                Email Address
-              </InputLabel>
-              <Input
-                value={values.emailAddress}
-                error={values.errors.emailAddress}
-                onChange={handleChange('emailAddress')}
-              />
-            </FormControl>
-            <FormControl fullWidth className={classes.textfield}>
               <InputLabel id="password" label="Password">
                 Password
               </InputLabel>
               <Input
-                type="password"
+                type={values.showPassword ? 'text' : 'password'}
+                value={values.password}
                 onChange={handleChange('password')}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
                 error={values.errors.password}
-              />
-            </FormControl>
-            <FormControl fullWidth className={classes.textfield}>
-              <InputLabel id="password" label="Password">
-                Retype Password
-              </InputLabel>
-              <Input
-                type="password"
-                onChange={handleChange('retypePassword')}
-                error={values.errors.retypePassword}
               />
             </FormControl>
             <div className={classes.paper}>
@@ -117,7 +113,7 @@ function SignUpForm() {
                 color="primary"
                 disabled={values.isLoading}
               >
-                Create Account
+                Login
               </Button>
             </div>
             <Typography>or</Typography>
@@ -128,9 +124,13 @@ function SignUpForm() {
                 color="primary"
                 size="large"
               >
-                Sign Up with a Google Account
+                Login with a Google Account
               </Button>
             </div>
+            <Typography display={'inline'}>Don't have an account?</Typography>
+            <Button color="primary">
+              <Link to={'/signup'}>Sign Up</Link>
+            </Button>
           </Paper>
         </div>
       </Grid>
@@ -138,4 +138,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default SignIn;

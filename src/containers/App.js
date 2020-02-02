@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Navbar from './components/navigation/Navbar';
-import Home from './components/dashboard/Home';
-import SignUpForm from './components/auth/SignUpForm';
-import SignInForm from './components/auth/SignInForm';
-import About from './components/about/About';
+import Navbar from '../components/navigation/Navbar';
+import Home from 'pages/Home';
+import SignUp from 'pages/SignUp';
+import SignIn from 'pages/SignIn';
+import About from '../pages/About';
 
 class App extends React.Component {
   state = {
@@ -18,9 +18,9 @@ class App extends React.Component {
         <div className="App">
           <Navbar />
           <div className="container">
-            <Route exact path="/" render={props => <Home {...props} />} />
-            <Route path="/signup" component={SignUpForm} />
-            <Route path="/signin" component={SignInForm} />
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signin" component={SignIn} />
             <Route path="/about" component={About} />
           </div>
         </div>
