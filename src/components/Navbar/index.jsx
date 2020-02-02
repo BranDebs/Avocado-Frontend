@@ -33,8 +33,6 @@ const Navbar = ({onSettings}) => {
 
   const loggedIn = true
 
-  // console.log(ons);
-
   const handleSettingOpen = () => {
     onSettings(true);
   };
