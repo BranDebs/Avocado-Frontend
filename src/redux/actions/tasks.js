@@ -3,14 +3,11 @@ import {
   ADD_IN_PROGRESS,
   ADD_COMPLETED,
   ARCHIVE_COMPLETED,
-
   EDIT_TASK,
   DELETE_TASK
-} from './actionTypes'
+} from './actionTypes';
 
-import {
-  TASK_TODOS
-} from 'const/tasks'
+import { TASK_TODOS } from 'const/tasks';
 
 export function editTaskTitle(id, title) {
   return {
@@ -34,7 +31,7 @@ export function addTodos() {
       id: Date.now(),
       title: '',
       isEdit: true,
-      type: TASK_TODOS,
+      type: TASK_TODOS
     }
   };
 }
@@ -42,20 +39,20 @@ export function addTodos() {
 export function addInProgress(id) {
   return {
     type: ADD_IN_PROGRESS,
-    id: id,
+    id: id
   };
 }
 
 export function addCompleted(id) {
   return {
     type: ADD_COMPLETED,
-    id: id,
+    id: id
   };
 }
 
 export function archiveCompleted(id) {
   return {
     type: ARCHIVE_COMPLETED,
-    id: id,
+    id: id
   };
 }

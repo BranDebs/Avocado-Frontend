@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
 
-export function TaskList({tasks, actions, listName}) {
+export default function TaskList({tasks, actions, listName}) {
   const useStyles = makeStyles(theme => ({
     buttonAlign: {
       float: 'right'

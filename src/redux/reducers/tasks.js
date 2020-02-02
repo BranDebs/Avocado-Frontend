@@ -3,16 +3,11 @@ import {
   ADD_IN_PROGRESS,
   ADD_COMPLETED,
   ARCHIVE_COMPLETED,
-
   EDIT_TASK,
   DELETE_TASK
 } from 'redux/actions/actionTypes';
 
-import {
-  TASK_IN_PROGRESS,
-  TASK_COMPLETED
-} from 'const/tasks'
-import { TaskList } from '../../components/TaskTracker/TaskList';
+import { TASK_IN_PROGRESS, TASK_COMPLETED } from 'const/tasks';
 
 const initialState = {
   tasks: []
@@ -27,21 +22,21 @@ export default function(state = initialState, action) {
       };
     }
     case ADD_IN_PROGRESS: {
-      const newList = state.tasks.map(task =>
-        task.id === action.id ? {...task, type: TASK_IN_PROGRESS} : task
-      );
+      const newList = state.tasks.filter(task => task.id !== action.id);
+      const toAdd = state.tasks.filter(task => task.id === action.id).shift();
+      toAdd.type = TASK_IN_PROGRESS;
       return {
         ...state,
-        tasks: [...newList]
+        tasks: [...newList, toAdd]
       };
     }
     case ADD_COMPLETED: {
-      const newList = state.tasks.map(task =>
-        task.id === action.id ? {...task, type: TASK_COMPLETED} : task
-      );
+      const newList = state.tasks.filter(task => task.id !== action.id);
+      const toAdd = state.tasks.filter(task => task.id === action.id).shift();
+      toAdd.type = TASK_COMPLETED;
       return {
         ...state,
-        tasks: [...newList]
+        tasks: [...newList, toAdd]
       };
     }
     case ARCHIVE_COMPLETED: {
@@ -61,12 +56,12 @@ export default function(state = initialState, action) {
 
     case EDIT_TASK: {
       const newTasks = state.tasks.map(task =>
-        task.id === action.id ? {...task, title: action.title} : task
+        task.id === action.id ? { ...task, title: action.title } : task
       );
       return {
         ...state,
         tasks: [...newTasks]
-      }
+      };
     }
 
     case DELETE_TASK: {
@@ -74,7 +69,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         tasks: [...newTasks]
-      }
+      };
     }
 
     default:

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {TaskList} from './TaskList';
+import TaskList from 'components/TaskList';
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,7 +28,6 @@ export default  function({tasks, todosActions, inprogressActions, completedActio
   const inprogress = tasks.filter(task => task.type === TASK_IN_PROGRESS);
   const completed = tasks.filter(task => task.type === TASK_COMPLETED);
 
-console.log(todos)
 
   return (
     <Grid container className={classes.root} spacing={4}>
