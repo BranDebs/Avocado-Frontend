@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { toggleSettings } from 'redux/actions/settings';
-import SignedInLink from 'components/navigation/SignedInLink';
+import SignedInLink from 'components/Navbar/SignedInLink';
 
 const mapStateToProps = (state, ownProps) => {
   return {

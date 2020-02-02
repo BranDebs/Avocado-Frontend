@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedOutLink from './SignedOutLink';
-import SignedInLink from 'containers/SignedInLink';
-import './Navbar.css';
+import SignedInLink from 'containers/Navbar/SignedInLink';
+import './index.css';
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
