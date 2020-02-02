@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
+
+import {
+  TASK_TODOS,
+  TASK_IN_PROGRESS,
+  TASK_COMPLETED,
+
+  Start,
+  Finish,
+  Archive
+} from 'const/tasks'
+
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,7 +18,6 @@ import TextField from '@material-ui/core/TextField';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { getTaskButton } from 'utils/taskUtil';
 import Grid from '@material-ui/core/Grid';
 import { FONT_S } from 'const/Font';
 
@@ -24,10 +33,10 @@ const hoveredStyle = {
 
 const TaskCard = ({
   id,
+  type,
   title,
-  btnType,
-  onEditTitle,
   onTaskClick,
+  onEdit,
   onDelete
 }) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
@@ -47,7 +56,7 @@ const TaskCard = ({
   };
 
   const handleTextChange = e => {
-    onEditTitle(id, e.target.value);
+    onEdit(id, e.target.value);
   };
 
   const showTaskCard = () => {
@@ -125,7 +134,7 @@ const TaskCard = ({
               className={classes.buttonStyle}
               onClick={() => onTaskClick(id, title)}
             >
-              {getTaskButton(btnType)}
+              {getTaskButton(type)}
             </Button>
           </label>
         </Grid>
@@ -133,5 +142,17 @@ const TaskCard = ({
     </Card>
   );
 };
+
+const getTaskButton = (type) => {
+  switch(type) {
+    case TASK_TODOS:
+      return Start;
+    case TASK_IN_PROGRESS:
+      return Finish;
+    case TASK_COMPLETED:
+      return Archive;
+  }
+  throw "invalid task type";
+}
 
 export default TaskCard;
