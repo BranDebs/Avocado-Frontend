@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Timer from 'components/dashboard/timer/Timer';
+import Timer from 'components/timer/Timer';
 
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -27,5 +27,3 @@ const SignedOutLink = () => {
     </div>
   );
 };
-
-export default SignedOutLink;

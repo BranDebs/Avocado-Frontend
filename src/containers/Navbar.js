@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { toggleSettings } from 'redux/actions/settings';
-import SignedInLink from 'components/Navbar/SignedInLink';
+import Navbar from 'components/Navbar';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignedInLink);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

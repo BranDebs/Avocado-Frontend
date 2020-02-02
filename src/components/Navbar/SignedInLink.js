@@ -53,5 +53,3 @@ const SignedInLink = ({ onSettings }) => {
     </div>
   );
 };
-
-export default SignedInLink;
