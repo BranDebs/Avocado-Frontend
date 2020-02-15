@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { toggleSettings } from 'redux/actions/settings';
-import Settings from 'components/settings/SettingsModal';
+import Settings from 'components/SettingsModal';
 import { saveSettings } from 'redux/actions/settings';
 
 const mapStateToProps = (state, ownProps) => {
