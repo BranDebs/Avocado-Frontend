@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Selections from './Selections';
 import Controls from './Controls';
-import TimerInfo from './TimerInfo';
-import Avocombo from './Avocombo';
 import { TimerState } from 'const/Timer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import './Timer.css';
+import './index.css';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
 
@@ -58,10 +56,10 @@ const Timer = ({ settings }) => {
           />
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
-          <Avocombo avocomboCount={avocomboCount} />
+          {avocomboCount}
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
-          <TimerInfo getTime={formatTimer(timer)} />
+          {formatTimer(timer)}
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
           <Controls

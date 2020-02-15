@@ -1,5 +1,5 @@
 import React from 'react';
-import './Timer.css';
+import './index.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
