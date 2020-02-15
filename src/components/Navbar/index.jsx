@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AvocadoroIcon from 'images/Avocadoro-icon.svg';
-import { UiConst } from 'const/UiConst';
+import { UiConst } from 'const/ui';
 
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';

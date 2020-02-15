@@ -19,7 +19,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { FONT_S } from 'const/Font';
+import { FONT_S } from 'const/font';
 
 const defaultStyle = {
   card: 'card blue-grey darken-1',

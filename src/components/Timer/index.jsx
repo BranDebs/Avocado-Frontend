@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Selections from './Selections';
 import Controls from './Controls';
-import { TimerState } from 'const/Timer';
+import { TimerState } from 'const/timer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './index.css';
