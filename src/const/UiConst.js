@@ -10,4 +10,8 @@ export class UiConst {
   static get CARD_MIN_WIDTH() {
     return CARD_MIN_WIDTH;
   }
+
+  static get GRID_RATIO_AUTH_PAGE() {
+    return 4;
+  }
 }
