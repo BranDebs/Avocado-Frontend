@@ -10,9 +10,9 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import validateInput from 'server/validations/ValidateLogin';
 import Box from '@material-ui/core/Box';
-import { UiConst } from 'const/UiConst';
+import { UiConst } from 'const/ui';
 
-function SignUpForm() {
+function SignUp() {
   const [values, setValues] = React.useState({
     username: '',
     emailAddress: '',
@@ -139,4 +139,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default SignUp;

@@ -15,9 +15,9 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import validateInput from 'server/validations/ValidateLogin';
 import Box from '@material-ui/core/Box';
-import { UiConst } from 'const/UiConst';
+import { UiConst } from 'const/ui';
 
-function SignInForm() {
+function SignIn() {
   const [values, setValues] = React.useState({
     username: '',
     password: '',
@@ -65,10 +65,6 @@ function SignInForm() {
     return isValid;
   };
 
-  // onsubmit(e) {
-  //   e.preventDefault();
-  //
-  // }
   const classes = useStyles();
 
   return (
@@ -143,4 +139,4 @@ function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default SignIn;

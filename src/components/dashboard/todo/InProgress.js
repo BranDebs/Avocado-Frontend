@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
 import { IN_PROGRESS } from 'const/Task';
-import { UiConst } from 'const/UiConst';
+import { UiConst } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
 
 const InProgress = ({

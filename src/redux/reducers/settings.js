@@ -1,5 +1,5 @@
 import { SETTINGS_TOGGLE, SETTINGS_SAVE } from 'redux/actions/actionTypes';
-import { TimeConst } from 'const/Timer';
+import { TimeConst } from 'const/timer';
 
 const initialState = {
   active: false,

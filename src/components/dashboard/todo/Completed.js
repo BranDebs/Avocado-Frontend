@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { COMPLETED } from 'const/Task';
 import { makeStyles } from '@material-ui/core/styles';
-import { UiConst } from 'const/UiConst';
+import { UiConst } from 'const/ui';
 
 const Completed = ({
   completed,
