@@ -68,8 +68,8 @@ function SignIn() {
 
   return (
     <Grid container>
-      <Grid item xs={4}></Grid>
-      <Grid item xs={4}>
+      <Grid item lg={4}></Grid>
+      <Grid item lg={4}>
         <div className={classes.paper}>
           <Paper className="auth-paper">
             <Typography component="h3" className={classes.title}>
