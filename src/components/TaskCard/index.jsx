@@ -4,11 +4,10 @@ import {
   TASK_TODOS,
   TASK_IN_PROGRESS,
   TASK_COMPLETED,
-
   Start,
   Finish,
   Archive
-} from 'const/tasks'
+} from 'const/tasks';
 
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
@@ -22,32 +21,21 @@ import Grid from '@material-ui/core/Grid';
 import { FONT_S } from 'const/font';
 
 const defaultStyle = {
-  card: 'card blue-grey darken-1',
-  shadow: 1
+  backgroundColor: '#ffffff'
 };
 
 const hoveredStyle = {
-  card: 'card green darken-3',
-  shadow: 3
+  backgroundColor: '#f3ffff'
 };
 
-const TaskCard = ({
-  id,
-  type,
-  title,
-  onTaskClick,
-  onEdit,
-  onDelete
-}) => {
+const TaskCard = ({ id, type, title, onTaskClick, onEdit, onDelete }) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
   const [isEdit, setIsEdit] = useState(false);
 
   function onHover(e) {
-    console.log('Got to change colour here');
     setHoverStyle(hoveredStyle);
   }
   function onOut(e) {
-    console.log('Got to change back to default colour');
     setHoverStyle(defaultStyle);
   }
 
@@ -115,7 +103,12 @@ const TaskCard = ({
   const classes = useStyles();
 
   return (
-    <Card className={classes.cardStyle}>
+    <Card
+      className={classes.cardStyle}
+      style={hoverStyle}
+      onMouseEnter={onHover}
+      onMouseLeave={onOut}
+    >
       <Grid container spacing={0} padding={0}>
         <Grid item xs={8}>
           {showTaskCard()}
@@ -143,8 +136,8 @@ const TaskCard = ({
   );
 };
 
-const getTaskButton = (type) => {
-  switch(type) {
+const getTaskButton = type => {
+  switch (type) {
     case TASK_TODOS:
       return Start;
     case TASK_IN_PROGRESS:
@@ -152,7 +145,7 @@ const getTaskButton = (type) => {
     case TASK_COMPLETED:
       return Archive;
   }
-  throw "invalid task type";
-}
+  throw 'invalid task type';
+};
 
 export default TaskCard;
