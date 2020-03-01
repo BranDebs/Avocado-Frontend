@@ -10,6 +10,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import validateInput from 'server/validations/ValidateLogin';
 import Box from '@material-ui/core/Box';
+import { UiConst } from 'const/ui';
 
 function SignUp() {
   const [values, setValues] = React.useState({
@@ -64,8 +65,8 @@ function SignUp() {
 
   return (
     <Grid container>
-      <Grid item xs={4}></Grid>
-      <Grid item xs={4}>
+      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
+      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
         <div className={classes.paper}>
           <Paper className="auth-paper">
             <Typography component="h3" className={classes.title}>

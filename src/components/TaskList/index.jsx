@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
+import { UiConst } from 'const/ui';
 
 export default function TaskList({tasks, actions, listName}) {
   const useStyles = makeStyles(theme => ({
@@ -18,6 +19,9 @@ export default function TaskList({tasks, actions, listName}) {
     },
     taskCard: {
       marginBottom: 100
+    },
+    root: {
+      minWidth: UiConst.CARD_MIN_WIDTH
     }
   }));
   const classes = useStyles();
@@ -33,7 +37,7 @@ export default function TaskList({tasks, actions, listName}) {
     />
   ))
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
         <Grid item>
           <div className={'task-title'}>
