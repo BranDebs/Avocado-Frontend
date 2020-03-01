@@ -29,9 +29,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Navbar = ({onSettings}) => {
-
-  const loggedIn = true
+const Navbar = ({ onSettings }) => {
+  const loggedIn = true;
 
   const handleSettingOpen = () => {
     onSettings(true);
@@ -73,12 +72,12 @@ const Navbar = ({onSettings}) => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem >Profile</MenuItem>
-          <MenuItem >Logout</MenuItem>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Logout</MenuItem>
         </Menu>
       </div>
-    )
-  }
+    );
+  };
 
   const SignedOutLink = () => {
     return (
@@ -126,7 +125,7 @@ const Navbar = ({onSettings}) => {
               </Icon>
             </Link>
           </Typography>
-          {loggedIn ? <SignedInLink/> : <SignedOutLink/> }
+          {loggedIn ? <SignedInLink /> : <SignedOutLink />}
         </Toolbar>
       </AppBar>
     </div>

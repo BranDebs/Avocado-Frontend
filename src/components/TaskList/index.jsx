@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TaskCard from 'containers/TaskCard'
+import TaskCard from 'containers/TaskCard';
 
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
@@ -12,7 +12,7 @@ import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
 import { UiConst } from 'const/ui';
 
-export default function TaskList({tasks, actions, listName}) {
+export default function TaskList({ tasks, actions, listName }) {
   const useStyles = makeStyles(theme => ({
     buttonAlign: {
       float: 'right'
@@ -31,11 +31,10 @@ export default function TaskList({tasks, actions, listName}) {
       key={task.id}
       id={task.id}
       type={task.type}
-
       title={task.title}
       onTaskClick={actions.onClick}
     />
-  ))
+  ));
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -44,16 +43,16 @@ export default function TaskList({tasks, actions, listName}) {
             <Typography variant="h6" display={'inline'} style={{ flex: 1 }}>
               {listName}
             </Typography>
-            {actions.onAdd !== undefined ?
+            {actions.onAdd !== undefined ? (
               <Fab
-              color="primary"
-              aria-label="add"
-              size={'small'}
-              className={classes.buttonAlign}
-            >
-              <AddIcon onClick={actions.onAdd} />
-            </Fab> : null}
-
+                color="primary"
+                aria-label="add"
+                size={'small'}
+                className={classes.buttonAlign}
+              >
+                <AddIcon onClick={actions.onAdd} />
+              </Fab>
+            ) : null}
           </div>
           <div>
             <List>{taskCards}</List>
