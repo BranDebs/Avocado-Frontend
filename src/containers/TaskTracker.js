@@ -7,7 +7,8 @@ import {
   addInProgress,
   addCompleted,
   archiveCompleted,
-  deleteTask
+  deleteTask,
+  editTaskMode
 } from 'redux/actions/tasks';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +20,11 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     todosActions: {
-      onAdd: id => dispatch(addTodos(id)),
+      onAdd: () => {
+        const id = Date.now();
+        dispatch(addTodos(id));
+        dispatch(editTaskMode(id, true));
+      },
       onClick: id => {
         dispatch(addInProgress(id));
       }

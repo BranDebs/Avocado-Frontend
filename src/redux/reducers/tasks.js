@@ -4,13 +4,19 @@ import {
   ADD_COMPLETED,
   ARCHIVE_COMPLETED,
   EDIT_TASK,
-  DELETE_TASK
+  DELETE_TASK,
+  EDIT_TASK_MODE
 } from 'redux/actions/actionTypes';
 
 import { TASK_IN_PROGRESS, TASK_COMPLETED } from 'const/tasks';
 
 const initialState = {
-  tasks: []
+  tasks: [
+    // id: number
+    // title: string
+    // editing: bool
+    // type: string
+  ]
 };
 
 export default function(state = initialState, action) {
@@ -61,6 +67,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         tasks: [...newTasks]
+      };
+    }
+
+    case EDIT_TASK_MODE: {
+      const editTask = state.tasks.map(task =>
+        task.id === action.id
+          ? { ...task, editing: action.editing }
+          : { ...task, editing: false }
+      );
+      return {
+        ...state,
+        tasks: [...editTask]
       };
     }
 

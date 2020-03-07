@@ -4,10 +4,19 @@ import {
   ADD_COMPLETED,
   ARCHIVE_COMPLETED,
   EDIT_TASK,
-  DELETE_TASK
+  DELETE_TASK,
+  EDIT_TASK_MODE
 } from './actionTypes';
 
 import { TASK_TODOS } from 'const/tasks';
+
+export function editTaskMode(id, isEditing) {
+  return {
+    type: EDIT_TASK_MODE,
+    id: id,
+    editing: isEditing
+  };
+}
 
 export function editTaskTitle(id, title) {
   return {
@@ -24,13 +33,12 @@ export function deleteTask(id) {
   };
 }
 
-export function addTodos() {
+export function addTodos(id) {
   return {
     type: ADD_TODOS,
     task: {
-      id: Date.now(),
+      id: id,
       title: '',
-      isEdit: true,
       type: TASK_TODOS
     }
   };

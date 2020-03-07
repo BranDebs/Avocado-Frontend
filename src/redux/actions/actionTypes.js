@@ -11,3 +11,5 @@ export const ARCHIVE_COMPLETED = 'ARCHIVE_COMPLETED';
 
 export const EDIT_TASK = 'EDIT_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
+
+export const EDIT_TASK_MODE = 'EDIT_TASK_MODE';
