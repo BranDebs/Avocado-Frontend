@@ -13,7 +13,9 @@ const Timer = ({ settings }) => {
   const [timer, setTimer] = useState(initTimer);
   const [hasStarted, setTimerToggle] = useState(false);
   const [timerState, setTimerState] = useState(TimerState.AVOCADORO);
-  const [avocomboCount, setAvocombo] = useState(0);
+  const [avocount, setAvocount] = useState(0);
+  const [avocombo, setAvocombo] = useState(false);
+  const [avoComboCount, setAvocomboCount] = useState(0);
   useEffect(() => {
     let interval = null;
     if (hasStarted && timer !== 0) {
@@ -28,7 +30,7 @@ const Timer = ({ settings }) => {
             calcTime = calcTime < 0 ? 0 : calcTime;
             if (calcTime === 0) {
               if (timerState === TimerState.AVOCADORO) {
-                setAvocombo(avocomboCount + 1);
+                setAvocount(avocount + 1);
               }
               playAlarm();
             }
@@ -37,6 +39,36 @@ const Timer = ({ settings }) => {
         }, 1000);
       }
     } else {
+      if (timer === 0 && avocombo === true) {
+        switch (timerState) {
+          case TimerState.AVOCADORO:
+            setTimer(settings.settings.shortBreakDur);
+            setInitTimer(settings.settings.shortBreakDur);
+            setTimerState(TimerState.SHORT_BREAK);
+            setTimerToggle(settings.settings.autoStartAvocadoro);
+            setAvocomboCount(avoComboCount + 1);
+            if (avoComboCount >= 4) {
+              setTimer(settings.settings.longBreakDur);
+              setInitTimer(settings.settings.longBreakDur);
+              setTimerState(TimerState.LONG_BREAK);
+              setTimerToggle(settings.settings.autoStartBreak);
+              setAvocomboCount(0);
+            }
+            break;
+          case TimerState.SHORT_BREAK:
+            setTimer(settings.settings.avocadoDur);
+            setInitTimer(settings.settings.avocadoDur);
+            setTimerState(TimerState.AVOCADORO);
+            setTimerToggle(settings.settings.autoStartBreak);
+            break;
+          case TimerState.LONG_BREAK:
+            setTimer(settings.settings.avocadoDur);
+            setInitTimer(settings.settings.avocadoDur);
+            setTimerState(TimerState.AVOCADORO);
+            setTimerToggle(settings.settings.autoStartBreak);
+            break;
+        }
+      }
       clearInterval(interval);
       interval = null;
     }
@@ -48,15 +80,18 @@ const Timer = ({ settings }) => {
       <Grid container>
         <Grid item xs={12}>
           <Selections
+            settings={settings.settings}
             setTimerFunc={setTimer}
             setInitTimerFunc={setInitTimer}
             setTimerToggleFunc={setTimerToggle}
             setTimerStateFunc={setTimerState}
-            settings={settings.settings}
+            setAvocomboFunc={setAvocombo}
+            initTimer={initTimer}
+            avocombo={avocombo}
           />
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
-          {avocomboCount}
+          {avocount}
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
           {formatTimer(timer)}

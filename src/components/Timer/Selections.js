@@ -31,8 +31,11 @@ const Selections = props => {
         props.setInitTimerFunc(props.settings.longBreakDur);
         props.setTimerStateFunc(props.settings.longBreakDur);
         break;
-      case 'settings':
-        props.setTimerToggleFunc(false);
+      case 'avocombo':
+        props.setTimerFunc(props.settings.avocadoDur);
+        props.setInitTimerFunc(props.settings.avocadoDur);
+        props.setTimerStateFunc(TimerState.AVOCADORO);
+        props.setAvocomboFunc(!props.avocombo);
         break;
       default:
         props.setTimerFunc(0);
@@ -82,7 +85,12 @@ const Selections = props => {
           onClick={onClickFunc}
           {...a11yProps(2)}
         />
-        <Tab label="Avocombo" name="avocombo" className={classes.tab} />
+        <Tab
+          label="Avocombo"
+          name="avocombo"
+          className={classes.tab}
+          onClick={onClickFunc}
+        />
       </Tabs>
     </AppBar>
   );
