@@ -28,9 +28,17 @@ const hoveredStyle = {
   backgroundColor: '#f3ffff'
 };
 
-const TaskCard = ({ id, type, title, onTaskClick, onEdit, onDelete }) => {
+const TaskCard = ({
+  id,
+  type,
+  title,
+  isEditing,
+  onTaskClick,
+  onEdit,
+  onEditMode,
+  onDelete
+}) => {
   const [hoverStyle, setHoverStyle] = useState(defaultStyle);
-  const [isEdit, setIsEdit] = useState(false);
 
   function onHover(e) {
     setHoverStyle(hoveredStyle);
@@ -40,15 +48,20 @@ const TaskCard = ({ id, type, title, onTaskClick, onEdit, onDelete }) => {
   }
 
   const handleIsEdit = () => {
-    setIsEdit(!isEdit);
+    onEditMode(id, !isEditing);
   };
 
   const handleTextChange = e => {
     onEdit(id, e.target.value);
   };
 
+  const handleTaskClick = () => {
+    onTaskClick(id, title);
+    onEditMode(id, false);
+  }
+
   const showTaskCard = () => {
-    if (isEdit) {
+    if (isEditing) {
       return (
         <TextField
           onChange={handleTextChange}
@@ -125,7 +138,7 @@ const TaskCard = ({ id, type, title, onTaskClick, onEdit, onDelete }) => {
               variant="contained"
               component="span"
               className={classes.buttonStyle}
-              onClick={() => onTaskClick(id, title)}
+              onClick={() => handleTaskClick(id, title)}
             >
               {getTaskButton(type)}
             </Button>
