@@ -58,7 +58,7 @@ const TaskCard = ({
   const handleTaskClick = () => {
     onTaskClick(id, title);
     onEditMode(id, false);
-  }
+  };
 
   const showTaskCard = () => {
     if (isEditing) {
