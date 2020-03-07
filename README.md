@@ -1,7 +1,8 @@
 # Avocadoro
 
-<img src="./src/images/Avocadoro-icon.svg"/>
-
+<p align="center">
+  <img src="./src/images/Avocadoro-icon.svg"/>
+</p>
 Avocadoro is a productivity app that seeks to improve on the existing pomodoro timer available on the market
 
 ## Contributing
