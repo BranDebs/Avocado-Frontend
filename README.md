@@ -1,7 +1,7 @@
 # Avocadoro
 
 <p align="center">
-  <img src="./src/images/Avocadoro-icon.svg"/>
+  <img src="./src/images/Avocadoro-icon.svg" width="200" height="200"/>
 </p>
 Avocadoro is a productivity app that seeks to improve on the existing pomodoro timer available on the market
 
