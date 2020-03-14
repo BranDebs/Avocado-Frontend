@@ -1,3 +1,7 @@
+## QuickStart
+Running on linux: `npm run start`<br/>
+Running on windows: `npm run startw`
+
 ## Branch structure
 \<type\>--\<branch name\>
 
@@ -16,5 +20,5 @@
 * fix - bug fixes
 
 ## Formatting Code
-
+Run the following formatting code before pushing your code
 - `npm run format`
