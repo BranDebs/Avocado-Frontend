@@ -35,3 +35,8 @@ export class TimerState {
     return timerState.LONG_BREAK;
   }
 }
+
+export const AVOCADORO = 'AVOCADORO';
+export const SHORT_BREAK = 'SHORT_BREAK';
+export const LONG_BREAK = 'LONG_BREAK';
+export const AVOCOMBO = 'AVOCOMBO';

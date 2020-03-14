@@ -33,7 +33,6 @@ export default function TaskList({ tasks, actions, listName }) {
       type={task.type}
       isEditing={task.editing}
       title={task.title}
-
       onTaskClick={actions.onClick}
     />
   ));
@@ -47,14 +46,14 @@ export default function TaskList({ tasks, actions, listName }) {
             </Typography>
             {actions.onAdd !== undefined ? (
               <Fab
-              color="primary"
-              aria-label="add"
-              size={'small'}
-              className={classes.buttonAlign}
-            >
-              <AddIcon onClick={() => actions.onAdd()} />
-            </Fab>) : null}
-
+                color="primary"
+                aria-label="add"
+                size={'small'}
+                className={classes.buttonAlign}
+              >
+                <AddIcon onClick={() => actions.onAdd()} />
+              </Fab>
+            ) : null}
           </div>
           <div>
             <List>{taskCards}</List>
