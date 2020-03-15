@@ -157,8 +157,10 @@ const getTaskButton = type => {
       return Finish;
     case TASK_COMPLETED:
       return Archive;
+    default:
+      break
   }
-  throw 'invalid task type';
+  throw new Error('invalid task type');
 };
 
 export default TaskCard;
