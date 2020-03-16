@@ -13,7 +13,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import validateInput from 'server/validations/ValidateLogin';
 import Box from '@material-ui/core/Box';
 import { UiConst } from 'const/ui';
 
@@ -55,14 +54,6 @@ function SignIn() {
 
   const handleMouseDownPassword = event => {
     event.preventDefault();
-  };
-
-  const isValid = () => {
-    const { errors, isValid } = validateInput(values);
-    if (!isValid) {
-      setValues({ ...values, errors: errors });
-    }
-    return isValid;
   };
 
   const classes = useStyles();

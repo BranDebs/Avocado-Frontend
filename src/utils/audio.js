@@ -1,4 +1,3 @@
-import React from 'react';
 import { Howl } from 'howler';
 import AlarmSound from 'sounds/avocadoro_alarm_1.mp3';
 

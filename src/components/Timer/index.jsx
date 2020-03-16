@@ -39,34 +39,34 @@ const Timer = ({ settings }) => {
     setTimerState(timeState);
   };
 
-  const handleAvocombo = () => {
-    if (timer !== 0) return;
-
-    switch (timerState) {
-      case AVOCADORO:
-        if (avoComboCount >= 3) {
-          updateTimer(LONG_BREAK);
-        } else {
-          setAvocomboCount(avoComboCount + 1);
-          updateTimer(SHORT_BREAK);
-        }
-        setTimerToggle(settings.autoStartBreak);
-        break;
-      case SHORT_BREAK:
-        updateTimer(AVOCADORO);
-        setTimerToggle(settings.autoStartBreak);
-        break;
-      case LONG_BREAK:
-        setAvocomboCount(0);
-        setAvocombo(false);
-        setTimerToggle(false);
-      default:
-        break;
-    }
-  };
-
   useEffect(() => {
     let interval = null;
+    const handleAvocombo = () => {
+      if (timer !== 0) return;
+
+      switch (timerState) {
+        case AVOCADORO:
+          if (avoComboCount >= 3) {
+            updateTimer(LONG_BREAK);
+          } else {
+            setAvocomboCount(count => count + 1);
+            updateTimer(SHORT_BREAK);
+          }
+          setTimerToggle(settings.autoStartBreak);
+          break;
+        case SHORT_BREAK:
+          updateTimer(AVOCADORO);
+          setTimerToggle(settings.autoStartBreak);
+          break;
+        case LONG_BREAK:
+          setAvocomboCount(0);
+          setAvocombo(false);
+          setTimerToggle(false);
+          break;
+        default:
+          break;
+      }
+    };
     if (hasStarted && timer !== 0) {
       if (interval === null) {
         let prevTime = Date.now();
@@ -100,7 +100,7 @@ const Timer = ({ settings }) => {
     document.title = `Avocadoro (${formatTimer(timer)})`;
 
     return () => clearInterval(interval);
-  }, [hasStarted, timer]);
+  });
 
   useEffect(() => {
     setTimerDur({
