@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Navbar = ({ onSettings }) => {
-  const loggedIn = true;
+  const loggedIn = false;
 
   const handleSettingOpen = () => {
     onSettings(true);
