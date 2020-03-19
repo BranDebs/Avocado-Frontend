@@ -13,3 +13,6 @@ export const EDIT_TASK = 'EDIT_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 
 export const EDIT_TASK_MODE = 'EDIT_TASK_MODE';
+
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
