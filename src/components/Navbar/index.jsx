@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Navbar = ({ onSettings }) => {
+const Navbar = ({ onSettings, timer }) => {
   const loggedIn = false;
 
   const handleSettingOpen = () => {
@@ -82,6 +82,9 @@ const Navbar = ({ onSettings }) => {
   const SignedOutLink = () => {
     return (
       <div>
+        <IconButton onClick={() => handleSettingOpen()} color="inherit">
+          <SettingsIcon />
+        </IconButton>
         <Button>
           <Link
             to={'/signin'}
@@ -115,7 +118,7 @@ const Navbar = ({ onSettings }) => {
               className={'nav-text'}
               style={{ textDecoration: 'none' }}
             >
-              Avocadoro
+              Avocadoro<span> </span>
               <Icon>
                 <img
                   src={AvocadoroIcon}
@@ -123,6 +126,7 @@ const Navbar = ({ onSettings }) => {
                   height={UiConst.ICON_HEIGHT}
                 />
               </Icon>
+              : {timer.avocount}
             </Link>
           </Typography>
           {loggedIn ? <SignedInLink /> : <SignedOutLink />}
