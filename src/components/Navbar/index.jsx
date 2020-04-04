@@ -50,7 +50,7 @@ const Navbar = ({ onSettings, timer }) => {
 
     return (
       <div>
-        <Typography display={'inline'}>69</Typography>
+        <Typography display={'inline'}>{timer.avocount}</Typography>
         <IconButton onClick={() => handleSettingOpen()} color="inherit">
           <SettingsIcon />
         </IconButton>
@@ -126,7 +126,6 @@ const Navbar = ({ onSettings, timer }) => {
                   height={UiConst.ICON_HEIGHT}
                 />
               </Icon>
-              : {timer.avocount}
             </Link>
           </Typography>
           {loggedIn ? <SignedInLink /> : <SignedOutLink />}
