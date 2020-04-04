@@ -5,7 +5,8 @@ import Navbar from 'components/Navbar';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    settings: state.settings
+    settings: state.settings,
+    timer: state.timer
   };
 };
 

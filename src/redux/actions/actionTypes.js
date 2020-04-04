@@ -16,3 +16,5 @@ export const EDIT_TASK_MODE = 'EDIT_TASK_MODE';
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+
+export const INCREMENT_AVOCOUNT = 'INCREMENT_AVOCOUNT';

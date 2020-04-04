@@ -19,12 +19,12 @@ function a11yProps(index) {
   };
 }
 
-const Timer = ({ settings }) => {
+const Timer = ({ settings, timer, addAvocount }) => {
   const [initTimer, setInitTimer] = useState(settings.avocadoDur);
-  const [timer, setTimer] = useState(initTimer);
+  const [timerValue, setTimerValue] = useState(initTimer);
   const [hasStarted, setTimerToggle] = useState(false);
   const [timerState, setTimerState] = useState(AVOCADORO);
-  const [avocount, setAvocount] = useState(0);
+  const avocount = timer.avocount;
   const [avocombo, setAvocombo] = useState(false);
   const [avoComboCount, setAvocomboCount] = useState(0);
   const [timerDur, setTimerDur] = useState({
@@ -34,7 +34,7 @@ const Timer = ({ settings }) => {
   });
 
   const updateTimer = timeState => {
-    setTimer(timerDur[timeState]);
+    setTimerValue(timerDur[timeState]);
     setInitTimer(timerDur[timeState]);
     setTimerState(timeState);
   };
@@ -42,7 +42,7 @@ const Timer = ({ settings }) => {
   useEffect(() => {
     let interval = null;
     const handleAvocombo = () => {
-      if (timer !== 0) return;
+      if (timerValue !== 0) return;
 
       switch (timerState) {
         case AVOCADORO:
@@ -67,11 +67,11 @@ const Timer = ({ settings }) => {
           break;
       }
     };
-    if (hasStarted && timer !== 0) {
+    if (hasStarted && timerValue !== 0) {
       if (interval === null) {
         let prevTime = Date.now();
         interval = setInterval(() => {
-          setTimer(timer => {
+          setTimerValue(timer => {
             let curTime = Date.now();
             let timeDelta = curTime - prevTime;
             prevTime = curTime;
@@ -79,7 +79,7 @@ const Timer = ({ settings }) => {
             calcTime = calcTime < 0 ? 0 : calcTime;
             if (calcTime === 0) {
               if (timerState === AVOCADORO) {
-                setAvocount(avocount + 1);
+                addAvocount();
               }
               playAlarm();
               setTimerToggle(false);
@@ -97,7 +97,7 @@ const Timer = ({ settings }) => {
       handleAvocombo();
     }
 
-    document.title = `Avocadoro (${formatTimer(timer)})`;
+    document.title = `Avocadoro [${avocount}] (${formatTimer(timerValue)})`;
 
     return () => clearInterval(interval);
   });
@@ -184,11 +184,11 @@ const Timer = ({ settings }) => {
           {avocount}
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
-          {formatTimer(timer)}
+          {formatTimer(timerValue)}
         </Grid>
         <Grid item xs={12} className={'timer-style'}>
           <Controls
-            setTimerFunc={setTimer}
+            setTimerFunc={setTimerValue}
             getInitTimer={initTimer}
             setTimerToggleFunc={setTimerToggle}
           />
