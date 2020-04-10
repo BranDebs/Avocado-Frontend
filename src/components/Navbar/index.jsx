@@ -89,7 +89,7 @@ const Navbar = ({ onSettings, timer }) => {
           <Link
             to={'/signin'}
             className={'nav-text'}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', color: "inherit" }}
           >
             Login
           </Link>
@@ -98,7 +98,7 @@ const Navbar = ({ onSettings, timer }) => {
           <Link
             to={'/signup'}
             className={'nav-text'}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', color: "inherit" }}
           >
             Sign Up
           </Link>
@@ -112,11 +112,11 @@ const Navbar = ({ onSettings, timer }) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} align={'left'}>
+          <Typography variant="h6" className={classes.title} align={'left'} >
             <Link
               to={'/'}
               className={'nav-text'}
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: 'none', color: "inherit" }}
             >
               Avocadoro<span> </span>
               <Icon>

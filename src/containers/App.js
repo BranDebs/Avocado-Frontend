@@ -6,6 +6,10 @@ import Home from 'pages/Home';
 import SignUp from 'pages/SignUp';
 import SignIn from 'pages/SignIn';
 import About from '../pages/About';
+import {
+  MuiThemeProvider
+} from '@material-ui/core/styles';
+import { THEME } from 'const/theme';
 
 class App extends React.Component {
   state = {
@@ -15,15 +19,17 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/about" component={About} />
+        <MuiThemeProvider theme={THEME}>
+          <div className="App">
+            <Navbar />
+            <div className="container">
+              <Route exact path="/" component={Home} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/about" component={About} />
+            </div>
           </div>
-        </div>
+        </MuiThemeProvider>
       </BrowserRouter>
     );
   }
