@@ -6,13 +6,12 @@ import Grid from '@material-ui/core/Grid';
 import './index.css';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
-
 import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { makeStyles } from '@material-ui/core/styles';
+import { TIMER_STYLE } from 'const/timer';
+import { StyledTab, StyledTabs } from 'const/tab';
+import Typography from '@material-ui/core/Typography';
 
-function a11yProps(index) {
+function tabControl(index) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`
@@ -32,6 +31,7 @@ const Timer = ({ settings, timer, addAvocount }) => {
     SHORT_BREAK: settings.shortBreakDur,
     LONG_BREAK: settings.longBreakDur
   });
+  const classes = TIMER_STYLE();
 
   const updateTimer = timeState => {
     setTimerValue(timerDur[timeState]);
@@ -127,49 +127,38 @@ const Timer = ({ settings, timer, addAvocount }) => {
       setValue(newValue);
     };
 
-    const useStyles = makeStyles(theme => ({
-      tab: {
-        minWidth: 115
-      }
-    }));
-    const classes = useStyles();
-
     return (
       <AppBar position="static">
-        <Tabs
+        <StyledTabs
           value={value}
           variant="scrollable"
           onChange={handleChange}
-          scrollButtons="auto"
+          centered
         >
-          <Tab
+          <StyledTab
             label="Avocadoro"
             name={AVOCADORO}
-            className={classes.tab}
             onClick={onSelection}
-            {...a11yProps(0)}
+            {...tabControl(0)}
           />
-          <Tab
+          <StyledTab
             label="Short Break"
             name={SHORT_BREAK}
-            className={classes.tab}
             onClick={onSelection}
-            {...a11yProps(1)}
+            {...tabControl(1)}
           />
-          <Tab
+          <StyledTab
             label="Long Break"
             name={LONG_BREAK}
-            className={classes.tab}
             onClick={onSelection}
-            {...a11yProps(2)}
+            {...tabControl(2)}
           />
-          <Tab
+          <StyledTab
             label="Avocombo"
             name={AVOCOMBO}
-            className={classes.tab}
             onClick={onSelection}
           />
-        </Tabs>
+        </StyledTabs>
       </AppBar>
     );
   };
@@ -177,16 +166,16 @@ const Timer = ({ settings, timer, addAvocount }) => {
   return (
     <Paper>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.tab}>
           {Selections()}
         </Grid>
-        <Grid item xs={12} className={'timer-style'}>
+        <Grid item xs={12} className={classes.timer}>
           {avocount}
         </Grid>
-        <Grid item xs={12} className={'timer-style'}>
+        <Grid item xs={12} className={classes.timer}>
           {formatTimer(timerValue)}
         </Grid>
-        <Grid item xs={12} className={'timer-style'}>
+        <Grid item xs={12} className={classes.timer}>
           <Controls
             setTimerFunc={setTimerValue}
             getInitTimer={initTimer}

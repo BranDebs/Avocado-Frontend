@@ -1,3 +1,7 @@
+import {makeStyles, withStyles} from "@material-ui/core/styles";
+import React from 'react';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 const AVOCADORO_TIME = 1500;
 const SHORT_BREAK_TIME = 300;
 const LONG_BREAK_TIME = 900;
@@ -40,3 +44,11 @@ export const AVOCADORO = 'AVOCADORO';
 export const SHORT_BREAK = 'SHORT_BREAK';
 export const LONG_BREAK = 'LONG_BREAK';
 export const AVOCOMBO = 'AVOCOMBO';
+
+export const TIMER_STYLE = makeStyles(theme => ({
+  timer: {
+    padding: theme.spacing(2),
+    fontSize: 32,
+    fontWeight: 600,
+  }
+}));

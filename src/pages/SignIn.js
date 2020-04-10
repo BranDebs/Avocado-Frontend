@@ -2,8 +2,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import './auth.css';
 import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
@@ -14,7 +12,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
-import { UiConst } from 'const/ui';
+import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 
 function SignIn() {
   const [values, setValues] = React.useState({
@@ -25,24 +23,6 @@ function SignIn() {
     errors: {},
     isLoading: false
   });
-  const useStyles = makeStyles(theme => ({
-    root: {
-      padding: theme.spacing(3, 2)
-    },
-    paper: {
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3)
-    },
-    textfield: {
-      paddingTop: 10,
-      paddingBottom: 10
-    },
-    title: {
-      fontSize: 32,
-      paddingTop: 10,
-      paddingBottom: 10
-    }
-  }));
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
@@ -56,18 +36,18 @@ function SignIn() {
     event.preventDefault();
   };
 
-  const classes = useStyles();
+  const classes = AUTH_PAGE_STYLE();
 
   return (
     <Grid container>
       <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
       <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
-        <div className={classes.paper}>
-          <Paper className="auth-paper">
-            <Typography component="h3" className={classes.title}>
-              <Box fontWeight="fontWeightBold">Login</Box>
+        <div className={classes.paperMargin}>
+          <Paper className={classes.paper}>
+            <Typography>
+              <Box fontWeight="fontWeightBold" className={classes.title}>Login</Box>
             </Typography>
-            <FormControl fullWidth className={classes.textfield}>
+            <FormControl fullWidth margin={"normal"}>
               <InputLabel id="username" label="Username/Email Address">
                 Username/Email Address
               </InputLabel>
@@ -77,7 +57,7 @@ function SignIn() {
                 onChange={handleChange('username')}
               />
             </FormControl>
-            <FormControl fullWidth className={classes.textfield}>
+            <FormControl fullWidth margin={"normal"}>
               <InputLabel id="password" label="Password">
                 Password
               </InputLabel>
