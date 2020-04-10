@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from 'pages/Home';
@@ -20,7 +19,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <MuiThemeProvider theme={THEME}>
-          <div className="App">
+          <div style={{textAlign: "center"}}>
             <Navbar />
             <div className="container">
               <Route exact path="/" component={Home} />

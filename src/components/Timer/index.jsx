@@ -9,7 +9,6 @@ import { playAlarm } from 'utils/audio';
 import AppBar from '@material-ui/core/AppBar';
 import { TIMER_STYLE } from 'const/timer';
 import { StyledTab, StyledTabs } from 'const/tab';
-import Typography from '@material-ui/core/Typography';
 
 function tabControl(index) {
   return {
@@ -164,9 +163,9 @@ const Timer = ({ settings, timer, addAvocount }) => {
   };
 
   return (
-    <Paper>
+    <Paper >
       <Grid container>
-        <Grid item xs={12} className={classes.tab}>
+        <Grid item xs={12}>
           {Selections()}
         </Grid>
         <Grid item xs={12} className={classes.timer}>

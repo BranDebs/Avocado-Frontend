@@ -2,7 +2,6 @@ import {withStyles} from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import React from "react";
-import {THEME} from 'const/theme';
 
 export const StyledTabs = withStyles((THEME) => ({
     indicator: {
