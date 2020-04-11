@@ -6,8 +6,9 @@ import Controls from './Controls';
 import { AVOCADORO, SHORT_BREAK, LONG_BREAK, AVOCOMBO } from 'const/timer';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
-import { TIMER_STYLE } from 'const/timer';
-import { StyledTab, StyledTabs } from 'const/tab';
+import {makeStyles, withStyles} from "@material-ui/core/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
 function tabControl(index) {
   return {
@@ -29,7 +30,33 @@ const Timer = ({ settings, timer, addAvocount }) => {
     SHORT_BREAK: settings.shortBreakDur,
     LONG_BREAK: settings.longBreakDur
   });
+
+  const TIMER_STYLE = makeStyles(theme => ({
+    timer: {
+      padding: theme.spacing(2),
+      fontSize: 32,
+      fontWeight: 600,
+    }
+  }));
   const classes = TIMER_STYLE();
+  const StyledTabs = withStyles((THEME) => ({
+    indicator: {
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
+      '& > div': {
+        maxWidth: 40,
+        width: '100%',
+        backgroundColor: THEME.palette.secondary.main,
+      },
+    },
+  }))((props) => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
+
+  const StyledTab = withStyles((theme) => ({
+    root: {
+      minWidth: theme.spacing(6),
+    },
+  }))((props) => <Tab disableRipple {...props} />);
 
   const updateTimer = timeState => {
     setTimerValue(timerDur[timeState]);

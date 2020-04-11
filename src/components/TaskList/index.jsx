@@ -21,7 +21,8 @@ export default function TaskList({ tasks, actions, listName }) {
       marginBottom: 100
     },
     root: {
-      minWidth: UiConst.CARD_MIN_WIDTH
+      minWidth: UiConst.CARD_WIDTH,
+      maxWidth: UiConst.CARD_WIDTH,
     }
   }));
   const classes = useStyles();

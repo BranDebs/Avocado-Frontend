@@ -48,7 +48,7 @@ function SignIn() {
             <Typography>
               <Box fontWeight="fontWeightBold" className={classes.title}>Login</Box>
             </Typography>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="username" label="Username/Email Address">
                 Username/Email Address
               </InputLabel>
@@ -58,7 +58,7 @@ function SignIn() {
                 onChange={handleChange('username')}
               />
             </FormControl>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="password" label="Password">
                 Password
               </InputLabel>

@@ -36,7 +36,7 @@ function SignUp() {
             <Typography>
               <Box fontWeight="fontWeightBold" className={classes.title}>Sign Up</Box>
             </Typography>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="username" label="Username">
                 Username
               </InputLabel>
@@ -46,7 +46,7 @@ function SignUp() {
                 onChange={handleChange('username')}
               />
             </FormControl>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="emailAddress" label="Email Address">
                 Email Address
               </InputLabel>
@@ -56,7 +56,7 @@ function SignUp() {
                 onChange={handleChange('emailAddress')}
               />
             </FormControl>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="password" label="Password">
                 Password
               </InputLabel>
@@ -66,7 +66,7 @@ function SignUp() {
                 error={values.errors.password}
               />
             </FormControl>
-            <FormControl fullWidth margin={"normal"}>
+            <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="password" label="Password">
                 Retype Password
               </InputLabel>
