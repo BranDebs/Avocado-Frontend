@@ -15,8 +15,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 
-import './index.css';
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -88,8 +86,7 @@ const Navbar = ({ onSettings, timer }) => {
         <Button>
           <Link
             to={'/signin'}
-            className={'nav-text'}
-            style={{ textDecoration: 'none', color: "inherit" }}
+            style={{ textDecoration: 'none', color: 'inherit' }}
           >
             Login
           </Link>
@@ -97,8 +94,7 @@ const Navbar = ({ onSettings, timer }) => {
         <Button>
           <Link
             to={'/signup'}
-            className={'nav-text'}
-            style={{ textDecoration: 'none', color: "inherit" }}
+            style={{ textDecoration: 'none', color: 'inherit' }}
           >
             Sign Up
           </Link>
@@ -112,12 +108,8 @@ const Navbar = ({ onSettings, timer }) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} align={'left'} >
-            <Link
-              to={'/'}
-              className={'nav-text'}
-              style={{ textDecoration: 'none', color: "inherit" }}
-            >
+          <Typography variant="h6" className={classes.title} align={'left'}>
+            <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
               Avocadoro<span> </span>
               <Icon>
                 <img

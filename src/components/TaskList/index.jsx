@@ -21,7 +21,8 @@ export default function TaskList({ tasks, actions, listName }) {
       marginBottom: 100
     },
     root: {
-      minWidth: UiConst.CARD_MIN_WIDTH
+      minWidth: UiConst.CARD_WIDTH,
+      maxWidth: UiConst.CARD_WIDTH
     }
   }));
   const classes = useStyles();
@@ -40,7 +41,7 @@ export default function TaskList({ tasks, actions, listName }) {
     <Card className={classes.root}>
       <CardContent>
         <Grid item>
-          <div className={'task-title'}>
+          <div>
             <Typography variant="h6" display={'inline'} style={{ flex: 1 }}>
               {listName}
             </Typography>

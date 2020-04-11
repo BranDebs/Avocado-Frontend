@@ -30,17 +30,17 @@ export default function({
 
   return (
     <Grid container className={classes.root} spacing={4}>
-      <Grid item xs={4}>
+      <Grid item lg={4}>
         <TaskList tasks={todos} actions={todosActions} listName="Todo" />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item lg={4}>
         <TaskList
           tasks={inprogress}
           actions={inprogressActions}
           listName="In Progress"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item lg={4}>
         <TaskList
           tasks={completed}
           actions={completedActions}
