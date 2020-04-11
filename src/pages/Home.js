@@ -3,9 +3,14 @@ import Timer from '../containers/Timer';
 import TaskTracker from '../containers/TaskTracker';
 import SettingsModal from '../containers/SettingsModal';
 import Grid from '@material-ui/core/Grid';
-import { HOME_STYLE } from 'const/ui';
+import {makeStyles} from "@material-ui/core/styles";
 
 function Home() {
+    const HOME_STYLE = makeStyles(theme => ({
+        root: {
+            paddingTop: theme.spacing(6)
+        }
+    }));
     const classes = HOME_STYLE();
 
     return (

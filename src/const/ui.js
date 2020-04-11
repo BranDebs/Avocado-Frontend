@@ -1,5 +1,3 @@
-// Navbar
-import {makeStyles} from "@material-ui/core/styles";
 
 const ICON_HEIGHT = 20;
 const CARD_MIN_WIDTH = 300;
@@ -18,7 +16,7 @@ export class UiConst {
   }
 }
 
-export const AUTH_PAGE_STYLE = makeStyles(theme => ({
+export const AUTH_PAGE_STYLE = theme => ({
   root: {
     padding: theme.spacing(3, 2)
   },
@@ -35,10 +33,5 @@ export const AUTH_PAGE_STYLE = makeStyles(theme => ({
   title: {
     fontSize: 32
   }
-}));
+});
 
-export const HOME_STYLE = makeStyles(theme => ({
-  root: {
-    paddingTop: theme.spacing(6)
-  }
-}));

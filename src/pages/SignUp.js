@@ -8,6 +8,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
+import {makeStyles} from "@material-ui/core/styles";
 
 function SignUp() {
   const [values, setValues] = React.useState({
@@ -24,7 +25,7 @@ function SignUp() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const classes = AUTH_PAGE_STYLE();
+  const classes = makeStyles(AUTH_PAGE_STYLE)();
 
   return (
     <Grid container>
