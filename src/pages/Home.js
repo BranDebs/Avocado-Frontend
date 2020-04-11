@@ -3,17 +3,17 @@ import Timer from '../containers/Timer';
 import TaskTracker from '../containers/TaskTracker';
 import SettingsModal from '../containers/SettingsModal';
 import Grid from '@material-ui/core/Grid';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 function Home() {
-    const HOME_STYLE = makeStyles(theme => ({
-        root: {
-            paddingTop: theme.spacing(6)
-        }
-    }));
-    const classes = HOME_STYLE();
+  const HOME_STYLE = makeStyles(theme => ({
+    root: {
+      paddingTop: theme.spacing(6)
+    }
+  }));
+  const classes = HOME_STYLE();
 
-    return (
+  return (
     <Grid container spacing={3}>
       <SettingsModal />
       <Grid item xs={4}>

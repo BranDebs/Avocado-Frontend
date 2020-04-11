@@ -8,7 +8,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 function SignUp() {
   const [values, setValues] = React.useState({
@@ -34,7 +34,9 @@ function SignUp() {
         <div className={classes.paperMargin}>
           <Paper className={classes.paper}>
             <Typography>
-              <Box fontWeight="fontWeightBold" className={classes.title}>Sign Up</Box>
+              <Box fontWeight="fontWeightBold" className={classes.title}>
+                Sign Up
+              </Box>
             </Typography>
             <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="username" label="Username">

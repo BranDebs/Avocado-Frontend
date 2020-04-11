@@ -6,9 +6,9 @@ import Controls from './Controls';
 import { AVOCADORO, SHORT_BREAK, LONG_BREAK, AVOCOMBO } from 'const/timer';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
-import {makeStyles, withStyles} from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 function tabControl(index) {
   return {
@@ -35,11 +35,11 @@ const Timer = ({ settings, timer, addAvocount }) => {
     timer: {
       padding: theme.spacing(2),
       fontSize: 32,
-      fontWeight: 600,
+      fontWeight: 600
     }
   }));
   const classes = TIMER_STYLE();
-  const StyledTabs = withStyles((THEME) => ({
+  const StyledTabs = withStyles(THEME => ({
     indicator: {
       display: 'flex',
       justifyContent: 'center',
@@ -47,16 +47,16 @@ const Timer = ({ settings, timer, addAvocount }) => {
       '& > div': {
         maxWidth: 40,
         width: '100%',
-        backgroundColor: THEME.palette.secondary.main,
-      },
-    },
-  }))((props) => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
+        backgroundColor: THEME.palette.secondary.main
+      }
+    }
+  }))(props => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
 
-  const StyledTab = withStyles((theme) => ({
+  const StyledTab = withStyles(theme => ({
     root: {
-      minWidth: theme.spacing(6),
-    },
-  }))((props) => <Tab disableRipple {...props} />);
+      minWidth: theme.spacing(6)
+    }
+  }))(props => <Tab disableRipple {...props} />);
 
   const updateTimer = timeState => {
     setTimerValue(timerDur[timeState]);
@@ -178,18 +178,14 @@ const Timer = ({ settings, timer, addAvocount }) => {
             onClick={onSelection}
             {...tabControl(2)}
           />
-          <StyledTab
-            label="Avocombo"
-            name={AVOCOMBO}
-            onClick={onSelection}
-          />
+          <StyledTab label="Avocombo" name={AVOCOMBO} onClick={onSelection} />
         </StyledTabs>
       </AppBar>
     );
   };
 
   return (
-    <Paper >
+    <Paper>
       <Grid container>
         <Grid item xs={12}>
           {Selections()}

@@ -22,7 +22,7 @@ export default function TaskList({ tasks, actions, listName }) {
     },
     root: {
       minWidth: UiConst.CARD_WIDTH,
-      maxWidth: UiConst.CARD_WIDTH,
+      maxWidth: UiConst.CARD_WIDTH
     }
   }));
   const classes = useStyles();

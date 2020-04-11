@@ -1,4 +1,3 @@
-
 const ICON_HEIGHT = 20;
 const CARD_WIDTH = 300;
 // const
@@ -34,7 +33,6 @@ export const AUTH_PAGE_STYLE = theme => ({
     fontSize: 32
   },
   form: {
-    margin: "normal"
+    margin: 'normal'
   }
 });
-
