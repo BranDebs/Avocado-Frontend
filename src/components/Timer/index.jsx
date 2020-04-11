@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Controls from './Controls';
-import { AVOCADORO, SHORT_BREAK, LONG_BREAK, AVOCOMBO } from 'const/timer';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import './index.css';
+import AppBar from '@material-ui/core/AppBar';
+import Controls from './Controls';
+import { AVOCADORO, SHORT_BREAK, LONG_BREAK, AVOCOMBO } from 'const/timer';
 import { formatTimer } from 'utils/timerUtil';
 import { playAlarm } from 'utils/audio';
-import AppBar from '@material-ui/core/AppBar';
 import { TIMER_STYLE } from 'const/timer';
 import { StyledTab, StyledTabs } from 'const/tab';
 
