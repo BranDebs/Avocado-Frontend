@@ -9,17 +9,28 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
+import { register } from '../server/AuthService';
+import { validateInput } from '../server/validations/ValidateLogin';
+import GoogleLoginButton from '../server/google_auth/login';
 
 function SignUp() {
   const [values, setValues] = React.useState({
-    username: '',
     emailAddress: '',
     password: '',
-    retypePassword: '',
+    passwordConfirmation: '',
     identifier: '',
     errors: {},
     isLoading: false
   });
+
+  function signUpUser() {
+    var result = validateInput(values);
+    if (result['isValid']) {
+      register(values.emailAddress, values.password);
+    } else {
+      console.log(result['error']);
+    }
+  }
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
@@ -38,16 +49,6 @@ function SignUp() {
                 Sign Up
               </Box>
             </Typography>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="username" label="Username">
-                Username
-              </InputLabel>
-              <Input
-                value={values.username}
-                error={values.errors.username}
-                onChange={handleChange('username')}
-              />
-            </FormControl>
             <FormControl fullWidth margin={classes.form.margin}>
               <InputLabel id="emailAddress" label="Email Address">
                 Email Address
@@ -74,8 +75,8 @@ function SignUp() {
               </InputLabel>
               <Input
                 type="password"
-                onChange={handleChange('retypePassword')}
-                error={values.errors.retypePassword}
+                onChange={handleChange('passwordConfirmation')}
+                error={values.errors.passwordConfirmation}
               />
             </FormControl>
             <div className={classes.paper}>
@@ -83,20 +84,14 @@ function SignUp() {
                 variant="contained"
                 color="primary"
                 disabled={values.isLoading}
+                onClick={signUpUser}
               >
                 Create Account
               </Button>
             </div>
             <Typography>or</Typography>
             <div className={classes.paper}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                size="large"
-              >
-                Sign Up with a Google Account
-              </Button>
+              <GoogleLoginButton authType="register" />
             </div>
           </Paper>
         </div>

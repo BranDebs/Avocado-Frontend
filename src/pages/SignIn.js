@@ -14,10 +14,11 @@ import { Link } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
+import GoogleLoginButton from '../server/google_auth/login';
 
 function SignIn() {
   const [values, setValues] = React.useState({
-    username: '',
+    emailAddress: '',
     password: '',
     showPassword: false,
     identifier: '',
@@ -51,13 +52,13 @@ function SignIn() {
               </Box>
             </Typography>
             <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="username" label="Username/Email Address">
-                Username/Email Address
+              <InputLabel id="emailAddress" label="Email Address">
+                Email Address
               </InputLabel>
               <Input
-                value={values.username}
-                error={values.errors.username}
-                onChange={handleChange('username')}
+                value={values.emailAddress}
+                error={values.errors.emailAddress}
+                onChange={handleChange('emailAddress')}
               />
             </FormControl>
             <FormControl fullWidth margin={classes.form.margin}>
@@ -93,14 +94,7 @@ function SignIn() {
             </div>
             <Typography>or</Typography>
             <div className={classes.paper}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                size="large"
-              >
-                Login with a Google Account
-              </Button>
+              <GoogleLoginButton authType={'login'} />
             </div>
             <Typography display={'inline'}>Don't have an account?</Typography>
             <Button color="primary">
