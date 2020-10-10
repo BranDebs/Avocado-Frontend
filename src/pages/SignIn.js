@@ -40,76 +40,81 @@ function SignIn() {
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
   return (
-    <Grid container>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
-        <div className={classes.paperMargin}>
-          <Paper className={classes.paper}>
-            <Typography>
-              <Box fontWeight="fontWeightBold" className={classes.title}>
-                Login
-              </Box>
-            </Typography>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="username" label="Username/Email Address">
-                Username/Email Address
-              </InputLabel>
-              <Input
-                value={values.username}
-                error={values.errors.username}
-                onChange={handleChange('username')}
-              />
-            </FormControl>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="password" label="Password">
-                Password
-              </InputLabel>
-              <Input
-                type={values.showPassword ? 'text' : 'password'}
-                value={values.password}
-                onChange={handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                error={values.errors.password}
-              />
-            </FormControl>
-            <div className={classes.paper}>
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={values.isLoading}
-              >
-                Login
+    <div className={classes.root}>
+      <Grid container justify="center">
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
+          <div className={classes.paperMargin}>
+            <Paper className={classes.paper}>
+              <Typography>
+                <Box fontWeight="fontWeightBold" className={classes.title}>
+                  Login
+                </Box>
+              </Typography>
+              <FormControl fullWidth margin={classes.form.margin}>
+                <InputLabel id="username" label="Username/Email Address">
+                  Username/Email Address
+                </InputLabel>
+                <Input
+                  value={values.username}
+                  error={values.errors.username}
+                  onChange={handleChange('username')}
+                />
+              </FormControl>
+              <FormControl fullWidth margin={classes.form.margin}>
+                <InputLabel id="password" label="Password">
+                  Password
+                </InputLabel>
+                <Input
+                  type={values.showPassword ? 'text' : 'password'}
+                  value={values.password}
+                  onChange={handleChange('password')}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  error={values.errors.password}
+                />
+              </FormControl>
+              <div className={classes.paper}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={values.isLoading}
+                >
+                  Login
+                </Button>
+              </div>
+              <Typography>or</Typography>
+              <div className={classes.paper}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                >
+                  Login with a Google Account
+                </Button>
+              </div>
+              <Typography display={'inline'}>Don't have an account?</Typography>
+              <Button color="primary">
+                <Link to={'/signup'}>Sign Up</Link>
               </Button>
-            </div>
-            <Typography>or</Typography>
-            <div className={classes.paper}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="primary"
-                size="large"
-              >
-                Login with a Google Account
-              </Button>
-            </div>
-            <Typography display={'inline'}>Don't have an account?</Typography>
-            <Button color="primary">
-              <Link to={'/signup'}>Sign Up</Link>
-            </Button>
-          </Paper>
-        </div>
+            </Paper>
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 
