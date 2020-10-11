@@ -8,25 +8,30 @@ import { makeStyles } from '@material-ui/core/styles';
 function Home() {
   const HOME_STYLE = makeStyles(theme => ({
     root: {
+      flexGrow: 1
+    },
+    component: {
       paddingTop: theme.spacing(6)
     }
   }));
   const classes = HOME_STYLE();
 
   return (
-    <Grid container spacing={3}>
-      <SettingsModal />
-      <Grid item xs={4}>
-        <div className={classes.root}>
-          <Timer />
-        </div>
+    <div className={classes.root}>
+      <Grid container spacing={3} justify="center">
+        <SettingsModal />
+        <Grid item xs={4}>
+          <div className={classes.component}>
+            <Timer />
+          </div>
+        </Grid>
+        <Grid item xs={8}>
+          <div className={classes.component}>
+            <TaskTracker />
+          </div>
+        </Grid>
       </Grid>
-      <Grid item xs={8}>
-        <div className={classes.root}>
-          <TaskTracker />
-        </div>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 

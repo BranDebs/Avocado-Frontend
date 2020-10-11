@@ -62,117 +62,125 @@ function SignUp() {
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
   return (
-    <Grid container>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
-        <div className={classes.paperMargin}>
-          <Paper className={classes.paper}>
-            <Typography>
-              <Box fontWeight="fontWeightBold" className={classes.title}>
-                Sign Up
-              </Box>
-            </Typography>
-            <div>
-              <FormControl className={clsx(classes.margin, classes.textField)}>
-                <InputLabel id="emailAddress" label="Email Address">
-                  Email Address
-                </InputLabel>
-                <Input
-                  value={values.emailAddress}
-                  error={values.errors.emailAddress}
-                  onChange={handleChange('emailAddress')}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <MailOutlineIcon fontSize="small" />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </div>
-            <div>
-              <FormControl className={clsx(classes.margin, classes.textField)}>
-                <InputLabel id="password" label="Password">
-                  Password
-                </InputLabel>
-                <Input
-                  type={values.showPassword ? 'text' : 'password'}
-                  value={values.password}
-                  onChange={handleChange('password')}
-                  error={values.errors.password}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon fontSize="small" />
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        size="small"
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </div>
-            <div>
-              <FormControl className={clsx(classes.margin, classes.textField)}>
-                <InputLabel id="password" label="Password">
-                  Retype Password
-                </InputLabel>
-                <Input
-                  type={values.showPasswordConfirmation ? 'text' : 'password'}
-                  value={values.passwordConfirmation}
-                  onChange={handleChange('passwordConfirmation')}
-                  error={values.errors.passwordConfirmation}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon fontSize="small" />
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPasswordConfirmation}
-                        onMouseDown={handleMouseDownPassword}
-                        size="small"
-                      >
-                        {values.showPasswordConfirmation ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </div>
-            <div className={classes.paper}>
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={values.isLoading}
-                onClick={signUpUser}
-              >
-                Create Account
-              </Button>
-            </div>
-            <Typography>or</Typography>
-            <div className={classes.paper}>
-              <GoogleLoginButton authType="register" />
-            </div>
-          </Paper>
-        </div>
+    <div className={classes.root}>
+      <Grid container justify="center">
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
+          <div className={classes.paperMargin}>
+            <Paper className={classes.paper}>
+              <Typography>
+                <Box fontWeight="fontWeightBold" className={classes.title}>
+                  Sign Up
+                </Box>
+              </Typography>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="emailAddress" label="Email Address">
+                    Email Address
+                  </InputLabel>
+                  <Input
+                    value={values.emailAddress}
+                    error={values.errors.emailAddress}
+                    onChange={handleChange('emailAddress')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <MailOutlineIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="password" label="Password">
+                    Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPassword ? 'text' : 'password'}
+                    value={values.password}
+                    onChange={handleChange('password')}
+                    error={values.errors.password}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="password" label="Password">
+                    Retype Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPasswordConfirmation ? 'text' : 'password'}
+                    value={values.passwordConfirmation}
+                    onChange={handleChange('passwordConfirmation')}
+                    error={values.errors.passwordConfirmation}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPasswordConfirmation}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPasswordConfirmation ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div className={classes.paper}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={values.isLoading}
+                  onClick={signUpUser}
+                >
+                  Create Account
+                </Button>
+              </div>
+              <Typography>or</Typography>
+              <div className={classes.paper}>
+                <GoogleLoginButton authType="register" />
+              </div>
+            </Paper>
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 

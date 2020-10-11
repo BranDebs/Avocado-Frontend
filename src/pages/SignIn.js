@@ -55,92 +55,98 @@ function SignIn() {
   }
 
   return (
-    <Grid container>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
-      <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
-        <div className={classes.paperMargin}>
-          <Paper className={classes.paper}>
-            <Typography>
-              <Box fontWeight="fontWeightBold" className={classes.title}>
-                Login
-              </Box>
-            </Typography>
-            <div>
-              <FormControl className={clsx(classes.margin, classes.textField)}>
-                <InputLabel id="emailAddress" label="Email Address">
-                  Email Address
-                </InputLabel>
-                <Input
-                  value={values.emailAddress}
-                  error={values.errors.emailAddress}
-                  onChange={handleChange('emailAddress')}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <MailOutlineIcon fontSize="small" />
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </div>
-            <div>
-              <FormControl className={clsx(classes.margin, classes.textField)}>
-                <InputLabel
-                  htmlFor="standard-adornment-password"
-                  id="password"
-                  label="Password"
+    <div className={classes.root}>
+      <Grid container justify="center">
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
+          <div className={classes.paperMargin}>
+            <Paper className={classes.paper}>
+              <Typography>
+                <Box fontWeight="fontWeightBold" className={classes.title}>
+                  Login
+                </Box>
+              </Typography>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
                 >
-                  Password
-                </InputLabel>
-                <Input
-                  type={values.showPassword ? 'text' : 'password'}
-                  value={values.password}
-                  onChange={handleChange('password')}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon fontSize="small" />
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        size="small"
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  error={values.errors.password}
-                />
-              </FormControl>
-            </div>
-            <div className={classes.paper}>
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={values.isLoading}
-                onClick={signInUser()}
-              >
-                Login
+                  <InputLabel id="emailAddress" label="Email Address">
+                    Email Address
+                  </InputLabel>
+                  <Input
+                    value={values.emailAddress}
+                    error={values.errors.emailAddress}
+                    onChange={handleChange('emailAddress')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <MailOutlineIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel
+                    htmlFor="standard-adornment-password"
+                    id="password"
+                    label="Password"
+                  >
+                    Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPassword ? 'text' : 'password'}
+                    value={values.password}
+                    onChange={handleChange('password')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    error={values.errors.password}
+                  />
+                </FormControl>
+              </div>
+              <div className={classes.paper}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={values.isLoading}
+                  onClick={signInUser()}
+                >
+                  Login
+                </Button>
+              </div>
+              <Typography>or</Typography>
+              <div className={classes.paper}>
+                <GoogleLoginButton authType={'login'} />
+              </div>
+              <Typography display={'inline'}>Don't have an account?</Typography>
+              <Button color="primary">
+                <Link to={'/signup'}>Sign Up</Link>
               </Button>
-            </div>
-            <Typography>or</Typography>
-            <div className={classes.paper}>
-              <GoogleLoginButton authType={'login'} />
-            </div>
-            <Typography display={'inline'}>Don't have an account?</Typography>
-            <Button color="primary">
-              <Link to={'/signup'}>Sign Up</Link>
-            </Button>
-          </Paper>
-        </div>
+            </Paper>
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 
