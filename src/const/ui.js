@@ -17,7 +17,7 @@ export class UiConst {
 
 export const AUTH_PAGE_STYLE = theme => ({
   root: {
-    padding: theme.spacing(3, 2)
+    flexGrow: 1
   },
   paper: {
     paddingTop: theme.spacing(3),
