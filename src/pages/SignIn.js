@@ -15,6 +15,11 @@ import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
 import GoogleLoginButton from '../server/google_auth/login';
+import { validateInput } from '../server/validations/ValidateLogin';
+import { login } from '../server/AuthService';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import clsx from 'clsx';
 
 function SignIn() {
   const [values, setValues] = React.useState({
@@ -40,6 +45,15 @@ function SignIn() {
 
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
+  function signInUser() {
+    var result = validateInput(values);
+    if (result['isValid']) {
+      login(values.emailAddress, values.password);
+    } else {
+      console.log(result['error']);
+    }
+  }
+
   return (
     <Grid container>
       <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
@@ -51,43 +65,66 @@ function SignIn() {
                 Login
               </Box>
             </Typography>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="emailAddress" label="Email Address">
-                Email Address
-              </InputLabel>
-              <Input
-                value={values.emailAddress}
-                error={values.errors.emailAddress}
-                onChange={handleChange('emailAddress')}
-              />
-            </FormControl>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="password" label="Password">
-                Password
-              </InputLabel>
-              <Input
-                type={values.showPassword ? 'text' : 'password'}
-                value={values.password}
-                onChange={handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                error={values.errors.password}
-              />
-            </FormControl>
+            <div>
+              <FormControl className={clsx(classes.margin, classes.textField)}>
+                <InputLabel id="emailAddress" label="Email Address">
+                  Email Address
+                </InputLabel>
+                <Input
+                  value={values.emailAddress}
+                  error={values.errors.emailAddress}
+                  onChange={handleChange('emailAddress')}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <MailOutlineIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={clsx(classes.margin, classes.textField)}>
+                <InputLabel
+                  htmlFor="standard-adornment-password"
+                  id="password"
+                  label="Password"
+                >
+                  Password
+                </InputLabel>
+                <Input
+                  type={values.showPassword ? 'text' : 'password'}
+                  value={values.password}
+                  onChange={handleChange('password')}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <LockOutlinedIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        size="small"
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  error={values.errors.password}
+                />
+              </FormControl>
+            </div>
             <div className={classes.paper}>
               <Button
                 variant="contained"
                 color="primary"
                 disabled={values.isLoading}
+                onClick={signInUser()}
               >
                 Login
               </Button>

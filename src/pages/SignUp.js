@@ -12,12 +12,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { register } from '../server/AuthService';
 import { validateInput } from '../server/validations/ValidateLogin';
 import GoogleLoginButton from '../server/google_auth/login';
+import clsx from 'clsx';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 function SignUp() {
   const [values, setValues] = React.useState({
     emailAddress: '',
     password: '',
     passwordConfirmation: '',
+    showPassword: false,
+    showPasswordConfirmation: false,
     identifier: '',
     errors: {},
     isLoading: false
@@ -36,6 +45,20 @@ function SignUp() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleClickShowPasswordConfirmation = () => {
+    setValues({
+      ...values,
+      showPasswordConfirmation: !values.showPasswordConfirmation
+    });
+  };
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
   return (
@@ -49,36 +72,89 @@ function SignUp() {
                 Sign Up
               </Box>
             </Typography>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="emailAddress" label="Email Address">
-                Email Address
-              </InputLabel>
-              <Input
-                value={values.emailAddress}
-                error={values.errors.emailAddress}
-                onChange={handleChange('emailAddress')}
-              />
-            </FormControl>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="password" label="Password">
-                Password
-              </InputLabel>
-              <Input
-                type="password"
-                onChange={handleChange('password')}
-                error={values.errors.password}
-              />
-            </FormControl>
-            <FormControl fullWidth margin={classes.form.margin}>
-              <InputLabel id="password" label="Password">
-                Retype Password
-              </InputLabel>
-              <Input
-                type="password"
-                onChange={handleChange('passwordConfirmation')}
-                error={values.errors.passwordConfirmation}
-              />
-            </FormControl>
+            <div>
+              <FormControl className={clsx(classes.margin, classes.textField)}>
+                <InputLabel id="emailAddress" label="Email Address">
+                  Email Address
+                </InputLabel>
+                <Input
+                  value={values.emailAddress}
+                  error={values.errors.emailAddress}
+                  onChange={handleChange('emailAddress')}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <MailOutlineIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={clsx(classes.margin, classes.textField)}>
+                <InputLabel id="password" label="Password">
+                  Password
+                </InputLabel>
+                <Input
+                  type={values.showPassword ? 'text' : 'password'}
+                  value={values.password}
+                  onChange={handleChange('password')}
+                  error={values.errors.password}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <LockOutlinedIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        size="small"
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={clsx(classes.margin, classes.textField)}>
+                <InputLabel id="password" label="Password">
+                  Retype Password
+                </InputLabel>
+                <Input
+                  type={values.showPasswordConfirmation ? 'text' : 'password'}
+                  value={values.passwordConfirmation}
+                  onChange={handleChange('passwordConfirmation')}
+                  error={values.errors.passwordConfirmation}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <LockOutlinedIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPasswordConfirmation}
+                        onMouseDown={handleMouseDownPassword}
+                        size="small"
+                      >
+                        {values.showPasswordConfirmation ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </div>
             <div className={classes.paper}>
               <Button
                 variant="contained"

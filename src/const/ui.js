@@ -32,7 +32,10 @@ export const AUTH_PAGE_STYLE = theme => ({
   title: {
     fontSize: 32
   },
-  form: {
-    margin: 'normal'
+  margin: {
+    margin: theme.spacing(1)
+  },
+  textField: {
+    width: '30ch'
   }
 });
