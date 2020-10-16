@@ -51,8 +51,9 @@ export default function TaskList({ tasks, actions, listName }) {
                 aria-label="add"
                 size={'small'}
                 className={classes.buttonAlign}
+                onClick={() => actions.onAdd()}
               >
-                <AddIcon onClick={() => actions.onAdd()} />
+                <AddIcon />
               </Fab>
             ) : null}
           </div>
