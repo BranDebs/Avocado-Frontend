@@ -47,11 +47,11 @@ function SignIn() {
 
   function signInUser() {
     var result = validateInput(values);
-    if (result['isValid']) {
-      login(values.emailAddress, values.password);
-    } else {
-      console.log(result['error']);
-    }
+    // if (result['isValid']) {
+    //   login(values.emailAddress, values.password);
+    // } else {
+    //   console.log(result['error']);
+    // }
   }
 
   return (
@@ -61,12 +61,9 @@ function SignIn() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-              <Typography>
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Login
                 </Box>
-              </Typography>
-              <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
                 >
@@ -84,7 +81,6 @@ function SignIn() {
                     }
                   />
                 </FormControl>
-              </div>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
