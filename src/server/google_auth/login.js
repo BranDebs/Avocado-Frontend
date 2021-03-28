@@ -29,9 +29,9 @@ const GoogleLoginButton = props => {
     <GoogleLogin
       clientId={clientId}
       buttonText={getButtonText()}
-      onSucess={responseGoogle}
+      onSuccess={responseGoogle}
       onFailure={responseGoogle}
-      cookiePolicy={'single_host_origin'}
+      isSignedIn={true}
     />
   );
 };
