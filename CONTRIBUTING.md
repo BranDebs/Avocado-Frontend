@@ -1,4 +1,5 @@
 ## QuickStart
+Install: `npm install` <br/>
 Running on linux: `npm run start`<br/>
 Running on windows: `npm run startw`
 

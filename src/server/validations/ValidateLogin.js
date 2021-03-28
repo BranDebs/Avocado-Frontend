@@ -4,8 +4,8 @@ import isEmail from 'validator/lib/isEmail';
 export function validateInput(data) {
   let errors = {};
 
-  if (data.username == null) {
-    errors.username = 'This field is required';
+  if (data.emailAddress == null) {
+    errors.emailAddress = 'This field is required';
   }
   if (!isEmail(data.emailAddress)) {
     errors.email = 'Email is invalid';

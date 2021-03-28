@@ -16,7 +16,6 @@ import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
 import GoogleLoginButton from '../server/google_auth/login';
 import { validateInput } from '../server/validations/ValidateLogin';
-import { login } from '../server/AuthService';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import clsx from 'clsx';
@@ -47,11 +46,11 @@ function SignIn() {
 
   function signInUser() {
     var result = validateInput(values);
-    if (result['isValid']) {
-      login(values.emailAddress, values.password);
-    } else {
-      console.log(result['error']);
-    }
+    // if (result['isValid']) {
+    //   login(values.emailAddress, values.password);
+    // } else {
+    //   console.log(result['error']);
+    // }
   }
 
   return (
@@ -64,7 +63,6 @@ function SignIn() {
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Login
                 </Box>
-              <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
                 >
@@ -82,7 +80,6 @@ function SignIn() {
                     }
                   />
                 </FormControl>
-              </div>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
