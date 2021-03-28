@@ -61,11 +61,9 @@ function SignIn() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-              <Typography>
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Login
                 </Box>
-              </Typography>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
@@ -129,7 +127,7 @@ function SignIn() {
                   variant="contained"
                   color="primary"
                   disabled={values.isLoading}
-                  onClick={signInUser()}
+                  onClick={() => signInUser()}
                 >
                   Login
                 </Button>

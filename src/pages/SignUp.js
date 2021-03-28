@@ -68,11 +68,9 @@ function SignUp() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-              <Typography>
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Sign Up
                 </Box>
-              </Typography>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}

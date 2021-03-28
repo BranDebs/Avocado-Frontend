@@ -5,8 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^4.7.1",
     "@material-ui/icons": "^4.5.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "clean": "^4.0.2",
+    "clsx": "latest",
     "howler": "^2.1.3",
     "install": "^0.13.0",
     "lodash": "^4.17.20",
@@ -19,8 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
-    "validator": "^12.1.0",
-    "clsx": "latest"
+    "validator": "^12.1.0"
   },
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",

@@ -13,6 +13,10 @@ const GoogleLoginButton = props => {
     console.log('[Login Failure] res:', res);
   };
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
   const getButtonText = () => {
     if (props.authType === 'login') {
       return 'Login with Google';
@@ -25,10 +29,9 @@ const GoogleLoginButton = props => {
     <GoogleLogin
       clientId={clientId}
       buttonText={getButtonText()}
-      onSucess={onSuccess}
-      onFailure={onFailure}
+      onSucess={responseGoogle}
+      onFailure={responseGoogle}
       cookiePolicy={'single_host_origin'}
-      isSignedIn={true}
     />
   );
 };

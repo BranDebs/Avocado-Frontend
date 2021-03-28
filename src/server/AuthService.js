@@ -10,22 +10,22 @@ export const register = (email, password) => {
 };
 
 export const login = (email, password) => {
-  return axios
-    .post(API_URL + '/login', {
-      email: email,
-      password: password
-    })
-    .then(response => {
-      if (response.status === 200) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-      }
-    });
+  // return axios
+  //   .post(API_URL + '/login', {
+  //     email: email,
+  //     password: password
+  //   })
+  //   .then(response => {
+  //     if (response.status === 200) {
+  //       localStorage.setItem('user', JSON.stringify(response.data));
+  //     }
+  //   });
 };
 
 export const logout = () => {
-  return axios.get(API_URL + '/logout').then(response => {
-    if (response.status === 200) {
-      localStorage.removeItem('user');
-    }
-  });
+  // return axios.get(API_URL + '/logout').then(response => {
+  //   if (response.status === 200) {
+  //     localStorage.removeItem('user');
+  //   }
+  // });
 };
