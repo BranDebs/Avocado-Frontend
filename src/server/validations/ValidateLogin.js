@@ -18,13 +18,7 @@ export function validateInput(type, data) {
   }
   if (type === AuthEnum.Register) {
     if (
-      !validator.isStrongPassword(data.password, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        returnScore: false
-      })
+      !validator.isStrongPassword(data.password, {minSymbols: 0})
     ) {
       errors.password =
         'Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters';
