@@ -158,7 +158,6 @@ const Timer = ({ settings, timer, addAvocount }) => {
           value={value}
           variant="scrollable"
           onChange={handleChange}
-          centered
         >
           <StyledTab
             label="Avocadoro"

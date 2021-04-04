@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
-import { register } from '../server/AuthService';
+import { register } from '../api/accounts';
 import { validateInput } from '../server/validations/ValidateLogin';
 import GoogleLoginButton from '../server/google_auth/login';
 import clsx from 'clsx';
@@ -19,6 +19,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import {AuthEnum} from "../const/auth";
 
 function SignUp() {
   const [values, setValues] = React.useState({
@@ -33,11 +34,12 @@ function SignUp() {
   });
 
   function signUpUser() {
-    var result = validateInput(values);
+    let result = validateInput(AuthEnum.Register, values);
     if (result['isValid']) {
       register(values.emailAddress, values.password);
     } else {
-      console.log(result['error']);
+      setValues({ ...values, errors: result['errors'] })
+      console.log(result['errors']);
     }
   }
 
@@ -64,7 +66,6 @@ function SignUp() {
   return (
     <div className={classes.root}>
       <Grid container justify="center">
-        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
@@ -74,13 +75,13 @@ function SignUp() {
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
+                  error={('emailAddress' in values.errors)}
                 >
                   <InputLabel id="emailAddress" label="Email Address">
                     Email Address
                   </InputLabel>
                   <Input
                     value={values.emailAddress}
-                    error={values.errors.emailAddress}
                     onChange={handleChange('emailAddress')}
                     startAdornment={
                       <InputAdornment position="start">
@@ -93,6 +94,7 @@ function SignUp() {
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
+                  error={('password' in values.errors)}
                 >
                   <InputLabel id="password" label="Password">
                     Password
@@ -101,7 +103,6 @@ function SignUp() {
                     type={values.showPassword ? 'text' : 'password'}
                     value={values.password}
                     onChange={handleChange('password')}
-                    error={values.errors.password}
                     startAdornment={
                       <InputAdornment position="start">
                         <LockOutlinedIcon fontSize="small" />
@@ -128,6 +129,7 @@ function SignUp() {
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
+                  error={('passwordConfirmation' in values.errors)}
                 >
                   <InputLabel id="password" label="Password">
                     Retype Password
@@ -136,7 +138,6 @@ function SignUp() {
                     type={values.showPasswordConfirmation ? 'text' : 'password'}
                     value={values.passwordConfirmation}
                     onChange={handleChange('passwordConfirmation')}
-                    error={values.errors.passwordConfirmation}
                     startAdornment={
                       <InputAdornment position="start">
                         <LockOutlinedIcon fontSize="small" />

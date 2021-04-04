@@ -1,27 +1,35 @@
 import isEmpty from 'lodash/isEmpty';
 import isEmail from 'validator/lib/isEmail';
+import validator from 'validator';
 
-export function validateInput(data) {
-  let errors = {};
+import {AuthEnum} from "../../const/auth";
 
-  if (data.emailAddress == null) {
-    errors.emailAddress = 'This field is required';
+export function validateInput(type, data) {
+  console.log(data);
+  let errors= {};
+  if (data.emailAddress === "") {
+    errors.emailAddress = 'Email field is required';
   }
   if (!isEmail(data.emailAddress)) {
-    errors.email = 'Email is invalid';
+    errors.emailAddress = 'Email is invalid';
   }
-  if (data.password == null) {
-    errors.password = 'This field is required';
+  if (data.password === "") {
+    errors.password = 'Password field is required';
   }
-  if (data.passwordConfirmation == null) {
-    errors.passwordConfirmation = 'This field is required';
-  }
-  if (data.password !== data.passwordConfirmation) {
-    errors.passwordConfirmation = 'Passwords must match';
+  if (type === AuthEnum.Register) {
+    if (!validator.isStrongPassword(data.password)) {
+      errors.password = 'Strong password required';
+    }
+    if (data.passwordConfirmation === "") {
+      errors.passwordConfirmation = 'This field is required';
+    }
+    if (data.password !== data.passwordConfirmation) {
+      errors.passwordConfirmation = 'Passwords must match';
+    }
   }
 
   return {
-    error: errors,
+    errors: errors,
     isValid: isEmpty(errors)
   };
 }

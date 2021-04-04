@@ -20,7 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
-    "validator": "^12.1.0"
+    "validator": "^13.5.2"
   },
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",

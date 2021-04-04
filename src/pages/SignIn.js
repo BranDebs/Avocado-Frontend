@@ -19,6 +19,8 @@ import { validateInput } from '../server/validations/ValidateLogin';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import clsx from 'clsx';
+import {login} from "../api/accounts";
+import {AuthEnum} from "../const/auth";
 
 function SignIn() {
   const [values, setValues] = React.useState({
@@ -45,18 +47,18 @@ function SignIn() {
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
   function signInUser() {
-    var result = validateInput(values);
-    // if (result['isValid']) {
-    //   login(values.emailAddress, values.password);
-    // } else {
-    //   console.log(result['error']);
-    // }
+    let result = validateInput(AuthEnum.Login, values);
+    if (result['isValid']) {
+      login(values.emailAddress, values.password);
+    } else {
+      setValues({ ...values, errors: result['errors'] })
+      console.log(result['errors']);
+    }
   }
 
   return (
     <div className={classes.root}>
       <Grid container justify="center">
-        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
@@ -65,13 +67,13 @@ function SignIn() {
                 </Box>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
+                  error={'emailAddress' in values.errors}
                 >
                   <InputLabel id="emailAddress" label="Email Address">
                     Email Address
                   </InputLabel>
                   <Input
                     value={values.emailAddress}
-                    error={values.errors.emailAddress}
                     onChange={handleChange('emailAddress')}
                     startAdornment={
                       <InputAdornment position="start">
@@ -83,9 +85,9 @@ function SignIn() {
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
+                  error={'password' in values.errors}
                 >
                   <InputLabel
-                    htmlFor="standard-adornment-password"
                     id="password"
                     label="Password"
                   >
@@ -115,7 +117,6 @@ function SignIn() {
                         </IconButton>
                       </InputAdornment>
                     }
-                    error={values.errors.password}
                   />
                 </FormControl>
               </div>
