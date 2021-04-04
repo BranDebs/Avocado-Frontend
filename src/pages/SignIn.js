@@ -56,7 +56,6 @@ function SignIn() {
   return (
     <div className={classes.root}>
       <Grid container justify="center">
-        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
