@@ -9,20 +9,54 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
+import { register } from '../server/AuthService';
+import { validateInput } from '../server/validations/ValidateLogin';
+import GoogleLoginButton from '../server/google_auth/login';
+import clsx from 'clsx';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import IconButton from '@material-ui/core/IconButton';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 function SignUp() {
   const [values, setValues] = React.useState({
-    username: '',
     emailAddress: '',
     password: '',
-    retypePassword: '',
+    passwordConfirmation: '',
+    showPassword: false,
+    showPasswordConfirmation: false,
     identifier: '',
     errors: {},
     isLoading: false
   });
 
+  function signUpUser() {
+    var result = validateInput(values);
+    if (result['isValid']) {
+      register(values.emailAddress, values.password);
+    } else {
+      console.log(result['error']);
+    }
+  }
+
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleClickShowPasswordConfirmation = () => {
+    setValues({
+      ...values,
+      showPasswordConfirmation: !values.showPasswordConfirmation
+    });
+  };
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
   };
 
   const classes = makeStyles(AUTH_PAGE_STYLE)();
@@ -34,70 +68,111 @@ function SignUp() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-              <Typography>
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Sign Up
                 </Box>
-              </Typography>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="username" label="Username">
-                  Username
-                </InputLabel>
-                <Input
-                  value={values.username}
-                  error={values.errors.username}
-                  onChange={handleChange('username')}
-                />
-              </FormControl>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="emailAddress" label="Email Address">
-                  Email Address
-                </InputLabel>
-                <Input
-                  value={values.emailAddress}
-                  error={values.errors.emailAddress}
-                  onChange={handleChange('emailAddress')}
-                />
-              </FormControl>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="password" label="Password">
-                  Password
-                </InputLabel>
-                <Input
-                  type="password"
-                  onChange={handleChange('password')}
-                  error={values.errors.password}
-                />
-              </FormControl>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="password" label="Password">
-                  Retype Password
-                </InputLabel>
-                <Input
-                  type="password"
-                  onChange={handleChange('retypePassword')}
-                  error={values.errors.retypePassword}
-                />
-              </FormControl>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="emailAddress" label="Email Address">
+                    Email Address
+                  </InputLabel>
+                  <Input
+                    value={values.emailAddress}
+                    error={values.errors.emailAddress}
+                    onChange={handleChange('emailAddress')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <MailOutlineIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="password" label="Password">
+                    Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPassword ? 'text' : 'password'}
+                    value={values.password}
+                    onChange={handleChange('password')}
+                    error={values.errors.password}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="password" label="Password">
+                    Retype Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPasswordConfirmation ? 'text' : 'password'}
+                    value={values.passwordConfirmation}
+                    onChange={handleChange('passwordConfirmation')}
+                    error={values.errors.passwordConfirmation}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPasswordConfirmation}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPasswordConfirmation ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </div>
               <div className={classes.paper}>
                 <Button
                   variant="contained"
                   color="primary"
                   disabled={values.isLoading}
+                  onClick={signUpUser}
                 >
                   Create Account
                 </Button>
               </div>
               <Typography>or</Typography>
               <div className={classes.paper}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                >
-                  Sign Up with a Google Account
-                </Button>
+                <GoogleLoginButton authType="register" />
               </div>
             </Paper>
           </div>

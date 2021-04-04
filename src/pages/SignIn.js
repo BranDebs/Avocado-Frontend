@@ -14,10 +14,15 @@ import { Link } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import { UiConst, AUTH_PAGE_STYLE } from 'const/ui';
 import { makeStyles } from '@material-ui/core/styles';
+import GoogleLoginButton from '../server/google_auth/login';
+import { validateInput } from '../server/validations/ValidateLogin';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import clsx from 'clsx';
 
 function SignIn() {
   const [values, setValues] = React.useState({
-    username: '',
+    emailAddress: '',
     password: '',
     showPassword: false,
     identifier: '',
@@ -39,72 +44,94 @@ function SignIn() {
 
   const classes = makeStyles(AUTH_PAGE_STYLE)();
 
+  function signInUser() {
+    var result = validateInput(values);
+    // if (result['isValid']) {
+    //   login(values.emailAddress, values.password);
+    // } else {
+    //   console.log(result['error']);
+    // }
+  }
+
   return (
     <div className={classes.root}>
       <Grid container justify="center">
+        <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}></Grid>
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-              <Typography>
                 <Box fontWeight="fontWeightBold" className={classes.title}>
                   Login
                 </Box>
-              </Typography>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="username" label="Username/Email Address">
-                  Username/Email Address
-                </InputLabel>
-                <Input
-                  value={values.username}
-                  error={values.errors.username}
-                  onChange={handleChange('username')}
-                />
-              </FormControl>
-              <FormControl fullWidth margin={classes.form.margin}>
-                <InputLabel id="password" label="Password">
-                  Password
-                </InputLabel>
-                <Input
-                  type={values.showPassword ? 'text' : 'password'}
-                  value={values.password}
-                  onChange={handleChange('password')}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  error={values.errors.password}
-                />
-              </FormControl>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel id="emailAddress" label="Email Address">
+                    Email Address
+                  </InputLabel>
+                  <Input
+                    value={values.emailAddress}
+                    error={values.errors.emailAddress}
+                    onChange={handleChange('emailAddress')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <MailOutlineIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              <div>
+                <FormControl
+                  className={clsx(classes.margin, classes.textField)}
+                >
+                  <InputLabel
+                    htmlFor="standard-adornment-password"
+                    id="password"
+                    label="Password"
+                  >
+                    Password
+                  </InputLabel>
+                  <Input
+                    type={values.showPassword ? 'text' : 'password'}
+                    value={values.password}
+                    onChange={handleChange('password')}
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <LockOutlinedIcon fontSize="small" />
+                      </InputAdornment>
+                    }
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          size="small"
+                        >
+                          {values.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    error={values.errors.password}
+                  />
+                </FormControl>
+              </div>
               <div className={classes.paper}>
                 <Button
                   variant="contained"
                   color="primary"
                   disabled={values.isLoading}
+                  onClick={() => signInUser()}
                 >
                   Login
                 </Button>
               </div>
               <Typography>or</Typography>
               <div className={classes.paper}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                >
-                  Login with a Google Account
-                </Button>
+                <GoogleLoginButton authType={'login'} />
               </div>
               <Typography display={'inline'}>Don't have an account?</Typography>
               <Button color="primary">
