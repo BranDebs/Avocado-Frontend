@@ -5,7 +5,7 @@ const API_URL = BASE_URL + '/accounts';
 
 export const register = (email, password) => {
   axios
-    .post(API_URL + '/login', {
+    .post(API_URL, {
       email: email,
       password: password
     })
