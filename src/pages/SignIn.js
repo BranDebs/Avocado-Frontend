@@ -19,8 +19,9 @@ import { validateInput } from '../server/validations/ValidateLogin';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import clsx from 'clsx';
-import {login} from "../api/accounts";
-import {AuthEnum} from "../const/auth";
+import { login } from '../api/accounts';
+import { AuthEnum } from '../const/auth';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 function SignIn() {
   const [values, setValues] = React.useState({
@@ -51,7 +52,7 @@ function SignIn() {
     if (result['isValid']) {
       login(values.emailAddress, values.password);
     } else {
-      setValues({ ...values, errors: result['errors'] })
+      setValues({ ...values, errors: result['errors'] });
       console.log(result['errors']);
     }
   }
@@ -62,35 +63,33 @@ function SignIn() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-                <Box fontWeight="fontWeightBold" className={classes.title}>
-                  Login
-                </Box>
-                <FormControl
-                  className={clsx(classes.margin, classes.textField)}
-                  error={'emailAddress' in values.errors}
-                >
-                  <InputLabel id="emailAddress" label="Email Address">
-                    Email Address
-                  </InputLabel>
-                  <Input
-                    value={values.emailAddress}
-                    onChange={handleChange('emailAddress')}
-                    startAdornment={
-                      <InputAdornment position="start">
-                        <MailOutlineIcon fontSize="small" />
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
+              <Box fontWeight="fontWeightBold" className={classes.title}>
+                Login
+              </Box>
+              <FormControl
+                className={clsx(classes.margin, classes.textField)}
+                error={'emailAddress' in values.errors}
+              >
+                <InputLabel id="emailAddress" label="Email Address">
+                  Email Address
+                </InputLabel>
+                <Input
+                  value={values.emailAddress}
+                  onChange={handleChange('emailAddress')}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <MailOutlineIcon fontSize="small" />
+                    </InputAdornment>
+                  }
+                />
+                <FormHelperText>{values.errors.emailAddress}</FormHelperText>
+              </FormControl>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
                   error={'password' in values.errors}
                 >
-                  <InputLabel
-                    id="password"
-                    label="Password"
-                  >
+                  <InputLabel id="password" label="Password">
                     Password
                   </InputLabel>
                   <Input
@@ -118,6 +117,7 @@ function SignIn() {
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>{values.errors.password}</FormHelperText>
                 </FormControl>
               </div>
               <div className={classes.paper}>

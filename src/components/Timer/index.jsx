@@ -154,11 +154,7 @@ const Timer = ({ settings, timer, addAvocount }) => {
 
     return (
       <AppBar position="static">
-        <StyledTabs
-          value={value}
-          variant="scrollable"
-          onChange={handleChange}
-        >
+        <StyledTabs value={value} variant="scrollable" onChange={handleChange}>
           <StyledTab
             label="Avocadoro"
             name={AVOCADORO}

@@ -1,1 +1,1 @@
-export const AuthEnum = Object.freeze({"Login":0, "Register":1})
+export const AuthEnum = Object.freeze({ Login: 0, Register: 1 });

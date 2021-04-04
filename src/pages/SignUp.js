@@ -19,7 +19,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import {AuthEnum} from "../const/auth";
+import { AuthEnum } from '../const/auth';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 function SignUp() {
   const [values, setValues] = React.useState({
@@ -38,7 +39,7 @@ function SignUp() {
     if (result['isValid']) {
       register(values.emailAddress, values.password);
     } else {
-      setValues({ ...values, errors: result['errors'] })
+      setValues({ ...values, errors: result['errors'] });
       console.log(result['errors']);
     }
   }
@@ -69,13 +70,13 @@ function SignUp() {
         <Grid item lg={UiConst.GRID_RATIO_AUTH_PAGE}>
           <div className={classes.paperMargin}>
             <Paper className={classes.paper}>
-                <Box fontWeight="fontWeightBold" className={classes.title}>
-                  Sign Up
-                </Box>
+              <Box fontWeight="fontWeightBold" className={classes.title}>
+                Sign Up
+              </Box>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
-                  error={('emailAddress' in values.errors)}
+                  error={'emailAddress' in values.errors}
                 >
                   <InputLabel id="emailAddress" label="Email Address">
                     Email Address
@@ -89,12 +90,13 @@ function SignUp() {
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>{values.errors.emailAddress}</FormHelperText>
                 </FormControl>
               </div>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
-                  error={('password' in values.errors)}
+                  error={'password' in values.errors}
                 >
                   <InputLabel id="password" label="Password">
                     Password
@@ -124,12 +126,13 @@ function SignUp() {
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>{values.errors.password}</FormHelperText>
                 </FormControl>
               </div>
               <div>
                 <FormControl
                   className={clsx(classes.margin, classes.textField)}
-                  error={('passwordConfirmation' in values.errors)}
+                  error={'passwordConfirmation' in values.errors}
                 >
                   <InputLabel id="password" label="Password">
                     Retype Password
@@ -159,6 +162,9 @@ function SignUp() {
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>
+                    {values.errors.passwordConfirmation}
+                  </FormHelperText>
                 </FormControl>
               </div>
               <div className={classes.paper}>

@@ -13,9 +13,9 @@ const GoogleLoginButton = props => {
     console.log('[Login Failure] res:', res);
   };
 
-  const responseGoogle = (response) => {
+  const responseGoogle = response => {
     console.log(response);
-  }
+  };
 
   const getButtonText = () => {
     if (props.authType === 'login') {
