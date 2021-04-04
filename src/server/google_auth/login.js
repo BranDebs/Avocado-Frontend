@@ -31,7 +31,7 @@ const GoogleLoginButton = props => {
       buttonText={getButtonText()}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
-      isSignedIn={true}
+      isSignedIn={false}
     />
   );
 };

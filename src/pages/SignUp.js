@@ -36,10 +36,10 @@ function SignUp() {
 
   function signUpUser() {
     let result = validateInput(AuthEnum.Register, values);
+    setValues({ ...values, errors: result['errors'] });
     if (result['isValid']) {
       register(values.emailAddress, values.password);
     } else {
-      setValues({ ...values, errors: result['errors'] });
       console.log(result['errors']);
     }
   }

@@ -49,10 +49,11 @@ function SignIn() {
 
   function signInUser() {
     let result = validateInput(AuthEnum.Login, values);
+    setValues({ ...values, errors: result['errors'] });
+
     if (result['isValid']) {
       login(values.emailAddress, values.password);
     } else {
-      setValues({ ...values, errors: result['errors'] });
       console.log(result['errors']);
     }
   }
