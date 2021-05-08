@@ -10,7 +10,7 @@
     "clsx": "latest",
     "howler": "^2.1.3",
     "install": "^0.13.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "npm": "^6.14.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
